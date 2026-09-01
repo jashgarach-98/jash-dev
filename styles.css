@@ -759,6 +759,97 @@ p {
   background: linear-gradient(90deg, #2ea1ff, #17c8b2);
 }
 
+.tone-youtube::after {
+  background: linear-gradient(90deg, #ff3b30, #ff8533);
+}
+
+.youtube-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.youtube-channel-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.6rem;
+}
+
+.youtube-channel-header {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.youtube-avatar-shell {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  border-radius: 1.1rem;
+  background: linear-gradient(135deg, rgba(255, 59, 48, 0.16), rgba(255, 133, 51, 0.12)), var(--surface-strong);
+  border: 1px solid rgba(255, 59, 48, 0.22);
+  color: #ff3b30;
+  box-shadow: var(--shadow);
+}
+
+:root[data-theme="dark"] .youtube-avatar-shell {
+  color: #ff5247;
+  border-color: rgba(255, 82, 71, 0.28);
+}
+
+.youtube-channel-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.youtube-badge {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.youtube-channel-name {
+  font-size: 1.35rem;
+}
+
+.youtube-handle {
+  color: var(--accent-strong);
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+
+.youtube-description {
+  font-size: 1.02rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.youtube-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: auto;
+}
+
+.button-icon {
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+
+.youtube-topics {
+  display: grid;
+  gap: 1rem;
+}
+
 .contact-card {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
@@ -925,7 +1016,8 @@ p {
   }
 
   .about-grid,
-  .contact-card {
+  .contact-card,
+  .youtube-grid {
     grid-template-columns: 1fr;
   }
 
