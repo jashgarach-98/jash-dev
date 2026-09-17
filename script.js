@@ -67,14 +67,14 @@ navToggle.addEventListener("click", () => {
 
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
-    if (window.innerWidth <= 860) {
+    if (window.innerWidth <= 960) {
       closeNav();
     }
   });
 });
 
 window.addEventListener("resize", () => {
-  if (window.innerWidth > 860) {
+  if (window.innerWidth > 960) {
     closeNav();
   }
 });
