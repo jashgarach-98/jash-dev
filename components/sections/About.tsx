@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import profilePic from "@/public/assets/profile.jpg";
 
 const techStack = [
   "Kotlin",
@@ -137,7 +138,7 @@ export default function About() {
               <div className="absolute -right-3 -bottom-3 h-16 w-16 rounded-xl bg-accent opacity-20 z-10" />
 
               <Image
-                src="/assets/profile.jpg"
+                src={profilePic}
                 alt="Portrait of Jash Garach — Android & Flutter Developer"
                 fill
                 className="object-cover object-top"

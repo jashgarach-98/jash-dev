@@ -48,10 +48,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/assets/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/assets/favicon-192.png", sizes: "192x192", type: "image/png" },
+      { url: `${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/favicon-32.png`, sizes: "32x32", type: "image/png" },
+      { url: `${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/favicon-192.png`, sizes: "192x192", type: "image/png" },
     ],
-    apple: [{ url: "/assets/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [{ url: `${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/apple-touch-icon.png`, sizes: "180x180" }],
   },
 };
 
