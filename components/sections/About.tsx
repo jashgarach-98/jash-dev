@@ -3,32 +3,39 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const techStack = [
   "Kotlin",
   "Flutter",
+  "Dart",
   "Jetpack Compose",
-  "MVVM",
-  "Firebase",
-  "Room",
-  "Coroutines",
-  "Dagger 2",
-  "Koin",
-  "Clean Architecture",
-  "WorkManager",
-  "REST APIs",
   "Android SDK",
   "Java",
-  "JUnit",
+  "Coroutines & Flow",
+  "MVVM & MVI",
+  "Clean Architecture",
+  "Dagger 2 & Hilt",
+  "Koin",
+  "Bloc & Provider",
+  "Room Database",
+  "SQLite",
   "Hive",
   "Realm",
-  "SQLite",
-  "Git",
-  "Jira",
+  "WorkManager",
+  "Foreground Services",
+  "Jetpack Navigation",
+  "Retrofit & REST APIs",
+  "GraphQL",
+  "Firebase Suite",
+  "Kiosk & POS Integrations",
+  "Payment Gateways",
+  "Bluetooth & Thermal Printers",
+  "JUnit & Mockito",
+  "CI/CD Pipelines",
+  "Git & GitHub",
+  "Jira & Agile",
 ];
-
-// Duplicated for seamless infinite loop
-const marqueeItems = [...techStack, ...techStack];
 
 const sectionVariants = {
   hidden: { opacity: 0 },
@@ -50,6 +57,17 @@ const strengths = ["Punctual", "Accountable", "Honest", "Self-confident", "Colla
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const scrollSlider = (direction: "left" | "right") => {
+    if (sliderRef.current) {
+      const scrollAmount = 300;
+      sliderRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -208,7 +226,7 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* ── Infinite Marquee ── */}
+        {/* ── Interactive Tech Stack Slider ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -216,27 +234,61 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-24 md:mt-32"
         >
-          <p className="mb-8 text-center text-xs uppercase tracking-[0.2em] text-foreground/30 font-mono">
-            Tech Stack
-          </p>
+          <div className="mb-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-foreground/40 font-mono">
+                Tech Stack & Ecosystem
+              </p>
+              <p className="text-sm text-foreground/60 mt-1">
+                Scroll or swipe horizontally to explore specialized skills
+              </p>
+            </div>
 
-          <div className="relative overflow-hidden">
-            {/* Fade masks on edges */}
-            <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
+            {/* Slider Navigation Controls */}
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => scrollSlider("left")}
+                aria-label="Scroll left"
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-surface/50 text-foreground/70 transition-all hover:border-accent hover:text-accent hover:bg-accent/10 active:scale-95"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollSlider("right")}
+                aria-label="Scroll right"
+                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-surface/50 text-foreground/70 transition-all hover:border-accent hover:text-accent hover:bg-accent/10 active:scale-95"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
 
-            <div className="flex overflow-hidden">
-              <div className="marquee-track">
-                {marqueeItems.map((tech, i) => (
-                  <div
-                    key={`${tech}-${i}`}
-                    className="flex shrink-0 items-center gap-3 rounded-xl border border-border bg-surface/40 px-5 py-3 text-sm font-medium text-foreground/60 backdrop-blur-sm transition-colors duration-300 hover:border-accent hover:text-accent"
-                  >
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent opacity-60" />
-                    {tech}
-                  </div>
-                ))}
-              </div>
+          <div className="relative">
+            {/* Fade masks for edges */}
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-12 bg-gradient-to-r from-background to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-12 bg-gradient-to-l from-background to-transparent" />
+
+            {/* Scrollable Container */}
+            <div
+              ref={sliderRef}
+              className="flex gap-3 overflow-x-auto pb-4 pt-1 px-1 scroll-smooth no-scrollbar select-none cursor-grab active:cursor-grabbing touch-pan-x"
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
+              {techStack.map((tech, i) => (
+                <div
+                  key={`${tech}-${i}`}
+                  className="flex shrink-0 items-center gap-3 rounded-2xl border border-border bg-surface/40 px-5 py-3.5 text-sm font-medium text-foreground/70 backdrop-blur-sm transition-all duration-300 hover:border-accent hover:text-foreground hover:bg-surface/70 hover:scale-[1.02] shadow-sm"
+                >
+                  <span className="h-2 w-2 rounded-full bg-accent/80 shadow-[0_0_8px_var(--accent)]" />
+                  <span>{tech}</span>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>

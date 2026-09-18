@@ -35,12 +35,12 @@ function AnimatedInput({
   required?: boolean;
 }) {
   return (
-    <div className="animated-input-wrapper">
+    <div className="flex flex-col gap-2">
       <label
         htmlFor={id}
-        className="block mb-2 text-xs uppercase tracking-[0.15em] text-foreground/40 font-mono"
+        className="text-xs uppercase tracking-[0.15em] text-foreground/60 font-mono font-medium"
       >
-        {label}
+        {label} {required && <span className="text-accent">*</span>}
       </label>
       {isTextarea ? (
         <textarea
@@ -51,7 +51,7 @@ function AnimatedInput({
           placeholder={placeholder}
           required={required}
           rows={5}
-          className="animated-input resize-none"
+          className="w-full rounded-xl border border-border bg-surface/50 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 backdrop-blur-sm transition-all duration-300 focus:border-accent focus:bg-surface/80 focus:outline-none focus:ring-2 focus:ring-accent/20 resize-none"
         />
       ) : (
         <input
@@ -62,7 +62,7 @@ function AnimatedInput({
           onChange={onChange}
           placeholder={placeholder}
           required={required}
-          className="animated-input"
+          className="w-full rounded-xl border border-border bg-surface/50 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 backdrop-blur-sm transition-all duration-300 focus:border-accent focus:bg-surface/80 focus:outline-none focus:ring-2 focus:ring-accent/20"
           autoComplete={type === "email" ? "email" : "on"}
         />
       )}
@@ -168,12 +168,13 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <form
-              onSubmit={handleSubmit}
-              noValidate
-              className="flex flex-col gap-8"
-              id="contact-form"
-            >
+            <div className="rounded-3xl border border-border bg-surface/40 p-6 md:p-8 backdrop-blur-md shadow-xl transition-all duration-500">
+              <form
+                onSubmit={handleSubmit}
+                noValidate
+                className="flex flex-col gap-6"
+                id="contact-form"
+              >
               <AnimatedInput
                 id="contact-name"
                 label="Your Name"
@@ -224,7 +225,8 @@ export default function Contact() {
                 </p>
               </div>
             </form>
-          </motion.div>
+          </div>
+        </motion.div>
 
           {/* Social links + stamp */}
           <motion.div
