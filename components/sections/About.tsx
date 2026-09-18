@@ -84,7 +84,7 @@ export default function About() {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, amount: 0.1 }}
           className="mb-16 md:mb-24"
         >
           <motion.span variants={fadeUpVariants} className="section-tag">
@@ -107,7 +107,7 @@ export default function About() {
             variants={imageVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, amount: 0.1 }}
             className="relative"
           >
             <motion.div
@@ -150,7 +150,7 @@ export default function About() {
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, amount: 0.1 }}
             className="flex flex-col gap-8"
           >
             <motion.div variants={fadeUpVariants} className="space-y-4">

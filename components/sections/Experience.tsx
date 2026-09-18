@@ -103,7 +103,7 @@ export default function Experience() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 md:mb-20"
         >
@@ -127,7 +127,7 @@ export default function Experience() {
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: true, amount: 0.1 }}
             className="flex flex-col gap-0"
           >
             {experiences.map((exp, index) => (
