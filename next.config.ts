@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",         // Generates a static /out folder
+  trailingSlash: true,      // Required for GitHub Pages routing
+  basePath: "/jash-dev",    // Must match your GitHub repo name
   images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-  },
-  experimental: {
-    optimizeCss: true,
+    unoptimized: true,      // next/image optimization needs a server; disabled for static export
   },
 };
 
