@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ─── CSS Custom Properties ───────────────────────────────────────────── */
+:root {
+  /* Dark mode (default) */
+  --background: #050505;
+  --foreground: #ededed;
+  --accent: #e1ff00;
+  --accent-muted: rgba(225, 255, 0, 0.12);
+  --surface: #111111;
+  --border: rgba(237, 237, 237, 0.08);
+
+  --font-sora: "Sora", system-ui, sans-serif;
+  --font-instrument: "Instrument Sans", system-ui, sans-serif;
+
+  --cursor-size: 10px;
+  --cursor-border: 36px;
+}
+
+.light {
+  --background: #f4f4f5;
+  --foreground: #171717;
+  --accent: #4f46e5;
+  --accent-muted: rgba(79, 70, 229, 0.1);
+  --surface: #ffffff;
+  --border: rgba(23, 23, 23, 0.08);
+}
+
+/* ─── Base Reset & Body ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sora);
+  line-height: 1.6;
+  overflow-x: hidden;
+  @apply transition-colors duration-500 ease-in-out;
+}
+
+/* Hide native cursor only on pointer devices (custom cursor replaces it) */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+/* ─── Custom Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────── */
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+/* ─── Typography ──────────────────────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sora);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+  @apply transition-colors duration-500;
+}
+
+p {
+  @apply transition-colors duration-500;
+}
+
+/* ─── Focus visible ───────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── Animated Border Input (used in Contact) ────────────────────────── */
+.animated-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+  font-family: var(--font-sora);
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  width: 100%;
+  outline: none;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.animated-input-wrapper {
+  position: relative;
+}
+
+.animated-input-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animated-input-wrapper:focus-within::after {
+  width: 100%;
+}
+
+/* ─── Gradient Blob ───────────────────────────────────────────────────── */
+.gradient-blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: blob 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ─── Marquee ─────────────────────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Section tag utility ─────────────────────────────────────────────── */
+.section-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent-muted);
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  background: var(--accent-muted);
+  margin-bottom: 1rem;
+  font-family: var(--font-instrument);
+  @apply transition-colors duration-500;
+}
+
+/* ─── Noise Overlay (Adds film grain on hero) ────────────────────────── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ─── Glassmorphism utility ───────────────────────────────────────────── */
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(5, 5, 5, 0.7);
+  border-bottom: 1px solid var(--border);
+}
+
+.light .glass {
+  background: rgba(244, 244, 245, 0.7);
+}
+
+/* ─── Skip-to-content ─────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: var(--background);
+  border-radius: 6px;
+  z-index: 9999;
+}
