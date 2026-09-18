@@ -52,6 +52,7 @@ export const metadata: Metadata = {
       { url: `${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/favicon-192.png`, sizes: "192x192", type: "image/png" },
     ],
     apple: [{ url: `${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/apple-touch-icon.png`, sizes: "180x180" }],
+    shortcut: [`${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/favicon-32.png`],
   },
 };
 
