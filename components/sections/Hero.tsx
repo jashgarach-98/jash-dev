@@ -6,7 +6,7 @@ import { ArrowDown } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 
 // Animate each word in the headline
-const headline = ["Crafting", "digital", "experiences."];
+const headline = ["Crafting", "Digital", "Experiences."];
 
 const containerVariants = {
   hidden: {},
@@ -67,7 +67,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-16 md:px-8 md:pb-24"
+      className="relative flex min-h-[calc(100svh-4rem)] md:min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-20 pb-12 sm:pt-24 sm:pb-16 md:px-8 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24"
       aria-label="Hero section"
     >
       {/* ── Blurred gradient blobs (parallax background) ── */}
@@ -115,7 +115,7 @@ export default function Hero() {
           variants={subVariants}
           initial="hidden"
           animate="visible"
-          className="mb-6 text-sm font-semibold uppercase tracking-[0.18em] text-accent font-mono"
+          className="mb-3 md:mb-4 text-xs md:text-sm font-semibold uppercase tracking-[0.18em] text-accent font-mono"
         >
           Hello, I am Jash Garach
         </motion.p>
@@ -125,7 +125,7 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="mb-8 overflow-hidden text-[clamp(2.8rem,8vw,7rem)] font-bold leading-[1.0] tracking-tight text-balance"
+          className="mb-5 md:mb-6 overflow-hidden text-[clamp(2.5rem,7.5vw,6.5rem)] font-bold leading-[1.0] tracking-tight text-balance"
         >
           {headline.map((word, i) => (
             <span
@@ -147,7 +147,7 @@ export default function Hero() {
           variants={subVariants}
           initial="hidden"
           animate="visible"
-          className="mx-auto mb-10 max-w-2xl text-[1.125rem] leading-relaxed text-foreground/60 text-balance"
+          className="mx-auto mb-6 md:mb-8 max-w-2xl text-[1rem] md:text-[1.125rem] leading-relaxed text-foreground/60 text-balance"
           style={{ transitionDelay: "0.1s" }}
         >
           Android depth. Flutter momentum. Product thinking. Building mobile
@@ -196,7 +196,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-16 flex flex-wrap justify-center gap-4"
+          className="mt-8 md:mt-10 flex flex-wrap justify-center gap-2.5 sm:gap-4"
         >
           {[
             { value: "5+", label: "Years Experience" },
@@ -205,12 +205,12 @@ export default function Hero() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center rounded-2xl border border-border bg-surface/50 px-6 py-3 backdrop-blur-sm transition-colors duration-500"
+              className="flex flex-col items-center rounded-2xl border border-border bg-surface/50 px-4 py-2 sm:px-5 sm:py-2.5 backdrop-blur-sm transition-colors duration-500"
             >
-              <span className="text-2xl font-bold text-accent leading-none">
+              <span className="text-xl sm:text-2xl font-bold text-accent leading-none">
                 {stat.value}
               </span>
-              <span className="mt-1 text-xs text-foreground/50 font-mono">
+              <span className="mt-1 text-[11px] sm:text-xs text-foreground/50 font-mono">
                 {stat.label}
               </span>
             </div>
@@ -222,22 +222,22 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.7, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 flex justify-center"
+          className="mt-3.5 md:mt-5 flex justify-center"
         >
-          <div className="flex items-center gap-3 rounded-full border border-border bg-surface/60 px-5 py-2.5 backdrop-blur-sm">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 rounded-full border border-border bg-surface/60 px-3.5 py-1.5 sm:px-5 sm:py-2 backdrop-blur-sm text-center">
             {/* Pulsing green dot */}
             <span className="relative flex h-2.5 w-2.5 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
             </span>
-            <span className="text-xs text-foreground/50 font-mono uppercase tracking-widest">
+            <span className="text-[11px] sm:text-xs text-foreground/50 font-mono uppercase tracking-widest">
               Currently
             </span>
-            <span className="h-3 w-px bg-border" />
-            <span className="text-sm font-semibold text-foreground">
+            <span className="hidden sm:inline-block h-3 w-px bg-border" />
+            <span className="text-xs sm:text-sm font-semibold text-foreground">
               Android / Flutter Developer
             </span>
-            <span className="text-xs text-foreground/40">
+            <span className="text-[11px] sm:text-xs text-foreground/40">
               @ Fin Infocom × Grafterr
             </span>
           </div>
@@ -250,18 +250,18 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 z-10 -translate-x-1/2 hidden sm:flex"
         aria-hidden="true"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
+          animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 text-foreground/30"
+          className="flex flex-col items-center gap-1.5 text-foreground/30"
         >
-          <span className="text-[10px] uppercase tracking-[0.2em] font-mono">
+          <span className="text-[9px] uppercase tracking-[0.2em] font-mono">
             Scroll
           </span>
-          <ArrowDown size={14} />
+          <ArrowDown size={13} />
         </motion.div>
       </motion.div>
     </section>

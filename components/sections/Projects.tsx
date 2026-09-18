@@ -17,12 +17,36 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "field-pro-plus",
+    kind: "Flutter App",
+    title: "Field Pro Plus",
+    description:
+      "Smart HR and attendance management platform built with Flutter. Empowers teams with live employee tracking, automated payroll calculations, shift and overtime scheduling, and real-time operational reports.",
+    tags: ["Flutter", "HR & Payroll", "Live Tracking", "Cross-Platform"],
+    color: "#10b981",
+    wide: true,
+    links: [
+      {
+        label: "Play Store",
+        href: "https://play.google.com/store/apps/details?id=field.pro.fieldproplus",
+      },
+      {
+        label: "App Store",
+        href: "https://apps.apple.com/in/app/field-pro-plus/id6751740793",
+      },
+      {
+        label: "Website",
+        href: "https://fieldproplus.in",
+      },
+    ],
+  },
+  {
     id: "grafterr-pos",
     kind: "Flutter App",
     title: "Grafterr POS",
     description:
       "All-in-one Flutter point-of-sale product built for hospitality businesses, helping teams take orders faster, accept payments smoothly, and manage day-to-day operations from a single app experience.",
-    tags: ["Flutter", "POS", "Hospitality", "Cross-platform"],
+    tags: ["Flutter", "POS", "Hospitality", "Cross-Platform"],
     color: "#f59e0b",
     wide: true,
     links: [
@@ -57,7 +81,7 @@ const projects: Project[] = [
     title: "Self Checkout — Grafterr",
     description:
       "Self-service kiosk flow that helps customers place and collect orders more quickly while reducing friction and queues at the counter.",
-    tags: ["Kiosk", "Self-service", "Tablet", "UX Efficiency"],
+    tags: ["Kiosk", "Self-Service", "Tablet", "UX Efficiency"],
     color: "#6366f1",
     links: [
       {
@@ -72,7 +96,7 @@ const projects: Project[] = [
     title: "Collection App — Grafterr",
     description:
       "Large-screen order status display showing cooking and ready-to-pick-up stages while also allowing advertising alongside operational information.",
-    tags: ["Order status", "Large screen", "Customer display"],
+    tags: ["Order Status", "Large Screen", "Customer Display"],
     color: "#06b6d4",
     links: [
       {
@@ -87,7 +111,7 @@ const projects: Project[] = [
     title: "Kitchen Display — Grafterr",
     description:
       "Kitchen-facing workflow app designed to help chefs optimize preparation flow and deliver smoother dining operations.",
-    tags: ["KDS", "Kitchen ops", "Tablet", "Workflow"],
+    tags: ["KDS", "Kitchen Ops", "Tablet", "Workflow"],
     color: "#14b8a6",
     links: [
       {
@@ -135,14 +159,14 @@ function ProjectCard({ project }: { project: Project }) {
         style={{ background: project.color }}
       />
 
-      <div className="flex flex-1 flex-col p-6 md:p-8">
+      <div className="flex flex-1 flex-col p-5 md:p-6 lg:p-7">
         {/* Header row */}
-        <div className="mb-4 flex items-start justify-between gap-4">
+        <div className="mb-3 flex items-start justify-between gap-4">
           <div>
             <p className="mb-1 text-xs uppercase tracking-[0.15em] text-foreground/40 font-mono">
               {project.kind}
             </p>
-            <h3 className="text-xl font-bold leading-tight md:text-2xl">
+            <h3 className="text-lg font-bold leading-tight md:text-xl lg:text-2xl">
               {project.title}
             </h3>
           </div>
@@ -154,21 +178,21 @@ function ProjectCard({ project }: { project: Project }) {
             className="mt-1 shrink-0 text-foreground/30 group-hover:text-accent"
             style={{ color: isHovered ? project.color : undefined }}
           >
-            <ArrowUpRight size={22} />
+            <ArrowUpRight size={20} />
           </motion.div>
         </div>
 
         {/* Description */}
-        <p className="mb-6 flex-1 text-sm leading-relaxed text-foreground/60">
+        <p className="mb-4 flex-1 text-xs md:text-sm leading-relaxed text-foreground/60">
           {project.description}
         </p>
 
         {/* Tech pills */}
-        <div className="mb-6 flex flex-wrap gap-2">
+        <div className="mb-4 flex flex-wrap gap-1.5 sm:gap-2">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full px-3 py-1 text-xs font-medium border border-border text-foreground/50 transition-colors duration-300"
+              className="rounded-full px-2.5 py-0.5 text-xs font-medium border border-border text-foreground/50 transition-colors duration-300"
               style={{
                 background: isHovered ? `${project.color}14` : undefined,
                 borderColor: isHovered ? `${project.color}40` : undefined,
@@ -181,14 +205,14 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
 
         {/* Links */}
-        <div className="flex flex-wrap gap-3 border-t border-border pt-5">
+        <div className="flex flex-wrap gap-3 border-t border-border pt-4">
           {project.links.map((link) => (
             <a
               key={link.label}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-sm font-medium text-foreground/60 transition-colors duration-300 hover:text-foreground"
+              className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-foreground/60 transition-colors duration-300 hover:text-foreground"
               style={{ color: isHovered ? project.color : undefined }}
             >
               <ExternalLink size={13} />
@@ -205,7 +229,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden px-4 py-24 md:px-8 md:py-32"
+      className="relative overflow-hidden px-4 py-14 md:px-8 md:py-20 lg:py-24"
       aria-label="Projects"
     >
       {/* Background accent */}
@@ -218,13 +242,13 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 md:mb-20"
+          className="mb-10 md:mb-14"
         >
           <span className="section-tag">Selected Work</span>
           <h2 className="mt-3 max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-tight text-balance">
-            Flutter and Android apps for hospitality operations.
+            Flutter and Android apps built for enterprise and real-world operations.
           </h2>
-          <p className="mt-4 max-w-2xl text-foreground/60 leading-relaxed">
+          <p className="mt-3.5 max-w-2xl text-sm md:text-base text-foreground/60 leading-relaxed">
             Reliable, high-clarity mobile tools that help real businesses run
             smoothly and give users a faster, cleaner experience.
           </p>
@@ -236,7 +260,7 @@ export default function Projects() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 gap-5 md:grid-cols-2"
+          className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2"
         >
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />

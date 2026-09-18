@@ -132,7 +132,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative min-h-screen overflow-hidden px-4 py-24 md:px-8 md:py-32 flex flex-col justify-center"
+      className="relative overflow-hidden px-4 pt-14 pb-8 md:pt-20 md:pb-10 lg:pt-24 lg:pb-12"
       aria-label="Contact Jash Garach"
     >
       {/* Background blobs */}
@@ -146,21 +146,21 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 md:mb-20"
+          className="mb-10 md:mb-14"
         >
           <span className="section-tag">Get in Touch</span>
-          <h2 className="mt-4 text-[clamp(2.8rem,8vw,6.5rem)] font-bold leading-[1.0] tracking-tight text-balance">
+          <h2 className="mt-2 sm:mt-3 text-[clamp(2.5rem,7.5vw,5.5rem)] font-bold leading-[1.0] tracking-tight text-balance">
             Let&apos;s build{" "}
             <span className="text-accent">together.</span>
           </h2>
-          <p className="mt-6 max-w-xl text-lg text-foreground/60 leading-relaxed">
+          <p className="mt-3.5 max-w-xl text-base sm:text-lg text-foreground/60 leading-relaxed">
             Looking for an Android or Flutter developer who cares about clean
             delivery and real-world usability? Let&apos;s talk.
           </p>
         </motion.div>
 
         {/* ── Grid: Form + Social ── */}
-        <div className="grid gap-12 md:grid-cols-2 lg:gap-20">
+        <div className="grid gap-8 md:grid-cols-2 md:gap-10 lg:gap-14 items-start">
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -168,11 +168,11 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="rounded-3xl border border-border bg-surface/40 p-6 md:p-8 backdrop-blur-md shadow-xl transition-all duration-500">
+            <div className="rounded-3xl border border-border bg-surface/40 p-5 sm:p-6 md:p-7 backdrop-blur-md shadow-xl transition-all duration-500">
               <form
                 onSubmit={handleSubmit}
                 noValidate
-                className="flex flex-col gap-6"
+                className="flex flex-col gap-4 sm:gap-5"
                 id="contact-form"
               >
               <AnimatedInput
@@ -207,10 +207,10 @@ export default function Contact() {
                 required
               />
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 pt-1">
                 <MagneticButton
                   type="submit"
-                  className="flex h-12 items-center gap-2 rounded-full bg-accent px-7 text-sm font-bold text-background transition-opacity hover:opacity-90 disabled:opacity-50"
+                  className="flex h-11 sm:h-12 items-center gap-2 rounded-full bg-accent px-6 sm:px-7 text-sm font-bold text-background transition-opacity hover:opacity-90 disabled:opacity-50"
                   strength={20}
                   aria-label="Send message"
                 >
@@ -234,14 +234,14 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-            className="flex flex-col justify-between gap-10"
+            className="flex flex-col gap-6 md:gap-8 justify-start"
           >
             {/* Direct links */}
             <div>
-              <p className="mb-6 text-xs uppercase tracking-[0.18em] text-foreground/40 font-mono">
-                Find me on
+              <p className="mb-3 md:mb-4 text-xs uppercase tracking-[0.18em] text-foreground/40 font-mono">
+                Find Me On
               </p>
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2.5">
                 {socialLinks.map((link) => {
                   const Icon = link.icon;
                   return (
@@ -254,12 +254,12 @@ export default function Contact() {
                           ? undefined
                           : "noopener noreferrer"
                       }
-                      className="group flex items-center gap-4 rounded-xl border border-border bg-surface/40 px-5 py-4 backdrop-blur-sm transition-all duration-300 hover:border-accent hover:bg-accent/5"
+                      className="group flex items-center gap-3 sm:gap-4 rounded-xl border border-border bg-surface/40 px-4 py-3 sm:px-5 sm:py-3.5 backdrop-blur-sm transition-all duration-300 hover:border-accent hover:bg-accent/5"
                     >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border text-foreground/50 transition-all duration-300 group-hover:border-accent group-hover:text-accent group-hover:bg-accent/10">
-                        <Icon size={18} />
+                      <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg border border-border text-foreground/50 transition-all duration-300 group-hover:border-accent group-hover:text-accent group-hover:bg-accent/10">
+                        <Icon size={17} />
                       </div>
-                      <span className="font-medium text-foreground/70 transition-colors duration-300 group-hover:text-foreground">
+                      <span className="text-sm sm:text-base font-medium text-foreground/70 transition-colors duration-300 group-hover:text-foreground">
                         {link.label}
                       </span>
                       <span className="ml-auto text-xs text-foreground/30 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent">
@@ -272,10 +272,10 @@ export default function Contact() {
             </div>
 
             {/* Rotating stamp */}
-            <div className="flex justify-center md:justify-start">
+            <div className="mt-1 flex justify-center md:justify-start">
               <motion.div
                 style={{ rotate: stampRotate }}
-                className="relative h-32 w-32"
+                className="relative h-28 w-28 sm:h-32 sm:w-32"
                 aria-hidden="true"
               >
                 {/* Rotating text ring */}
@@ -302,7 +302,7 @@ export default function Contact() {
 
                 {/* Center mark */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-accent text-accent font-bold text-sm">
+                  <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-accent text-accent font-bold text-sm">
                     JG
                   </div>
                 </div>
@@ -317,7 +317,7 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-24 flex flex-col gap-3 border-t border-border pt-8 md:flex-row md:items-center md:justify-between"
+          className="mt-12 md:mt-16 flex flex-col gap-3 border-t border-border pt-6 md:pt-8 md:flex-row md:items-center md:justify-between"
         >
           <p className="text-sm text-foreground/40">
             © {new Date().getFullYear()} Jash Garach. All rights reserved.

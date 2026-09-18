@@ -95,13 +95,15 @@ h5,
 h6 {
   font-family: var(--font-sora);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
+  text-wrap: balance;
   color: var(--foreground);
   @apply transition-colors duration-500;
 }
 
 p {
+  text-wrap: pretty;
   @apply transition-colors duration-500;
 }
 

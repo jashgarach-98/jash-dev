@@ -47,7 +47,7 @@ export default function Navbar() {
         )}
       >
         <nav
-          className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8"
+          className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8 md:py-4"
           aria-label="Primary"
         >
           {/* Logo */}
@@ -154,7 +154,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed top-[65px] left-0 right-0 z-40 glass border-t border-border shadow-2xl"
+            className="fixed top-[61px] md:top-[69px] left-0 right-0 z-40 glass border-t border-border shadow-2xl"
           >
             <nav className="flex flex-col gap-1 p-4">
               {navLinks.map((link) => (

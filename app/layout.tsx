@@ -20,7 +20,7 @@ const instrumentSans = Instrument_Sans({
 export const metadata: Metadata = {
   title: "Jash Garach | Android & Flutter Developer",
   description:
-    "Jash Garach is an Android and Flutter developer with 4+ years building high-performance mobile experiences for consumer and hospitality products.",
+    "Jash Garach is an Android and Flutter developer with 5+ years building high-performance mobile experiences for consumer and hospitality products.",
   keywords: [
     "Android Developer",
     "Flutter Developer",

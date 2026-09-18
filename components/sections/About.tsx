@@ -53,7 +53,7 @@ const imageVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } },
 };
 
-const strengths = ["Punctual", "Accountable", "Honest", "Self-confident", "Collaborative"];
+const strengths = ["Punctual", "Accountable", "Honest", "Self-Confident", "Collaborative"];
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -87,7 +87,7 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative overflow-hidden px-4 py-24 md:px-8 md:py-32"
+      className="relative overflow-hidden px-4 py-14 md:px-8 md:py-20 lg:py-24"
       aria-label="About Jash Garach"
     >
       {/* Background blob */}
@@ -104,10 +104,10 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="mb-16 md:mb-24"
+          className="mb-10 md:mb-14"
         >
           <motion.span variants={fadeUpVariants} className="section-tag">
-            About me
+            About Me
           </motion.span>
           <motion.h2
             variants={fadeUpVariants}
@@ -119,7 +119,7 @@ export default function About() {
         </motion.div>
 
         {/* Split layout */}
-        <div className="grid gap-12 md:grid-cols-2 md:gap-20 lg:gap-28 items-start">
+        <div className="grid gap-8 md:grid-cols-2 md:gap-12 lg:gap-16 items-start">
           {/* Left — Image with parallax */}
           <motion.div
             ref={imageRef}
@@ -131,7 +131,7 @@ export default function About() {
           >
             <motion.div
               style={{ scale: imageScale, y: imageYSpring }}
-              className="relative aspect-[3/4] overflow-hidden rounded-3xl"
+              className="relative aspect-[4/5] max-h-[480px] lg:max-h-[520px] mx-auto w-full overflow-hidden rounded-3xl"
             >
               {/* Decorative accent corner */}
               <div className="absolute -left-3 -top-3 h-24 w-24 rounded-2xl border-2 border-accent opacity-40 z-10" />
@@ -170,19 +170,19 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-6"
           >
-            <motion.div variants={fadeUpVariants} className="space-y-4">
-              <h3 className="text-2xl font-bold">
+            <motion.div variants={fadeUpVariants} className="space-y-3.5">
+              <h3 className="text-xl md:text-2xl font-bold">
                 I enjoy turning complexity into clarity.
               </h3>
-              <p className="text-foreground/60 leading-relaxed">
+              <p className="text-foreground/60 leading-relaxed text-sm md:text-base">
                 From messaging and custom keyboard products to restaurant
                 operations and self-checkout flows, I build mobile experiences
                 where performance, reliability, and intuitive UX matter just as
                 much as shipping features.
               </p>
-              <p className="text-foreground/60 leading-relaxed">
+              <p className="text-foreground/60 leading-relaxed text-sm md:text-base">
                 My strongest work lives at the intersection of engineering
                 discipline and user empathy: designing maintainable app
                 structures, debugging edge cases, improving flow under pressure,
@@ -192,14 +192,14 @@ export default function About() {
 
             {/* Working style */}
             <motion.div variants={fadeUpVariants}>
-              <p className="mb-3 text-xs uppercase tracking-[0.18em] text-foreground/40 font-mono">
-                Working style
+              <p className="mb-2.5 text-xs uppercase tracking-[0.18em] text-foreground/40 font-mono">
+                Working Style
               </p>
               <div className="flex flex-wrap gap-2">
                 {strengths.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-border px-3 py-1 text-sm text-foreground/70 transition-colors duration-300 hover:border-accent hover:text-accent"
+                    className="rounded-full border border-border px-3 py-1 text-xs md:text-sm text-foreground/70 transition-colors duration-300 hover:border-accent hover:text-accent"
                   >
                     {s}
                   </span>
@@ -210,16 +210,16 @@ export default function About() {
             {/* Stats row */}
             <motion.div
               variants={fadeUpVariants}
-              className="grid grid-cols-2 gap-4 rounded-2xl border border-border bg-surface/40 p-5 backdrop-blur-sm"
+              className="grid grid-cols-2 gap-3 sm:gap-4 rounded-2xl border border-border bg-surface/40 p-4 md:p-5 backdrop-blur-sm"
             >
               {[
-                { label: "Years of experience", value: "5+" },
-                { label: "Published products", value: "8" },
+                { label: "Years of Experience", value: "5+" },
+                { label: "Published Products", value: "8" },
                 { label: "Education", value: "B.Tech CE" },
                 { label: "Platforms", value: "Android + Flutter" },
               ].map((item) => (
-                <div key={item.label} className="space-y-1">
-                  <p className="text-lg font-bold text-accent">{item.value}</p>
+                <div key={item.label} className="space-y-0.5">
+                  <p className="text-base md:text-lg font-bold text-accent">{item.value}</p>
                   <p className="text-xs text-foreground/50">{item.label}</p>
                 </div>
               ))}
@@ -233,15 +233,15 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-24 md:mt-32"
+          className="mt-12 md:mt-16 lg:mt-20"
         >
-          <div className="mb-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <div className="mb-5 flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-foreground/40 font-mono">
                 Tech Stack & Ecosystem
               </p>
-              <p className="text-sm text-foreground/60 mt-1">
-                Scroll or swipe horizontally to explore specialized skills
+              <p className="text-xs sm:text-sm text-foreground/60 mt-0.5">
+                Scroll or swipe horizontally to explore specialized skills.
               </p>
             </div>
 
@@ -251,17 +251,17 @@ export default function About() {
                 type="button"
                 onClick={() => scrollSlider("left")}
                 aria-label="Scroll left"
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-surface/50 text-foreground/70 transition-all hover:border-accent hover:text-accent hover:bg-accent/10 active:scale-95"
+                className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-border bg-surface/50 text-foreground/70 transition-all hover:border-accent hover:text-accent hover:bg-accent/10 active:scale-95"
               >
-                <ChevronLeft size={18} />
+                <ChevronLeft size={17} />
               </button>
               <button
                 type="button"
                 onClick={() => scrollSlider("right")}
                 aria-label="Scroll right"
-                className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-surface/50 text-foreground/70 transition-all hover:border-accent hover:text-accent hover:bg-accent/10 active:scale-95"
+                className="flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl border border-border bg-surface/50 text-foreground/70 transition-all hover:border-accent hover:text-accent hover:bg-accent/10 active:scale-95"
               >
-                <ChevronRight size={18} />
+                <ChevronRight size={17} />
               </button>
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function About() {
             {/* Scrollable Container */}
             <div
               ref={sliderRef}
-              className="flex gap-3 overflow-x-auto pb-4 pt-1 px-1 scroll-smooth no-scrollbar select-none cursor-grab active:cursor-grabbing touch-pan-x"
+              className="flex gap-2.5 sm:gap-3 overflow-x-auto pb-3 pt-1 px-1 scroll-smooth no-scrollbar select-none cursor-grab active:cursor-grabbing touch-pan-x"
               style={{
                 scrollbarWidth: "none",
                 msOverflowStyle: "none",
@@ -284,7 +284,7 @@ export default function About() {
               {techStack.map((tech, i) => (
                 <div
                   key={`${tech}-${i}`}
-                  className="flex shrink-0 items-center gap-3 rounded-2xl border border-border bg-surface/40 px-5 py-3.5 text-sm font-medium text-foreground/70 backdrop-blur-sm transition-all duration-300 hover:border-accent hover:text-foreground hover:bg-surface/70 hover:scale-[1.02] shadow-sm"
+                  className="flex shrink-0 items-center gap-2.5 rounded-2xl border border-border bg-surface/40 px-4 py-2.5 md:px-5 md:py-3 text-sm font-medium text-foreground/70 backdrop-blur-sm transition-all duration-300 hover:border-accent hover:text-foreground hover:bg-surface/70 hover:scale-[1.02] shadow-sm"
                 >
                   <span className="h-2 w-2 rounded-full bg-accent/80 shadow-[0_0_8px_var(--accent)]" />
                   <span>{tech}</span>
