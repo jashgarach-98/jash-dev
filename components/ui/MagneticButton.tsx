@@ -14,6 +14,7 @@ interface MagneticButtonProps {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   "aria-label"?: string;
+  disabled?: boolean;
 }
 
 export default function MagneticButton({
@@ -27,6 +28,7 @@ export default function MagneticButton({
   onClick,
   type = "button",
   "aria-label": ariaLabel,
+  disabled,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLElement>(null);
 
@@ -92,6 +94,7 @@ export default function MagneticButton({
       {...commonProps}
       type={type}
       onClick={onClick}
+      disabled={disabled}
     >
       <motion.span
         style={{ x: innerX, y: innerY }}

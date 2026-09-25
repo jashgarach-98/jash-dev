@@ -5,10 +5,12 @@ import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
 import Contact from "@/components/sections/Contact";
+import HireMeChatbot from "@/components/hire-me/HireMeChatbot";
+import { HireMeProvider } from "@/context/HireMeContext";
 
 export default function Home() {
   return (
-    <>
+    <HireMeProvider>
       <CustomCursor />
       <Navbar />
       <main id="main">
@@ -18,6 +20,7 @@ export default function Home() {
         <Experience />
         <Contact />
       </main>
-    </>
+      <HireMeChatbot />
+    </HireMeProvider>
   );
 }

@@ -2,14 +2,23 @@
 
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Send, Mail, Linkedin, Youtube, Instagram } from "lucide-react";
+import { Send, Mail, Linkedin, Youtube, Instagram, CheckCircle2, AlertCircle } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
+import { HIRE_ME_CONFIG } from "@/config/hireMeConfig";
 
 interface FormState {
   name: string;
   email: string;
   message: string;
 }
+
+interface FormErrors {
+  name?: string;
+  email?: string;
+  message?: string;
+}
+
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 function AnimatedInput({
   id,
@@ -21,6 +30,7 @@ function AnimatedInput({
   placeholder,
   isTextarea,
   required,
+  error,
 }: {
   id: string;
   label: string;
@@ -33,6 +43,7 @@ function AnimatedInput({
   placeholder: string;
   isTextarea?: boolean;
   required?: boolean;
+  error?: string;
 }) {
   return (
     <div className="flex flex-col gap-2">
@@ -51,6 +62,8 @@ function AnimatedInput({
           placeholder={placeholder}
           required={required}
           rows={5}
+          aria-invalid={!!error}
+          aria-describedby={error ? `${id}-error` : undefined}
           className="w-full rounded-xl border border-border bg-surface/50 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 backdrop-blur-sm transition-all duration-300 focus:border-accent focus:bg-surface/80 focus:outline-none focus:ring-2 focus:ring-accent/20 resize-none"
         />
       ) : (
@@ -62,9 +75,16 @@ function AnimatedInput({
           onChange={onChange}
           placeholder={placeholder}
           required={required}
+          aria-invalid={!!error}
+          aria-describedby={error ? `${id}-error` : undefined}
           className="w-full rounded-xl border border-border bg-surface/50 px-4 py-3 text-sm text-foreground placeholder:text-foreground/30 backdrop-blur-sm transition-all duration-300 focus:border-accent focus:bg-surface/80 focus:outline-none focus:ring-2 focus:ring-accent/20"
           autoComplete={type === "email" ? "email" : "on"}
         />
+      )}
+      {error && (
+        <p id={`${id}-error`} role="alert" className="text-[11px] font-mono text-red-400 pl-0.5">
+          {error}
+        </p>
       )}
     </div>
   );
@@ -100,7 +120,11 @@ export default function Contact() {
     email: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [errorMessage, setErrorMessage] = useState("");
+  const botcheckRef = useRef<HTMLInputElement>(null);
+  const lastSubmitTimeRef = useRef<number>(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -113,19 +137,93 @@ export default function Contact() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormState((prev) => ({ ...prev, [name]: value }));
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const validate = (): boolean => {
+    const newErrors: FormErrors = {};
+    if (!formState.name.trim()) {
+      newErrors.name = "Please enter your name.";
+    }
+    if (!formState.email.trim()) {
+      newErrors.email = "Please enter your email address.";
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formState.email.trim())) {
+        newErrors.email = "Please enter a valid email address.";
+      }
+    }
+    if (!formState.message.trim()) {
+      newErrors.message = "Please enter your message.";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { name, email, message } = formState;
-    const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Hi Jash,\n\n${message}\n\nBest,\n${name}\n${email}`
-    );
-    window.location.href = `mailto:garach.jash1@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    if (status === "submitting") return;
+    if (!validate()) return;
+
+    if (botcheckRef.current?.checked) {
+      setStatus("success");
+      return;
+    }
+
+    const now = Date.now();
+    if (now - lastSubmitTimeRef.current < 5000) {
+      setErrorMessage("Please wait a few seconds before submitting again.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const payload = {
+        name: formState.name.trim(),
+        email: formState.email.trim(),
+        message: formState.message.trim(),
+        _subject: `New Portfolio Message from ${formState.name.trim()}`,
+        _template: "table",
+        _captcha: "false",
+      };
+
+      const res = await fetch(HIRE_ME_CONFIG.API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (res.ok && (data.success === "true" || data.success === true)) {
+        lastSubmitTimeRef.current = Date.now();
+        setStatus("success");
+        setFormState({ name: "", email: "", message: "" });
+        setErrors({});
+      } else {
+        lastSubmitTimeRef.current = Date.now();
+        setErrorMessage(
+          data.message ||
+            "Something went wrong while sending your message. Please try again or email directly."
+        );
+        setStatus("error");
+      }
+    } catch {
+      lastSubmitTimeRef.current = Date.now();
+      setErrorMessage(
+        "Something went wrong while sending your message. Please try again or email directly."
+      );
+      setStatus("error");
+    }
   };
 
   return (
@@ -175,56 +273,87 @@ export default function Contact() {
                 className="flex flex-col gap-4 sm:gap-5"
                 id="contact-form"
               >
-              <AnimatedInput
-                id="contact-name"
-                label="Your Name"
-                name="name"
-                value={formState.name}
-                onChange={handleChange}
-                placeholder="Jash Garach"
-                required
-              />
+                {/* Invisible Honeypot Spam Field */}
+                <input
+                  ref={botcheckRef}
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
 
-              <AnimatedInput
-                id="contact-email"
-                label="Email Address"
-                type="email"
-                name="email"
-                value={formState.email}
-                onChange={handleChange}
-                placeholder="you@example.com"
-                required
-              />
+                <AnimatedInput
+                  id="contact-name"
+                  label="Your Name"
+                  name="name"
+                  value={formState.name}
+                  onChange={handleChange}
+                  placeholder="Jash Garach"
+                  required
+                  error={errors.name}
+                />
 
-              <AnimatedInput
-                id="contact-message"
-                label="Your Message"
-                name="message"
-                value={formState.message}
-                onChange={handleChange}
-                placeholder="Tell me about your project, role, or idea..."
-                isTextarea
-                required
-              />
+                <AnimatedInput
+                  id="contact-email"
+                  label="Email Address"
+                  type="email"
+                  name="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                  placeholder="you@example.com"
+                  required
+                  error={errors.email}
+                />
 
-              <div className="flex items-center gap-4 pt-1">
-                <MagneticButton
-                  type="submit"
-                  className="flex h-11 sm:h-12 items-center gap-2 rounded-full bg-accent px-6 sm:px-7 text-sm font-bold text-background transition-opacity hover:opacity-90 disabled:opacity-50"
-                  strength={20}
-                  aria-label="Send message"
-                >
-                  <Send size={15} />
-                  {submitted ? "Sent! Opening email…" : "Send Message"}
-                </MagneticButton>
+                <AnimatedInput
+                  id="contact-message"
+                  label="Your Message"
+                  name="message"
+                  value={formState.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your project, role, or idea..."
+                  isTextarea
+                  required
+                  error={errors.message}
+                />
 
-                <p className="text-xs text-foreground/40 leading-tight">
-                  Opens your default
-                  <br />
-                  email client
-                </p>
-              </div>
-            </form>
+                {/* Success feedback */}
+                {status === "success" && (
+                  <div className="flex items-center gap-2.5 rounded-xl border border-accent/30 bg-accent/10 p-3.5 text-xs sm:text-sm text-foreground font-medium">
+                    <CheckCircle2 size={18} className="text-accent shrink-0" />
+                    <span>Thanks for reaching out! Your message was sent successfully.</span>
+                  </div>
+                )}
+
+                {/* Error feedback */}
+                {status === "error" && (
+                  <div className="flex items-center gap-2.5 rounded-xl border border-red-500/30 bg-red-500/10 p-3.5 text-xs sm:text-sm text-foreground/90">
+                    <AlertCircle size={18} className="text-red-400 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
+                <div className="flex items-center gap-4 pt-1">
+                  <MagneticButton
+                    type="submit"
+                    disabled={status === "submitting"}
+                    className="flex h-11 sm:h-12 items-center gap-2 rounded-full bg-accent px-6 sm:px-7 text-sm font-bold text-background transition-opacity hover:opacity-90 disabled:opacity-50"
+                    strength={20}
+                    aria-label="Send message"
+                  >
+                    <Send size={15} />
+                    {status === "submitting" ? "Sending..." : "Send Message"}
+                  </MagneticButton>
+
+                  <p className="text-xs text-foreground/40 leading-tight">
+                    Delivered directly to
+                    <br />
+                    my email inbox
+                  </p>
+                </div>
+              </form>
           </div>
         </motion.div>
 

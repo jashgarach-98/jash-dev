@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { clsx } from "clsx";
+import { useHireMe } from "@/context/HireMeContext";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -15,6 +16,7 @@ const navLinks = [
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
+  const { openHireMe } = useHireMe();
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -114,12 +116,13 @@ export default function Navbar() {
             )}
 
             {/* CTA button — hidden on mobile */}
-            <a
-              href="mailto:garach.jash1@gmail.com"
+            <button
+              type="button"
+              onClick={openHireMe}
               className="hidden md:flex h-9 items-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-background transition-all duration-300 hover:opacity-90 hover:scale-[0.97] active:scale-95"
             >
               Hire Me
-            </a>
+            </button>
 
             {/* Mobile menu toggle */}
             <button
@@ -167,13 +170,16 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <a
-                href="mailto:garach.jash1@gmail.com"
-                onClick={closeMobileMenu}
-                className="mt-2 flex h-11 items-center justify-center rounded-lg bg-accent text-sm font-semibold text-background"
+              <button
+                type="button"
+                onClick={() => {
+                  closeMobileMenu();
+                  openHireMe();
+                }}
+                className="mt-2 flex h-11 items-center justify-center rounded-lg bg-accent text-sm font-semibold text-background transition-opacity hover:opacity-90 active:scale-[0.98]"
               >
                 Hire Me
-              </a>
+              </button>
             </nav>
           </motion.div>
         )}
