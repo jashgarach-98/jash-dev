@@ -1,0 +1,126 @@
+name: Daily Blog Publisher
+
+on:
+  schedule:
+    # 03:30 UTC = 09:00 AM IST (India Standard Time: UTC+5:30)
+    - cron: "30 3 * * *"
+
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Custom article topic (leave empty for automatic rotation)"
+        required: false
+        default: ""
+        type: string
+      dry_run:
+        description: "Dry run (test generation without committing or deploying)"
+        required: false
+        default: false
+        type: boolean
+      publish:
+        description: "Commit and deploy to live website"
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Generate & Publish Daily Post
+    runs-on: ubuntu-latest
+    outputs:
+      has_changes: ${{ steps.check_changes.outputs.has_changes }}
+      published_title: ${{ steps.generate.outputs.published_title }}
+      published_slug: ${{ steps.generate.outputs.published_slug }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate daily blog post and cover image
+        id: generate
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ -n "${{ github.event.inputs.topic }}" ]; then
+            ARGS="$ARGS --topic \"${{ github.event.inputs.topic }}\""
+          fi
+          
+          echo "Running generator with args: $ARGS"
+          node scripts/generate-daily-post.mjs $ARGS
+
+      - name: Check for generated changes
+        id: check_changes
+        run: |
+          if [ -n "$(git status --porcelain data/ content/ public/blog/)" ]; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            echo "Changes detected in blog content."
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            echo "No changes detected."
+          fi
+
+      - name: Build static export & verify website integrity
+        run: |
+          npm run build
+          touch ./out/.nojekyll
+
+      - name: Commit and push changes to main
+        if: ${{ steps.check_changes.outputs.has_changes == 'true' && github.event.inputs.dry_run != 'true' && (github.event.inputs.publish == 'true' || github.event_name == 'schedule') }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add data/posts.json content/posts/ public/blog/
+          git commit -m "chore(blog): publish daily article $(date -u +'%Y-%m-%d')"
+          git push origin main
+
+      - name: Upload Pages artifact
+        if: ${{ github.event.inputs.dry_run != 'true' && (github.event.inputs.publish == 'true' || github.event_name == 'schedule') }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    name: Deploy to GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: publish
+    if: ${{ github.event.inputs.dry_run != 'true' && (github.event.inputs.publish == 'true' || github.event_name == 'schedule') }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Summary Report
+        run: |
+          echo "### 🚀 Daily Blog Published Successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "- **Live Blog:** [https://jashgarach-98.github.io/jash-dev/blog/](https://jashgarach-98.github.io/jash-dev/blog/)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Deployed at:** $(date -u)" >> $GITHUB_STEP_SUMMARY

@@ -6,7 +6,9 @@
     "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:blog": "node scripts/generate-daily-post.mjs",
+    "test:blog": "node scripts/generate-daily-post.mjs --dry-run"
   },
   "dependencies": {
     "clsx": "^2.1.1",
