@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Menu, X } from "lucide-react";
@@ -8,13 +10,15 @@ import { clsx } from "clsx";
 import { useHireMe } from "@/context/HireMeContext";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", localHash: "#about", label: "About" },
+  { href: "/#projects", localHash: "#projects", label: "Projects" },
+  { href: "/#experience", localHash: "#experience", label: "Experience" },
+  { href: "/#contact", localHash: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const { theme, setTheme } = useTheme();
   const { openHireMe } = useHireMe();
   const [mounted, setMounted] = useState(false);
@@ -31,6 +35,31 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Handle smooth scrolling to target section when arriving with hash
+  useEffect(() => {
+    if (typeof window === "undefined" || !isHome) return;
+
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash) return;
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    scrollToHash();
+    const t1 = setTimeout(scrollToHash, 100);
+    const t2 = setTimeout(scrollToHash, 300);
+
+    window.addEventListener("hashchange", scrollToHash);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      window.removeEventListener("hashchange", scrollToHash);
+    };
+  }, [pathname, isHome]);
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -53,8 +82,8 @@ export default function Navbar() {
           aria-label="Primary"
         >
           {/* Logo */}
-          <a
-            href="#"
+          <Link
+            href="/"
             className="group flex items-center gap-2"
             aria-label="Jash Garach home"
           >
@@ -69,21 +98,61 @@ export default function Navbar() {
                 Jash Garach
               </p>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop nav links */}
           <ul className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
+            {!isHome && (
+              <li>
+                <Link
+                  href="/"
                   className="text-sm font-medium text-foreground/60 hover:text-foreground transition-colors duration-300 relative group"
                 >
-                  {link.label}
+                  Home
                   <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-                </a>
+                </Link>
+              </li>
+            )}
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                {isHome ? (
+                  <a
+                    href={link.localHash}
+                    className="text-sm font-medium text-foreground/60 hover:text-foreground transition-colors duration-300 relative group"
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+                  </a>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="text-sm font-medium text-foreground/60 hover:text-foreground transition-colors duration-300 relative group"
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                )}
               </li>
             ))}
+            <li>
+              <Link
+                href="/blog"
+                className={clsx(
+                  "text-sm font-medium transition-colors duration-300 relative group",
+                  pathname.startsWith("/blog")
+                    ? "text-accent font-semibold"
+                    : "text-foreground/60 hover:text-foreground"
+                )}
+              >
+                Blog
+                <span
+                  className={clsx(
+                    "absolute -bottom-0.5 left-0 h-px bg-accent transition-all duration-300",
+                    pathname.startsWith("/blog") ? "w-full" : "w-0 group-hover:w-full"
+                  )}
+                />
+              </Link>
+            </li>
           </ul>
 
           {/* Right controls */}
@@ -160,16 +229,48 @@ export default function Navbar() {
             className="fixed top-[61px] md:top-[69px] left-0 right-0 z-40 glass border-t border-border shadow-2xl"
           >
             <nav className="flex flex-col gap-1 p-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+              {!isHome && (
+                <Link
+                  href="/"
                   onClick={closeMobileMenu}
                   className="rounded-lg px-4 py-3 text-base font-medium text-foreground/70 hover:text-foreground hover:bg-accent/10 transition-all duration-200"
                 >
-                  {link.label}
-                </a>
-              ))}
+                  Home
+                </Link>
+              )}
+              {navLinks.map((link) =>
+                isHome ? (
+                  <a
+                    key={link.label}
+                    href={link.localHash}
+                    onClick={closeMobileMenu}
+                    className="rounded-lg px-4 py-3 text-base font-medium text-foreground/70 hover:text-foreground hover:bg-accent/10 transition-all duration-200"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={closeMobileMenu}
+                    className="rounded-lg px-4 py-3 text-base font-medium text-foreground/70 hover:text-foreground hover:bg-accent/10 transition-all duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
+              <Link
+                href="/blog"
+                onClick={closeMobileMenu}
+                className={clsx(
+                  "rounded-lg px-4 py-3 text-base font-medium transition-all duration-200",
+                  pathname.startsWith("/blog")
+                    ? "text-accent bg-accent/10 font-semibold"
+                    : "text-foreground/70 hover:text-foreground hover:bg-accent/10"
+                )}
+              >
+                Blog
+              </Link>
               <button
                 type="button"
                 onClick={() => {

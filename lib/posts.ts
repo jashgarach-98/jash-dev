@@ -1,0 +1,199 @@
+export type PostBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; text: string }
+  | { type: "list"; items: string[] }
+  | { type: "quote"; text: string }
+  | { type: "code"; language: string; code: string }
+  | {
+      type: "image";
+      src: string;
+      alt: string;
+      caption?: string;
+    };
+
+export interface PostReference {
+  label: string;
+  href: string;
+}
+
+export interface Post {
+  slug: string;
+  title: string;
+  description: string;
+  coverImage?: {
+    src: string;
+    alt: string;
+    caption?: string;
+  };
+  /** ISO date used for sorting and metadata. */
+  date: string;
+  /** Human-friendly date shown on the page. */
+  publishedLabel: string;
+  readingTime: string;
+  category: string;
+  tags: string[];
+  /** Accent hex color used for the card and article flourishes. */
+  accent: string;
+  blocks: PostBlock[];
+  references?: PostReference[];
+}
+
+export const posts: Post[] = [
+  {
+    slug: "android-flutter-late-2025",
+    title: "Android and Flutter in late 2025: what actually changed",
+    description:
+      "A practical status check on the two mobile stacks — Flutter's Impeller-era stability, Compose's steady maturity, and what they mean for shipping real apps.",
+    coverImage: {
+      src: "/blog/android-flutter-hero.jpg",
+      alt: "Android and Flutter Modern Architecture in 2025/2026",
+      caption: "Modern mobile architecture: bridging Flutter's Impeller rendering and native Android Jetpack Compose.",
+    },
+    date: "2025-12-15",
+    publishedLabel: "December 15, 2025",
+    readingTime: "6 min read",
+    category: "Android / Flutter",
+    tags: ["Flutter", "Jetpack Compose", "Kotlin", "Mobile Dev", "Impeller"],
+    accent: "#22d3ee",
+    blocks: [
+      {
+        type: "paragraph",
+        text: "The mobile ecosystem feels calmer than it did a few years ago, and that's a good thing. Neither Android nor Flutter is reinventing itself every quarter anymore. Instead, both have settled into the less glamorous work of getting faster, more predictable, and easier to build with. Here's a developer's-eye view of where each stack stands right now, and what I'd actually reach for when starting a new build.",
+      },
+      {
+        type: "heading",
+        text: "Flutter: the Impeller era has arrived",
+      },
+      {
+        type: "paragraph",
+        text: "The biggest Flutter change is under the hood. Impeller, the GPU-first rendering engine that replaces Skia, is now the default on iOS and has been rolling out across Android. For app developers the payoff is what you feel rather than what you read: smoother frame pacing, fewer jank-related surprises on scroll-heavy screens, and more predictable performance across devices. Flutter 3.35 (August 2025) continued that push — its recent releases have been increasingly about polish, tooling, and closing the gaps on web and desktop rather than sweeping API churn.",
+      },
+      {
+        type: "image",
+        src: "/blog/flutter-impeller-architecture.jpg",
+        alt: "Flutter Impeller GPU rendering pipeline illustration",
+        caption: "Impeller's GPU pipeline pre-compiles shaders ahead of time, ensuring consistent 120fps frame pacing without runtime shader compilation jank.",
+      },
+      {
+        type: "code",
+        language: "dart",
+        code: `class GreetingCard extends StatelessWidget {
+  const GreetingCard({super.key, required this.name});
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Text('Hello, $name!'),
+      ),
+    );
+  }
+}`,
+      },
+      {
+        type: "paragraph",
+        text: "On the language side, Dart's null safety and its modern features — records, patterns, sealed classes — are now simply table stakes. Newer projects don't really debate them; they just use them, which makes codebases read more consistently than they did a couple of years ago.",
+      },
+      {
+        type: "list",
+        items: [
+          "One codebase across mobile, web, and desktop with a single widget model.",
+          "Impeller delivers more consistent rendering and frame pacing.",
+          "A mature package ecosystem with first-class Firebase and tooling support.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "Android: Compose is now the default",
+      },
+      {
+        type: "paragraph",
+        text: "On the native side, Jetpack Compose has stopped being the experimental option and become the recommended way to build Android UI. The release cadence (the December 2025 release is the latest at the time of writing) keeps landing smaller, practical improvements: more adaptive layouts for foldables and large screens, better predictive-back support, and steady performance work. The Kotlin 2.x compiler (K2) has also made builds faster and language features more expressive — without asking teams to rewrite their apps.",
+      },
+      {
+        type: "image",
+        src: "/blog/compose-adaptive-layouts.jpg",
+        alt: "Android Jetpack Compose and adaptive layouts across form factors",
+        caption: "Jetpack Compose's state-driven architecture natively powers adaptive layouts across compact phones, foldables, and tablets.",
+      },
+      {
+        type: "paragraph",
+        text: "The practical upshot is that writing native Android today feels closer to writing modern declarative UI than it ever has, while still giving you direct access to every platform API when a feature genuinely needs it.",
+      },
+      {
+        type: "list",
+        items: [
+          "Compose as the default UI toolkit, with stable tooling and BOM-based versioning.",
+          "Kotlin 2.x and the K2 compiler for faster builds and cleaner code.",
+          "Adaptive and large-screen support that treats phones, tablets, and foldables as first-class.",
+        ],
+      },
+      {
+        type: "heading",
+        text: "What I actually consider when choosing a stack",
+      },
+      {
+        type: "paragraph",
+        text: "Both frameworks are capable, so the decision usually comes down to the problem rather than the platform. For a product that has to reach both app stores quickly with a small team, Flutter's single codebase is hard to beat. For work that leans heavily on platform-specific features — advanced camera, background services, deep system integrations, or a large existing Kotlin codebase — native Compose is usually the safer long-term bet.",
+      },
+      {
+        type: "list",
+        items: [
+          "Team skills and existing code — the most expensive stack is the one you don't know.",
+          "Platform depth — how much native API surface does the feature actually touch?",
+          "Distribution and maintenance — who maintains it after launch, and on which stores?",
+          "Time to market — how fast does the first shippable version need to land?",
+        ],
+      },
+      {
+        type: "quote",
+        text: "The frameworks stopped being the interesting part. The interesting part is shipping software that stays fast, clear, and easy to maintain — whichever stack gets you there.",
+      },
+      {
+        type: "heading",
+        text: "What I'm watching next",
+      },
+      {
+        type: "paragraph",
+        text: "The next wave is tooling. AI-assisted development is creeping into both ecosystems — smarter completions, faster refactoring, and better diagnostics — while the renderers and compilers underneath keep getting quieter and more reliable. For teams building real products, that's the best kind of change: fewer surprises, and more time spent on the part users actually see.",
+      },
+    ],
+    references: [
+      {
+        label: "Flutter — What's new archive",
+        href: "https://docs.flutter.dev/release/archive-whats-new",
+      },
+      {
+        label: "What's new in the Jetpack Compose December '25 release",
+        href: "https://android-developers.googleblog.com/2025/12/whats-new-in-jetpack-compose-december.html",
+      },
+      {
+        label: "Dart language",
+        href: "https://dart.dev/language",
+      },
+      {
+        label: "Kotlin releases",
+        href: "https://kotlinlang.org/docs/releases.html",
+      },
+    ],
+  },
+];
+
+export function getAllPosts(): Post[] {
+  return [...posts].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+}
+
+export function getPostBySlug(slug: string): Post | undefined {
+  return posts.find((post) => post.slug === slug);
+}
+
+export function getAssetPath(path: string): string {
+  const prefix = process.env.NODE_ENV === "production" ? "/jash-dev" : "";
+  return path.startsWith("/") ? `${prefix}${path}` : `${prefix}/${path}`;
+}
+
