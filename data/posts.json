@@ -1,5 +1,71 @@
 [
   {
+    "slug": "architecting-large-scale-flutter-applications-with-clean-arc",
+    "title": "Architecting Large-Scale Flutter Applications with Clean Architecture and BLoC",
+    "description": "A practical architectural breakdown of Architecting Large-Scale Flutter Applications with Clean Architecture and BLoC for mobile developers building production-ready apps.",
+    "coverImage": {
+      "src": "/blog/architecting-large-scale-flutter-applications-with-clean-arc.jpg",
+      "alt": "Architecting Large-Scale Flutter Applications with Clean Architecture and BLoC — cover illustration",
+      "caption": "A practical architectural breakdown of Architecting Large-Scale Flutter Applications with Clean Architecture and BLoC for mobile developers building production-ready apps."
+    },
+    "date": "2026-10-14",
+    "publishedLabel": "October 14, 2026",
+    "readingTime": "5 min read",
+    "category": "Flutter / Architecture",
+    "tags": [
+      "Flutter",
+      "Dart",
+      "BLoC",
+      "Clean Architecture",
+      "State Management"
+    ],
+    "accent": "#22d3ee",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Architecting Large-Scale Flutter Applications with Clean Architecture and BLoC."
+      },
+      {
+        "type": "heading",
+        "text": "The Architectural Core"
+      },
+      {
+        "type": "paragraph",
+        "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Explicit state modeling with immutable data structures.",
+          "Clear boundaries between data retrieval and UI consumption.",
+          "Continuous testing across isolated units and integrated flows."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+      },
+      {
+        "type": "heading",
+        "text": "Summary & Practical Advice"
+      },
+      {
+        "type": "paragraph",
+        "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+      }
+    ],
+    "references": [
+      {
+        "label": "Android Developers Official Guides",
+        "href": "https://developer.android.com"
+      },
+      {
+        "label": "Flutter Documentation",
+        "href": "https://docs.flutter.dev"
+      }
+    ]
+  },
+  {
     "slug": "building-resilient-offline-first-mobile-architectures-with-k",
     "title": "Building Resilient Offline-First Mobile Architectures with Kotlin Coroutines and Room",
     "description": "How to design a reliable local-first mobile sync layer using Room DB, Coroutine Flows, and WorkManager that gracefully survives spotty connections.",
