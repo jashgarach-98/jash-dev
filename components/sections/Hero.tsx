@@ -181,6 +181,17 @@ export default function Hero() {
 
           <MagneticButton
             as="a"
+            href="https://github.com/garachjash98"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-12 items-center rounded-full px-6 text-sm font-medium text-foreground/50 transition-colors duration-300 hover:text-foreground"
+            strength={15}
+          >
+            GitHub ↗
+          </MagneticButton>
+
+          <MagneticButton
+            as="a"
             href="https://www.linkedin.com/in/jash-garach-086759131"
             target="_blank"
             rel="noopener noreferrer"

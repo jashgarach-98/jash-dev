@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Send, Mail, Linkedin, Youtube, Instagram, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, Mail, Linkedin, Github, Youtube, Instagram, CheckCircle2, AlertCircle } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { HIRE_ME_CONFIG } from "@/config/hireMeConfig";
 
@@ -91,6 +91,11 @@ function AnimatedInput({
 }
 
 const socialLinks = [
+  {
+    label: "GitHub",
+    href: "https://github.com/garachjash98",
+    icon: Github,
+  },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/jash-garach-086759131",
@@ -451,9 +456,32 @@ export default function Contact() {
           <p className="text-sm text-foreground/40">
             © {new Date().getFullYear()} Jash Garach. All rights reserved.
           </p>
-          <p className="text-sm text-foreground/30">
-            garach.jash1@gmail.com
-          </p>
+          <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/40">
+            <a
+              href="https://github.com/garachjash98"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors"
+            >
+              GitHub
+            </a>
+            <span className="text-foreground/20">•</span>
+            <a
+              href="https://www.linkedin.com/in/jash-garach-086759131"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors"
+            >
+              LinkedIn
+            </a>
+            <span className="text-foreground/20">•</span>
+            <a
+              href="mailto:garach.jash1@gmail.com"
+              className="hover:text-accent transition-colors"
+            >
+              garach.jash1@gmail.com
+            </a>
+          </div>
         </motion.footer>
       </div>
     </section>
