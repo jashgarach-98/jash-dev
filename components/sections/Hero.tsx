@@ -67,6 +67,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
+      id="home"
       className="relative flex min-h-[calc(100svh-4rem)] md:min-h-screen flex-col items-center justify-center overflow-hidden px-4 pt-20 pb-12 sm:pt-24 sm:pb-16 md:px-8 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24"
       aria-label="Hero section"
     >

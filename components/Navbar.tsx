@@ -9,11 +9,19 @@ import { Sun, Moon, Menu, X } from "lucide-react";
 import { clsx } from "clsx";
 import { useHireMe } from "@/context/HireMeContext";
 
-const navLinks = [
-  { href: "/#about", localHash: "#about", label: "About" },
-  { href: "/#projects", localHash: "#projects", label: "Projects" },
-  { href: "/#experience", localHash: "#experience", label: "Experience" },
-  { href: "/#contact", localHash: "#contact", label: "Contact" },
+interface NavLinkItem {
+  href: string;
+  localHash: string;
+  id: string;
+  label: string;
+}
+
+const navLinks: NavLinkItem[] = [
+  { href: "/#home", localHash: "#home", id: "home", label: "Home" },
+  { href: "/#about", localHash: "#about", id: "about", label: "About" },
+  { href: "/#projects", localHash: "#projects", id: "projects", label: "Projects" },
+  { href: "/#experience", localHash: "#experience", id: "experience", label: "Experience" },
+  { href: "/#contact", localHash: "#contact", id: "contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -24,17 +32,53 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("home");
 
   useEffect(() => {
     setMounted(true);
 
+    // Disable browser automatic scroll restoration so it defaults to top/Home on reload
+    if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    if (isHome && typeof window !== "undefined" && !window.location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+  }, [isHome]);
+
+  // Track active section and navbar background transparency on scroll
+  useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      if (!isHome) return;
+
+      if (window.scrollY < 120) {
+        setActiveSection("home");
+        return;
+      }
+
+      const sectionIds = ["home", "about", "projects", "experience", "contact"];
+      const viewportThreshold = window.innerHeight * 0.35;
+      let current = "home";
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= viewportThreshold) {
+            current = id;
+          }
+        }
+      }
+      setActiveSection(current);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isHome]);
 
   // Handle smooth scrolling to target section when arriving with hash
   useEffect(() => {
@@ -67,6 +111,45 @@ export default function Navbar() {
 
   const closeMobileMenu = () => setMobileOpen(false);
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    link: NavLinkItem
+  ) => {
+    if (isHome) {
+      e.preventDefault();
+      closeMobileMenu();
+
+      if (link.id === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (window.location.hash) {
+          window.history.pushState(null, "", window.location.pathname);
+        }
+        setActiveSection("home");
+      } else {
+        const target = document.querySelector(link.localHash);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", link.localHash);
+          setActiveSection(link.id);
+        }
+      }
+    } else {
+      closeMobileMenu();
+    }
+  };
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (isHome) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (window.location.hash) {
+        window.history.pushState(null, "", window.location.pathname);
+      }
+      setActiveSection("home");
+      closeMobileMenu();
+    }
+  };
+
   return (
     <>
       <header
@@ -84,6 +167,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
+            onClick={handleLogoClick}
             className="group flex items-center gap-2"
             aria-label="Jash Garach home"
           >
@@ -102,38 +186,41 @@ export default function Navbar() {
 
           {/* Desktop nav links */}
           <ul className="hidden md:flex items-center gap-8">
-            {!isHome && (
-              <li>
-                <Link
-                  href="/"
-                  className="text-sm font-medium text-foreground/60 hover:text-foreground transition-colors duration-300 relative group"
-                >
-                  Home
-                  <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-                </Link>
-              </li>
-            )}
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                {isHome ? (
-                  <a
-                    href={link.localHash}
-                    className="text-sm font-medium text-foreground/60 hover:text-foreground transition-colors duration-300 relative group"
-                  >
-                    {link.label}
-                    <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-                  </a>
-                ) : (
-                  <Link
-                    href={link.href}
-                    className="text-sm font-medium text-foreground/60 hover:text-foreground transition-colors duration-300 relative group"
-                  >
-                    {link.label}
-                    <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-                  </Link>
-                )}
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = isHome && activeSection === link.id;
+              return (
+                <li key={link.label}>
+                  {isHome ? (
+                    <a
+                      href={link.localHash}
+                      onClick={(e) => handleNavClick(e, link)}
+                      className={clsx(
+                        "text-sm font-medium transition-colors duration-300 relative group",
+                        isActive
+                          ? "text-accent font-semibold"
+                          : "text-foreground/60 hover:text-foreground"
+                      )}
+                    >
+                      {link.label}
+                      <span
+                        className={clsx(
+                          "absolute -bottom-0.5 left-0 h-px bg-accent transition-all duration-300",
+                          isActive ? "w-full" : "w-0 group-hover:w-full"
+                        )}
+                      />
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm font-medium text-foreground/60 hover:text-foreground transition-colors duration-300 relative group"
+                    >
+                      {link.label}
+                      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
             <li>
               <Link
                 href="/blog"
@@ -229,22 +316,19 @@ export default function Navbar() {
             className="fixed top-[61px] md:top-[69px] left-0 right-0 z-40 glass border-t border-border shadow-2xl"
           >
             <nav className="flex flex-col gap-1 p-4">
-              {!isHome && (
-                <Link
-                  href="/"
-                  onClick={closeMobileMenu}
-                  className="rounded-lg px-4 py-3 text-base font-medium text-foreground/70 hover:text-foreground hover:bg-accent/10 transition-all duration-200"
-                >
-                  Home
-                </Link>
-              )}
-              {navLinks.map((link) =>
-                isHome ? (
+              {navLinks.map((link) => {
+                const isActive = isHome && activeSection === link.id;
+                return isHome ? (
                   <a
                     key={link.label}
                     href={link.localHash}
-                    onClick={closeMobileMenu}
-                    className="rounded-lg px-4 py-3 text-base font-medium text-foreground/70 hover:text-foreground hover:bg-accent/10 transition-all duration-200"
+                    onClick={(e) => handleNavClick(e, link)}
+                    className={clsx(
+                      "rounded-lg px-4 py-3 text-base font-medium transition-all duration-200",
+                      isActive
+                        ? "text-accent bg-accent/10 font-semibold"
+                        : "text-foreground/70 hover:text-foreground hover:bg-accent/10"
+                    )}
                   >
                     {link.label}
                   </a>
@@ -257,8 +341,8 @@ export default function Navbar() {
                   >
                     {link.label}
                   </Link>
-                )
-              )}
+                );
+              })}
               <Link
                 href="/blog"
                 onClick={closeMobileMenu}
