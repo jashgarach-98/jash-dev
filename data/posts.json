@@ -1,5 +1,71 @@
 [
   {
+    "slug": "mastering-subcomposelayout-and-custom-layout-modifiers-in-je",
+    "title": "Mastering SubcomposeLayout and Custom Layout Modifiers in Jetpack Compose",
+    "description": "A practical architectural breakdown of Mastering SubcomposeLayout and Custom Layout Modifiers in Jetpack Compose for mobile developers building production-ready apps.",
+    "coverImage": {
+      "src": "/blog/mastering-subcomposelayout-and-custom-layout-modifiers-in-je.jpg",
+      "alt": "Mastering SubcomposeLayout and Custom Layout Modifiers in Jetpack Compose — cover illustration",
+      "caption": "A practical architectural breakdown of Mastering SubcomposeLayout and Custom Layout Modifiers in Jetpack Compose for mobile developers building production-ready apps."
+    },
+    "date": "2026-10-16",
+    "publishedLabel": "October 16, 2026",
+    "readingTime": "5 min read",
+    "category": "Android / Jetpack Compose",
+    "tags": [
+      "Android",
+      "Jetpack Compose",
+      "UI Architecture",
+      "Kotlin",
+      "Performance"
+    ],
+    "accent": "#10b981",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Mastering SubcomposeLayout and Custom Layout Modifiers in Jetpack Compose."
+      },
+      {
+        "type": "heading",
+        "text": "The Architectural Core"
+      },
+      {
+        "type": "paragraph",
+        "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Explicit state modeling with immutable data structures.",
+          "Clear boundaries between data retrieval and UI consumption.",
+          "Continuous testing across isolated units and integrated flows."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+      },
+      {
+        "type": "heading",
+        "text": "Summary & Practical Advice"
+      },
+      {
+        "type": "paragraph",
+        "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+      }
+    ],
+    "references": [
+      {
+        "label": "Android Developers Official Guides",
+        "href": "https://developer.android.com"
+      },
+      {
+        "label": "Flutter Documentation",
+        "href": "https://docs.flutter.dev"
+      }
+    ]
+  },
+  {
     "slug": "practical-on-device-ai-in-android-integrating-small-language",
     "title": "Practical On-Device AI in Android: Integrating Small Language Models with LiteRT and MediaPipe",
     "description": "A practical architectural breakdown of Practical On-Device AI in Android: Integrating Small Language Models with LiteRT and MediaPipe for mobile developers building production-ready apps.",
