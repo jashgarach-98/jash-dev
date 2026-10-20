@@ -1,5 +1,71 @@
 [
   {
+    "slug": "architecting-kiosk-and-pos-integrations-in-android-bluetooth",
+    "title": "Architecting Kiosk and POS Integrations in Android: Bluetooth Thermal Printers and Lock Task Mode",
+    "description": "A practical architectural breakdown of Architecting Kiosk and POS Integrations in Android: Bluetooth Thermal Printers and Lock Task Mode for mobile developers building production-ready apps.",
+    "coverImage": {
+      "src": "/blog/architecting-kiosk-and-pos-integrations-in-android-bluetooth.svg",
+      "alt": "Architecting Kiosk and POS Integrations in Android: Bluetooth Thermal Printers and Lock Task Mode — cover illustration",
+      "caption": "A practical architectural breakdown of Architecting Kiosk and POS Integrations in Android: Bluetooth Thermal Printers and Lock Task Mode for mobile developers building production-ready apps."
+    },
+    "date": "2026-10-20",
+    "publishedLabel": "October 20, 2026",
+    "readingTime": "5 min read",
+    "category": "Hardware & POS Integration",
+    "tags": [
+      "Android",
+      "POS",
+      "Hardware",
+      "Bluetooth",
+      "Kiosk Mode"
+    ],
+    "accent": "#06b6d4",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Architecting Kiosk and POS Integrations in Android: Bluetooth Thermal Printers and Lock Task Mode."
+      },
+      {
+        "type": "heading",
+        "text": "The Architectural Core"
+      },
+      {
+        "type": "paragraph",
+        "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Explicit state modeling with immutable data structures.",
+          "Clear boundaries between data retrieval and UI consumption.",
+          "Continuous testing across isolated units and integrated flows."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+      },
+      {
+        "type": "heading",
+        "text": "Summary & Practical Advice"
+      },
+      {
+        "type": "paragraph",
+        "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+      }
+    ],
+    "references": [
+      {
+        "label": "Android Developers Official Guides",
+        "href": "https://developer.android.com"
+      },
+      {
+        "label": "Flutter Documentation",
+        "href": "https://docs.flutter.dev"
+      }
+    ]
+  },
+  {
     "slug": "hunting-frame-drops-practical-android-performance-profiling",
     "title": "Hunting Frame Drops: Practical Android Performance Profiling with Perfetto and Baseline Profiles",
     "description": "A practical architectural breakdown of Hunting Frame Drops: Practical Android Performance Profiling with Perfetto and Baseline Profiles for mobile developers building production-ready apps.",
