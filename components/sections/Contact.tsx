@@ -1,8 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Send, Mail, Linkedin, Github, Youtube, Instagram, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, Mail, Linkedin, Github, Youtube, Instagram, CheckCircle2, AlertCircle, Lock } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import { HIRE_ME_CONFIG } from "@/config/hireMeConfig";
 
@@ -481,6 +482,15 @@ export default function Contact() {
             >
               garach.jash1@gmail.com
             </a>
+            <span className="text-foreground/20">•</span>
+            <Link
+              href="/admin"
+              className="hover:text-accent transition-colors opacity-50 hover:opacity-100 flex items-center gap-1 font-mono text-xs"
+              title="Admin Console"
+            >
+              <Lock size={11} />
+              Admin
+            </Link>
           </div>
         </motion.footer>
       </div>

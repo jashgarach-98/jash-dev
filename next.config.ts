@@ -6,7 +6,7 @@ const isGithubActions = process.env.GITHUB_ACTIONS === "true";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isGithubActions ? "/jash-dev" : "");
 
 const nextConfig: NextConfig = {
-  output: "export",        // Generates a static /out folder
+  output: "export",        // Generates a static /out folder (works on Vercel & GitHub Pages)
   trailingSlash: true,     // Required for static routing
   basePath: basePath,      // Only prefix when deploying to GitHub Pages subpath
   images: {

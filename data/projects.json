@@ -1,0 +1,104 @@
+[
+  {
+    "id": "field-pro-plus",
+    "kind": "Flutter App",
+    "title": "Field Pro Plus",
+    "description": "Smart HR and attendance management platform built with Flutter. Empowers teams with live employee tracking, automated payroll calculations, shift and overtime scheduling, and real-time operational reports.",
+    "tags": ["Flutter", "HR & Payroll", "Live Tracking", "Cross-Platform"],
+    "color": "#10b981",
+    "wide": true,
+    "links": [
+      {
+        "label": "Play Store",
+        "href": "https://play.google.com/store/apps/details?id=field.pro.fieldproplus"
+      },
+      {
+        "label": "App Store",
+        "href": "https://apps.apple.com/in/app/field-pro-plus/id6751740793"
+      },
+      {
+        "label": "Website",
+        "href": "https://fieldproplus.in"
+      }
+    ]
+  },
+  {
+    "id": "grafterr-pos",
+    "kind": "Flutter App",
+    "title": "Grafterr POS",
+    "description": "All-in-one Flutter point-of-sale product built for hospitality businesses, helping teams take orders faster, accept payments smoothly, and manage day-to-day operations from a single app experience.",
+    "tags": ["Flutter", "POS", "Hospitality", "Cross-Platform"],
+    "color": "#f59e0b",
+    "wide": true,
+    "links": [
+      {
+        "label": "Play Store",
+        "href": "https://play.google.com/store/apps/details?id=com.grafterr.grafterr_pos"
+      },
+      {
+        "label": "App Store",
+        "href": "https://apps.apple.com/in/app/grafterr-pos/id6474546328"
+      }
+    ]
+  },
+  {
+    "id": "operator",
+    "kind": "Tablet App",
+    "title": "Operator — Grafterr",
+    "description": "Restaurant operations app for table orders, payments, split bills, reservations, delivery flows, offers, and service coordination across busy hospitality environments.",
+    "tags": ["POS", "Tablet", "Hospitality", "Operations"],
+    "color": "#f59e0b",
+    "wide": false,
+    "links": [
+      {
+        "label": "View App",
+        "href": "https://play.google.com/store/apps/details?id=com.eposhybrid.beta.operator"
+      }
+    ]
+  },
+  {
+    "id": "self-checkout",
+    "kind": "Tablet App",
+    "title": "Self Checkout — Grafterr",
+    "description": "Self-service kiosk flow that helps customers place and collect orders more quickly while reducing friction and queues at the counter.",
+    "tags": ["Kiosk", "Self-Service", "Tablet", "UX Efficiency"],
+    "color": "#6366f1",
+    "wide": false,
+    "links": [
+      {
+        "label": "View App",
+        "href": "https://play.google.com/store/apps/details?id=com.eposhybrid.selfcheckout"
+      }
+    ]
+  },
+  {
+    "id": "collection-app",
+    "kind": "Tablet App",
+    "title": "Collection App — Grafterr",
+    "description": "Large-screen order status display showing cooking and ready-to-pick-up stages while also allowing advertising alongside operational information.",
+    "tags": ["Order Status", "Large Screen", "Customer Display"],
+    "color": "#06b6d4",
+    "wide": false,
+    "links": [
+      {
+        "label": "View App",
+        "href": "https://play.google.com/store/apps/details?id=com.grafterr.collectionapp"
+      }
+    ]
+  },
+  {
+    "id": "kitchen-display",
+    "kind": "Tablet App",
+    "title": "Kitchen Display — Grafterr",
+    "description": "Kitchen-facing workflow app designed to help chefs optimize preparation flow and deliver smoother dining operations.",
+    "tags": ["KDS", "Kitchen Ops", "Tablet", "Workflow"],
+    "color": "#14b8a6",
+    "wide": false,
+    "links": [
+      {
+        "label": "View App",
+        "href": "https://play.google.com/store/apps/details?id=com.eposhybrid.kitchendisplay"
+      }
+    ]
+  }
+]
