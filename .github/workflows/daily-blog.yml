@@ -86,6 +86,8 @@ jobs:
           fi
 
       - name: Build static export & verify website integrity
+        env:
+          NEXT_PUBLIC_BASE_PATH: /jash-dev
         run: |
           npm run build
           touch ./out/.nojekyll

@@ -53,7 +53,7 @@ export function getPostBySlug(slug: string): Post | undefined {
 }
 
 export function getAssetPath(path: string): string {
-  const prefix = process.env.NODE_ENV === "production" ? "/jash-dev" : "";
+  const prefix = process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.GITHUB_ACTIONS === "true" ? "/jash-dev" : "");
   return path.startsWith("/") ? `${prefix}${path}` : `${prefix}/${path}`;
 }
 

@@ -17,6 +17,8 @@ const instrumentSans = Instrument_Sans({
   display: "swap",
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (process.env.GITHUB_ACTIONS === "true" ? "/jash-dev" : "");
+
 export const metadata: Metadata = {
   title: "Jash Garach | Android & Flutter Developer",
   description:
@@ -48,11 +50,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: `${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/favicon-32.png`, sizes: "32x32", type: "image/png" },
-      { url: `${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/favicon-192.png`, sizes: "192x192", type: "image/png" },
+      { url: `${basePath}/assets/favicon-32.png`, sizes: "32x32", type: "image/png" },
+      { url: `${basePath}/assets/favicon-192.png`, sizes: "192x192", type: "image/png" },
     ],
-    apple: [{ url: `${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/apple-touch-icon.png`, sizes: "180x180" }],
-    shortcut: [`${process.env.NODE_ENV === "production" ? "/jash-dev" : ""}/assets/favicon-32.png`],
+    apple: [{ url: `${basePath}/assets/apple-touch-icon.png`, sizes: "180x180" }],
+    shortcut: [`${basePath}/assets/favicon-32.png`],
   },
 };
 

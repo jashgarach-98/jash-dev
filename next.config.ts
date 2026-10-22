@@ -1,13 +1,14 @@
 import type { NextConfig } from "next";
 
-// basePath is only needed on GitHub Pages (production).
-// Locally, we run without it so localhost:3000 works normally.
-const isProd = process.env.NODE_ENV === "production";
+// basePath is only needed when deploying to a subpath like GitHub Pages (/jash-dev).
+// On Vercel, localhost, or custom domains, basePath should be empty ("") so the site works at root domain.
+const isGithubActions = process.env.GITHUB_ACTIONS === "true";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isGithubActions ? "/jash-dev" : "");
 
 const nextConfig: NextConfig = {
-  output: "export",        // Generates a static /out folder for GitHub Pages
-  trailingSlash: true,     // Required for GitHub Pages routing
-  basePath: isProd ? "/jash-dev" : "",   // Only prefix on production
+  output: "export",        // Generates a static /out folder
+  trailingSlash: true,     // Required for static routing
+  basePath: basePath,      // Only prefix when deploying to GitHub Pages subpath
   images: {
     unoptimized: true,     // Required for static export (no image server)
   },
