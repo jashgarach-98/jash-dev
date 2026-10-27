@@ -6,11 +6,13 @@ import Projects from "@/components/sections/Projects";
 import Experience from "@/components/sections/Experience";
 import Contact from "@/components/sections/Contact";
 import HireMeChatbot from "@/components/hire-me/HireMeChatbot";
+import IPhoneIntroScreen from "@/components/intro/IPhoneIntroScreen";
 import { HireMeProvider } from "@/context/HireMeContext";
 
 export default function Home() {
   return (
     <HireMeProvider>
+      <IPhoneIntroScreen />
       <CustomCursor />
       <Navbar />
       <main id="main">

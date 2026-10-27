@@ -55,14 +55,10 @@ body {
 
 /* Hide native cursor only on pointer devices (custom cursor replaces it) */
 @media (pointer: fine) {
-  body {
-    cursor: none;
-  }
-
-  a,
-  button,
-  [role="button"] {
-    cursor: none;
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
   }
 }
 
@@ -230,3 +226,33 @@ p {
   border-radius: 6px;
   z-index: 9999;
 }
+
+/* ─── iOS Slide to Unlock Shimmer Effect ────────────────────────────────── */
+@keyframes slide-shimmer {
+  0% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: 150% 0;
+  }
+}
+
+.slide-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.32) 0%,
+    rgba(255, 255, 255, 0.45) 30%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.45) 70%,
+    rgba(255, 255, 255, 0.32) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: slide-shimmer 2.4s ease-in-out infinite;
+  display: inline-flex;
+  align-items: center;
+}
+

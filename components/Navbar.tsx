@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, Smartphone } from "lucide-react";
 import { clsx } from "clsx";
 import { useHireMe } from "@/context/HireMeContext";
 
@@ -244,6 +244,21 @@ export default function Navbar() {
 
           {/* Right controls */}
           <div className="flex items-center gap-3">
+            {/* Replay iPhone Intro toggle */}
+            {mounted && isHome && (
+              <button
+                type="button"
+                onClick={() => {
+                  window.dispatchEvent(new CustomEvent("replay-iphone-intro"));
+                }}
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground/60 hover:text-foreground hover:border-accent hover:text-accent transition-all duration-300"
+                aria-label="Replay iPhone Intro Screen"
+                title="Replay iPhone Lock Screen"
+              >
+                <Smartphone size={16} />
+              </button>
+            )}
+
             {/* Theme toggle */}
             {mounted && (
               <button
@@ -355,6 +370,19 @@ export default function Navbar() {
               >
                 Blog
               </Link>
+              {isHome && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeMobileMenu();
+                    window.dispatchEvent(new CustomEvent("replay-iphone-intro"));
+                  }}
+                  className="flex items-center gap-2 rounded-lg px-4 py-3 text-base font-medium text-foreground/70 hover:text-foreground hover:bg-accent/10 transition-all duration-200 text-left"
+                >
+                  <Smartphone size={18} className="text-accent" />
+                  <span>Lock Screen Simulator</span>
+                </button>
+              )}
               <button
                 type="button"
                 onClick={() => {
