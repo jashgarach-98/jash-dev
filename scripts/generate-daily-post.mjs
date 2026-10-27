@@ -92,6 +92,102 @@ const TOPIC_ROTATION = [
     tags: ["Testing", "Android", "Flutter", "CI/CD", "Maestro"],
     accent: "#a855f7",
   },
+  {
+    category: "Android / Background Work",
+    topic: "Building Resilient Background Schedulers with WorkManager, Foreground Services, and Battery Optimization",
+    tags: ["Android", "WorkManager", "Kotlin", "Battery Optimization", "Background Tasks"],
+    accent: "#38bdf8",
+  },
+  {
+    category: "Flutter / State Management",
+    topic: "State Management in Enterprise Flutter: Pragmatic Riverpod 2.0 and BLoC Architecture Patterns",
+    tags: ["Flutter", "Riverpod", "BLoC", "State Management", "Dart"],
+    accent: "#22d3ee",
+  },
+  {
+    category: "Flutter / Graphics Engine",
+    topic: "Inside the Impeller Engine: How Flutter Conquered Shader Compilation Jank on iOS and Android",
+    tags: ["Flutter", "Impeller", "Vulkan", "Metal", "Performance"],
+    accent: "#10b981",
+  },
+  {
+    category: "Android / Jetpack Compose",
+    topic: "Compose Internals: CompositionLocal, Restartable Composables, and Runtime Stability Annotations",
+    tags: ["Jetpack Compose", "Android", "Kotlin", "Compiler Plugins", "Recomposition"],
+    accent: "#e1ff00",
+  },
+  {
+    category: "Flutter / Platform Interop",
+    topic: "Type-Safe Platform Channels in Flutter: Bridging Native Kotlin SDKs with Pigeon",
+    tags: ["Flutter", "Kotlin", "Pigeon", "Platform Channels", "Native Interop"],
+    accent: "#818cf8",
+  },
+  {
+    category: "Android / Security & Hardening",
+    topic: "Production Android App Hardening: ProGuard/R8 Rules, Root Detection, and EncryptedSharedPreferences",
+    tags: ["Android", "Security", "R8", "ProGuard", "Cryptography"],
+    accent: "#f59e0b",
+  },
+  {
+    category: "Flutter / Concurrency",
+    topic: "High-Performance Concurrency in Dart: Worker Isolates and Heavy JSON Deserialization",
+    tags: ["Dart", "Flutter", "Isolates", "Multithreading", "Performance"],
+    accent: "#ec4899",
+  },
+  {
+    category: "Android / Architecture",
+    topic: "Modularizing Large Android Apps: Navigation, Inversion of Control, and Build Speed Optimization",
+    tags: ["Android", "Modularization", "Gradle", "Hilt", "Clean Architecture"],
+    accent: "#06b6d4",
+  },
+  {
+    category: "Android / Camera & Media",
+    topic: "CameraX in Production: Custom Analyzers, ML Kit Barcode Scanning, and Lifecycle-Aware Preview",
+    tags: ["Android", "CameraX", "ML Kit", "Computer Vision", "Kotlin"],
+    accent: "#a855f7",
+  },
+  {
+    category: "Flutter / Custom UI",
+    topic: "Custom RenderObjects in Flutter: Breaking Past Widget Boundaries for Extreme Rendering Speed",
+    tags: ["Flutter", "RenderObject", "CustomPainter", "Dart", "UI Architecture"],
+    accent: "#22d3ee",
+  },
+  {
+    category: "Android / Pagination",
+    topic: "Infinite Scroll Mastery with Paging 3, RemoteMediator, and Jetpack Compose",
+    tags: ["Android", "Paging 3", "Room", "Jetpack Compose", "Coroutines"],
+    accent: "#38bdf8",
+  },
+  {
+    category: "Mobile Hardware / POS",
+    topic: "Real-World BLE Integrations on Android: Connection States, MTU Negotiation, and GATT Handshakes",
+    tags: ["Android", "Bluetooth LE", "IoT", "Hardware", "POS"],
+    accent: "#10b981",
+  },
+  {
+    category: "Android / Memory Profiling",
+    topic: "Hunting Memory Leaks in Android: LeakCanary Deep Dive, Static References, and ViewModel Lifecycles",
+    tags: ["Android", "Memory Leaks", "LeakCanary", "Profiling", "Garbage Collection"],
+    accent: "#ec4899",
+  },
+  {
+    category: "Flutter / Web & Desktop",
+    topic: "Deploying Flutter to Web and Desktop: CanvasKit Optimization, SEO, and Responsive Breakpoints",
+    tags: ["Flutter", "Web", "Desktop", "Performance", "CanvasKit"],
+    accent: "#818cf8",
+  },
+  {
+    category: "Android / Real-Time Data",
+    topic: "Real-Time Mobile Architecture: WebSockets, Server-Sent Events, and SharedFlow in Kotlin",
+    tags: ["Android", "Kotlin", "WebSockets", "SharedFlow", "Reactive"],
+    accent: "#f59e0b",
+  },
+  {
+    category: "Cross-Platform / Multiplatform",
+    topic: "Compose Multiplatform in Production: Sharing UI and Business Logic across Android and iOS",
+    tags: ["Compose Multiplatform", "Kotlin Multiplatform", "iOS", "Android", "Cross-Platform"],
+    accent: "#e1ff00",
+  },
 ];
 
 /**
@@ -124,28 +220,43 @@ function selectTopic(existingPosts) {
     };
   }
 
-  const existingTitles = new Set(existingPosts.map((p) => p.title.toLowerCase()));
-  const existingSlugs = new Set(existingPosts.map((p) => p.slug.toLowerCase()));
+  const existingTitles = new Set(existingPosts.map((p) => p.title.toLowerCase().trim()));
+  const existingSlugs = new Set(existingPosts.map((p) => p.slug.toLowerCase().trim()));
 
   // Find the first topic from rotation that hasn't been covered
   for (const item of TOPIC_ROTATION) {
-    const isTitleCovered = [...existingTitles].some((title) =>
-      title.includes(item.topic.toLowerCase()) || item.topic.toLowerCase().includes(title)
-    );
+    const isTitleExact = existingTitles.has(item.topic.toLowerCase().trim());
     const suggestedSlug = slugify(item.topic);
     const isSlugCovered = existingSlugs.has(suggestedSlug);
 
-    if (!isTitleCovered && !isSlugCovered) {
+    if (!isTitleExact && !isSlugCovered) {
       console.log(`[Topic Selection] Selected rotation topic: "${item.topic}"`);
       return item;
     }
   }
 
-  // If all default rotation topics have been used, pick the oldest one and create an advanced spin
-  const fallbackIndex = existingPosts.length % TOPIC_ROTATION.length;
-  const baseItem = TOPIC_ROTATION[fallbackIndex];
-  console.log(`[Topic Selection] All default topics covered; selecting round-robin topic: "${baseItem.topic}"`);
-  return baseItem;
+  // If all default rotation topics have been used, pick the next round-robin topic and give it an advanced unique angle
+  const round = Math.floor(existingPosts.length / TOPIC_ROTATION.length) + 1;
+  const index = existingPosts.length % TOPIC_ROTATION.length;
+  const baseItem = TOPIC_ROTATION[index];
+
+  const prefixAngles = [
+    "Production Case Study:",
+    "Deep Dive & Benchmarks:",
+    "Advanced Architectural Patterns in",
+    "Edge Cases and Failure Recovery:",
+    "Mastering Real-World Pitfalls in",
+    "High-Scale Performance Tuning for",
+  ];
+  const angle = prefixAngles[(round - 1) % prefixAngles.length];
+  const generatedTopic = `${angle} ${baseItem.topic}`;
+
+  console.log(`[Topic Selection] All default topics covered; generating unique advanced topic: "${generatedTopic}"`);
+
+  return {
+    ...baseItem,
+    topic: generatedTopic,
+  };
 }
 
 /**
@@ -161,7 +272,21 @@ function slugify(text) {
     .replace(/\-\-+/g, "-")
     .replace(/^-+/, "")
     .replace(/-+$/, "")
-    .slice(0, 60);
+    .slice(0, 50);
+}
+
+/**
+ * Generate a guaranteed unique slug against existing posts
+ */
+function generateUniqueSlug(text, existingPosts) {
+  const base = slugify(text).slice(0, 45).replace(/-+$/, "");
+  let candidate = base;
+  let counter = 1;
+  const existingSlugs = new Set(existingPosts.map((p) => p.slug.toLowerCase()));
+  while (existingSlugs.has(candidate.toLowerCase())) {
+    candidate = `${base}-${counter++}`;
+  }
+  return candidate;
 }
 
 /**
@@ -299,14 +424,7 @@ async function generateWithOpenAI(topicItem, apiKey, existingPosts) {
  */
 function generateCuratedFallback(topicItem, existingPosts) {
   console.log("[AI Engine] Generating using curated high-quality technical library...");
-  const baseSlug = slugify(topicItem.topic);
-
-  // Dynamic slug disambiguation if needed
-  let finalSlug = baseSlug;
-  let counter = 1;
-  while (existingPosts.some((p) => p.slug === finalSlug)) {
-    finalSlug = `${baseSlug}-${counter++}`;
-  }
+  const finalSlug = generateUniqueSlug(topicItem.topic, existingPosts);
 
   const articlesByTopic = {
     "Building Resilient Offline-First Mobile Architectures with Kotlin Coroutines and Room": {
@@ -650,7 +768,7 @@ async function main() {
 
   // Prepare dates & metadata
   const { isoDate, publishedLabel } = getPublicationDates();
-  const slug = slugify(generatedData.slug || generatedData.title);
+  const slug = generateUniqueSlug(generatedData.slug || generatedData.title, existingPosts);
 
   // 4. Generate & Save Cover Image
   const imageSrc = await generateCoverImage(
