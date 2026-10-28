@@ -1,5 +1,71 @@
 [
   {
+    "slug": "inside-the-impeller-engine-how-flutter-conque",
+    "title": "Inside the Impeller Engine: How Flutter Conquered Shader Compilation Jank on iOS and Android",
+    "description": "A practical architectural breakdown of Inside the Impeller Engine: How Flutter Conquered Shader Compilation Jank on iOS and Android for mobile developers building production-ready apps.",
+    "coverImage": {
+      "src": "/blog/inside-the-impeller-engine-how-flutter-conque.jpg",
+      "alt": "Inside the Impeller Engine: How Flutter Conquered Shader Compilation Jank on iOS and Android — cover illustration",
+      "caption": "A practical architectural breakdown of Inside the Impeller Engine: How Flutter Conquered Shader Compilation Jank on iOS and Android for mobile developers building production-ready apps."
+    },
+    "date": "2026-10-28",
+    "publishedLabel": "October 28, 2026",
+    "readingTime": "5 min read",
+    "category": "Flutter / Graphics Engine",
+    "tags": [
+      "Flutter",
+      "Impeller",
+      "Vulkan",
+      "Metal",
+      "Performance"
+    ],
+    "accent": "#10b981",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Inside the Impeller Engine: How Flutter Conquered Shader Compilation Jank on iOS and Android."
+      },
+      {
+        "type": "heading",
+        "text": "The Architectural Core"
+      },
+      {
+        "type": "paragraph",
+        "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Explicit state modeling with immutable data structures.",
+          "Clear boundaries between data retrieval and UI consumption.",
+          "Continuous testing across isolated units and integrated flows."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+      },
+      {
+        "type": "heading",
+        "text": "Summary & Practical Advice"
+      },
+      {
+        "type": "paragraph",
+        "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+      }
+    ],
+    "references": [
+      {
+        "label": "Android Developers Official Guides",
+        "href": "https://developer.android.com"
+      },
+      {
+        "label": "Flutter Documentation",
+        "href": "https://docs.flutter.dev"
+      }
+    ]
+  },
+  {
     "slug": "state-management-in-enterprise-flutter-pragma",
     "title": "State Management in Enterprise Flutter: Pragmatic Riverpod 2.0 and BLoC Architecture Patterns",
     "description": "A practical architectural breakdown of State Management in Enterprise Flutter: Pragmatic Riverpod 2.0 and BLoC Architecture Patterns for mobile developers building production-ready apps.",
