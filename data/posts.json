@@ -1,5 +1,71 @@
 [
   {
+    "slug": "type-safe-platform-channels-in-flutter-bridgi",
+    "title": "Type-Safe Platform Channels in Flutter: Bridging Native Kotlin SDKs with Pigeon",
+    "description": "A practical architectural breakdown of Type-Safe Platform Channels in Flutter: Bridging Native Kotlin SDKs with Pigeon for mobile developers building production-ready apps.",
+    "coverImage": {
+      "src": "/blog/type-safe-platform-channels-in-flutter-bridgi.svg",
+      "alt": "Type-Safe Platform Channels in Flutter: Bridging Native Kotlin SDKs with Pigeon — cover illustration",
+      "caption": "A practical architectural breakdown of Type-Safe Platform Channels in Flutter: Bridging Native Kotlin SDKs with Pigeon for mobile developers building production-ready apps."
+    },
+    "date": "2026-10-30",
+    "publishedLabel": "October 30, 2026",
+    "readingTime": "5 min read",
+    "category": "Flutter / Platform Interop",
+    "tags": [
+      "Flutter",
+      "Kotlin",
+      "Pigeon",
+      "Platform Channels",
+      "Native Interop"
+    ],
+    "accent": "#818cf8",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Type-Safe Platform Channels in Flutter: Bridging Native Kotlin SDKs with Pigeon."
+      },
+      {
+        "type": "heading",
+        "text": "The Architectural Core"
+      },
+      {
+        "type": "paragraph",
+        "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Explicit state modeling with immutable data structures.",
+          "Clear boundaries between data retrieval and UI consumption.",
+          "Continuous testing across isolated units and integrated flows."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+      },
+      {
+        "type": "heading",
+        "text": "Summary & Practical Advice"
+      },
+      {
+        "type": "paragraph",
+        "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+      }
+    ],
+    "references": [
+      {
+        "label": "Android Developers Official Guides",
+        "href": "https://developer.android.com"
+      },
+      {
+        "label": "Flutter Documentation",
+        "href": "https://docs.flutter.dev"
+      }
+    ]
+  },
+  {
     "slug": "compose-internals-compositionlocal-restartabl",
     "title": "Compose Internals: CompositionLocal, Restartable Composables, and Runtime Stability Annotations",
     "description": "A practical architectural breakdown of Compose Internals: CompositionLocal, Restartable Composables, and Runtime Stability Annotations for mobile developers building production-ready apps.",
