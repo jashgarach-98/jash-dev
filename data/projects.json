@@ -1,5 +1,20 @@
 [
   {
+    "id": "notiva",
+    "kind": "Android App",
+    "title": "Notiva — Simple Notes, Your Way",
+    "description": "Minimal, offline-first notes app engineered with Kotlin, Jetpack Compose, and Clean Architecture. Delivers a distraction-free writing experience with Realm local storage, quick search, pinning, archiving, dark mode, and adaptive layouts for phones, foldables, and tablets.",
+    "tags": ["Android", "Kotlin", "Jetpack Compose", "Clean Architecture", "Realm DB", "Offline-First"],
+    "color": "#8b5cf6",
+    "wide": true,
+    "links": [
+      {
+        "label": "Play Store",
+        "href": "https://play.google.com/store/apps/details?id=com.studio.quicknotes"
+      }
+    ]
+  },
+  {
     "id": "field-pro-plus",
     "kind": "Flutter App",
     "title": "Field Pro Plus",
