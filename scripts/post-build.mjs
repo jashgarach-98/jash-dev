@@ -93,7 +93,14 @@ function syncDirectory(currentDir) {
       }
 
       // If flat .txt exists (e.g. blog.txt), ensure blog/index.txt exists
-      if (entry.name.endsWith(".txt") && entry.name !== "index.txt" && !entry.name.startsWith("__next") && !entry.name.startsWith("_")) {
+      if (
+        entry.name.endsWith(".txt") &&
+        entry.name !== "index.txt" &&
+        entry.name !== "app-ads.txt" &&
+        entry.name !== "robots.txt" &&
+        !entry.name.startsWith("__next") &&
+        !entry.name.startsWith("_")
+      ) {
         const baseName = entry.name.slice(0, -4);
         const targetDir = path.join(currentDir, baseName);
         const targetTxt = path.join(targetDir, "index.txt");
