@@ -57,6 +57,8 @@ export default function AdminProjectsManager({
     const newProj: Project = {
       id: `new-project-${Date.now()}`,
       kind: "Flutter App",
+      category: "personal",
+      company: "Personal Project",
       title: "New Featured Project",
       description: "A high-performance mobile application...",
       tags: ["Flutter", "Cross-Platform", "Dart"],
@@ -191,9 +193,21 @@ export default function AdminProjectsManager({
                     #{index + 1}
                   </span>
                   <div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-xs font-mono uppercase tracking-wider text-foreground/50">
                         {project.kind}
+                      </span>
+                      <span className="text-foreground/20 text-xs">•</span>
+                      <span
+                        className={`rounded-full px-2 py-0.5 text-[10px] font-mono border ${
+                          project.category === "personal"
+                            ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                            : "bg-amber-500/10 text-amber-400 border-amber-500/20"
+                        }`}
+                      >
+                        {project.category === "personal"
+                          ? "Personal Project"
+                          : "Fininfocom / Grafterr"}
                       </span>
                       {project.wide && (
                         <span className="rounded-full bg-accent/10 text-accent text-[10px] font-mono px-2 py-0.5 border border-accent/20">
@@ -280,6 +294,29 @@ export default function AdminProjectsManager({
                         placeholder="Flutter App, Tablet App, etc."
                         className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground focus:border-accent focus:outline-none"
                       />
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-xs font-mono text-foreground/60">
+                        Affiliation / Category
+                      </label>
+                      <select
+                        value={project.category || "personal"}
+                        onChange={(e) =>
+                          handleUpdateProject(index, {
+                            ...project,
+                            category: e.target.value as "personal" | "fininfocom",
+                            company:
+                              e.target.value === "personal"
+                                ? "Personal Project"
+                                : "Fininfocom / Grafterr",
+                          })
+                        }
+                        className="w-full rounded-xl border border-border bg-background px-3 py-2 text-xs sm:text-sm text-foreground focus:border-accent focus:outline-none cursor-pointer"
+                      >
+                        <option value="personal">Personal Project</option>
+                        <option value="fininfocom">Fininfocom / Grafterr</option>
+                      </select>
                     </div>
 
                     <div className="md:col-span-2 space-y-1">

@@ -1,29 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { projects, type Project } from "@/lib/projects";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowUpRight,
+  ExternalLink,
+  Sparkles,
+  Building2,
+  Layers,
+} from "lucide-react";
+import { projects, type Project, type ProjectCategory } from "@/lib/projects";
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 48 },
+  hidden: { opacity: 0, y: 32 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
 function ProjectCard({ project }: { project: Project }) {
   const [isHovered, setIsHovered] = useState(false);
+  const isPersonal = project.category === "personal";
 
   return (
     <motion.article
+      layout
       variants={cardVariants}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -46,9 +54,23 @@ function ProjectCard({ project }: { project: Project }) {
         {/* Header row */}
         <div className="mb-3 flex items-start justify-between gap-4">
           <div>
-            <p className="mb-1 text-xs uppercase tracking-[0.15em] text-foreground/40 font-mono">
-              {project.kind}
-            </p>
+            <div className="mb-2 flex flex-wrap items-center gap-2">
+              <span className="text-xs uppercase tracking-[0.15em] text-foreground/40 font-mono">
+                {project.kind}
+              </span>
+              <span className="text-foreground/20 text-xs">•</span>
+              {isPersonal ? (
+                <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-mono font-medium text-emerald-400 border border-emerald-500/20">
+                  <Sparkles size={11} className="stroke-[2.2]" />
+                  Personal Project
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/10 px-2.5 py-0.5 text-[11px] font-mono font-medium text-amber-400 border border-amber-500/20">
+                  <Building2 size={11} className="stroke-[2.2]" />
+                  Fininfocom / Grafterr
+                </span>
+              )}
+            </div>
             <h3 className="text-lg font-bold leading-tight md:text-xl lg:text-2xl">
               {project.title}
             </h3>
@@ -109,6 +131,34 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
+
+  const personalProjects = projects.filter((p) => p.category === "personal");
+  const fininfocomProjects = projects.filter(
+    (p) => p.category === "fininfocom"
+  );
+
+  const filterTabs = [
+    {
+      id: "all" as const,
+      label: "All Projects",
+      count: projects.length,
+      icon: Layers,
+    },
+    {
+      id: "personal" as const,
+      label: "Personal Projects",
+      count: personalProjects.length,
+      icon: Sparkles,
+    },
+    {
+      id: "fininfocom" as const,
+      label: "Fininfocom / Grafterr",
+      count: fininfocomProjects.length,
+      icon: Building2,
+    },
+  ];
+
   return (
     <section
       id="projects"
@@ -125,30 +175,189 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-10 md:mb-14"
+          className="mb-8 md:mb-12"
         >
           <span className="section-tag">Selected Work</span>
           <h2 className="mt-3 max-w-3xl text-[clamp(2rem,5vw,3.5rem)] font-bold tracking-tight text-balance">
             Flutter and Android apps built for enterprise and real-world operations.
           </h2>
           <p className="mt-3.5 max-w-2xl text-sm md:text-base text-foreground/60 leading-relaxed">
-            Reliable, high-clarity mobile tools that help real businesses run
-            smoothly and give users a faster, cleaner experience.
+            A portfolio featuring independent personal applications alongside
+            commercial POS, kiosk, and operations platforms engineered for
+            Fininfocom and Grafterr.
           </p>
+
+          {/* Filter Tabs */}
+          <div className="mt-8 flex flex-wrap items-center gap-2">
+            {filterTabs.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeFilter === tab.id;
+
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveFilter(tab.id)}
+                  className={`group relative flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm font-medium transition-colors duration-200 cursor-pointer ${
+                    isActive
+                      ? "text-foreground font-semibold"
+                      : "text-foreground/60 hover:text-foreground hover:bg-surface/60"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeProjectFilterTab"
+                      className="absolute inset-0 rounded-full border border-accent/40 bg-accent/10 backdrop-blur-sm"
+                      transition={{ type: "spring", stiffness: 450, damping: 32 }}
+                    />
+                  )}
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Icon
+                      size={14}
+                      className={
+                        isActive ? "text-accent" : "text-foreground/40 group-hover:text-foreground/70"
+                      }
+                    />
+                    <span>{tab.label}</span>
+                    <span
+                      className={`rounded-full px-2 py-0.5 text-[11px] font-mono transition-colors ${
+                        isActive
+                          ? "bg-accent/20 text-accent font-semibold"
+                          : "bg-surface/80 text-foreground/50 border border-border"
+                      }`}
+                    >
+                      {tab.count}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </motion.div>
 
-        {/* Project grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2"
-        >
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </motion.div>
+        {/* Content Section */}
+        <AnimatePresence mode="wait">
+          {activeFilter === "all" ? (
+            <motion.div
+              key="all-projects"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-12"
+            >
+              {/* Group 1: Personal Projects */}
+              <div className="space-y-5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                      <Sparkles size={16} />
+                    </div>
+                    <div>
+                      <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground">
+                        Personal & Independent Projects
+                      </h3>
+                      <p className="text-xs text-foreground/50">
+                        Self-driven mobile applications built and maintained end-to-end
+                      </p>
+                    </div>
+                  </div>
+                  <span className="self-start sm:self-auto rounded-full bg-surface px-2.5 py-0.5 text-xs font-mono text-foreground/60 border border-border">
+                    {personalProjects.length} Projects
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+                  {personalProjects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </div>
+              </div>
+
+              {/* Group 2: Fininfocom / Grafterr */}
+              <div className="space-y-5 pt-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-3">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                      <Building2 size={16} />
+                    </div>
+                    <div>
+                      <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground">
+                        Fininfocom / Grafterr Products
+                      </h3>
+                      <p className="text-xs text-foreground/50">
+                        Commercial POS, tablet, kiosk, and kitchen management solutions built for hospitality businesses
+                      </p>
+                    </div>
+                  </div>
+                  <span className="self-start sm:self-auto rounded-full bg-surface px-2.5 py-0.5 text-xs font-mono text-foreground/60 border border-border">
+                    {fininfocomProjects.length} Projects
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+                  {fininfocomProjects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              key={activeFilter}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.3 }}
+              className="space-y-5"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-3">
+                <div className="flex items-center gap-2.5">
+                  <div
+                    className={`flex h-8 w-8 items-center justify-center rounded-xl border ${
+                      activeFilter === "personal"
+                        ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                        : "bg-amber-500/10 text-amber-400 border-amber-500/20"
+                    }`}
+                  >
+                    {activeFilter === "personal" ? (
+                      <Sparkles size={16} />
+                    ) : (
+                      <Building2 size={16} />
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground">
+                      {activeFilter === "personal"
+                        ? "Personal & Independent Projects"
+                        : "Fininfocom / Grafterr Products"}
+                    </h3>
+                    <p className="text-xs text-foreground/50">
+                      {activeFilter === "personal"
+                        ? "Self-driven mobile applications built and maintained end-to-end"
+                        : "Commercial POS, tablet, kiosk, and kitchen management solutions built for hospitality businesses"}
+                    </p>
+                  </div>
+                </div>
+                <span className="self-start sm:self-auto rounded-full bg-surface px-2.5 py-0.5 text-xs font-mono text-foreground/60 border border-border">
+                  {(activeFilter === "personal"
+                    ? personalProjects
+                    : fininfocomProjects
+                  ).length}{" "}
+                  Projects
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2">
+                {(activeFilter === "personal"
+                  ? personalProjects
+                  : fininfocomProjects
+                ).map((project) => (
+                  <ProjectCard key={project.id} project={project} />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

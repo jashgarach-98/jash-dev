@@ -2,6 +2,8 @@
   {
     "id": "notiva",
     "kind": "Android App",
+    "category": "personal",
+    "company": "Personal Project",
     "title": "Notiva — Simple Notes, Your Way",
     "description": "Minimal, offline-first notes app engineered with Kotlin, Jetpack Compose, and Clean Architecture. Delivers a distraction-free writing experience with Realm local storage, quick search, pinning, archiving, dark mode, and adaptive layouts for phones, foldables, and tablets.",
     "tags": ["Android", "Kotlin", "Jetpack Compose", "Clean Architecture", "Realm DB", "Offline-First"],
@@ -17,6 +19,8 @@
   {
     "id": "field-pro-plus",
     "kind": "Flutter App",
+    "category": "personal",
+    "company": "Personal Project",
     "title": "Field Pro Plus",
     "description": "Smart HR and attendance management platform built with Flutter. Empowers teams with live employee tracking, automated payroll calculations, shift and overtime scheduling, and real-time operational reports.",
     "tags": ["Flutter", "HR & Payroll", "Live Tracking", "Cross-Platform"],
@@ -40,6 +44,8 @@
   {
     "id": "grafterr-pos",
     "kind": "Flutter App",
+    "category": "fininfocom",
+    "company": "Fininfocom / Grafterr",
     "title": "Grafterr POS",
     "description": "All-in-one Flutter point-of-sale product built for hospitality businesses, helping teams take orders faster, accept payments smoothly, and manage day-to-day operations from a single app experience.",
     "tags": ["Flutter", "POS", "Hospitality", "Cross-Platform"],
@@ -57,8 +63,31 @@
     ]
   },
   {
+    "id": "driver-app",
+    "kind": "Flutter App",
+    "category": "fininfocom",
+    "company": "Fininfocom / Grafterr",
+    "title": "Driver App — Grafterr",
+    "description": "Streamlined delivery driver application that optimizes order dispatch, route navigation, and live order tracking to help drivers fulfill customer deliveries faster and more efficiently.",
+    "tags": ["Flutter", "Delivery", "Live Tracking", "Logistics", "Cross-Platform"],
+    "color": "#3b82f6",
+    "wide": true,
+    "links": [
+      {
+        "label": "Play Store",
+        "href": "https://play.google.com/store/apps/details?id=com.eposhybrid.deliverydriverapp"
+      },
+      {
+        "label": "App Store",
+        "href": "https://apps.apple.com/in/app/driver-grafterr/id1566353613"
+      }
+    ]
+  },
+  {
     "id": "operator",
     "kind": "Tablet App",
+    "category": "fininfocom",
+    "company": "Fininfocom / Grafterr",
     "title": "Operator — Grafterr",
     "description": "Restaurant operations app for table orders, payments, split bills, reservations, delivery flows, offers, and service coordination across busy hospitality environments.",
     "tags": ["POS", "Tablet", "Hospitality", "Operations"],
@@ -74,6 +103,8 @@
   {
     "id": "self-checkout",
     "kind": "Tablet App",
+    "category": "fininfocom",
+    "company": "Fininfocom / Grafterr",
     "title": "Self Checkout — Grafterr",
     "description": "Self-service kiosk flow that helps customers place and collect orders more quickly while reducing friction and queues at the counter.",
     "tags": ["Kiosk", "Self-Service", "Tablet", "UX Efficiency"],
@@ -89,6 +120,8 @@
   {
     "id": "collection-app",
     "kind": "Tablet App",
+    "category": "fininfocom",
+    "company": "Fininfocom / Grafterr",
     "title": "Collection App — Grafterr",
     "description": "Large-screen order status display showing cooking and ready-to-pick-up stages while also allowing advertising alongside operational information.",
     "tags": ["Order Status", "Large Screen", "Customer Display"],
@@ -104,6 +137,8 @@
   {
     "id": "kitchen-display",
     "kind": "Tablet App",
+    "category": "fininfocom",
+    "company": "Fininfocom / Grafterr",
     "title": "Kitchen Display — Grafterr",
     "description": "Kitchen-facing workflow app designed to help chefs optimize preparation flow and deliver smoother dining operations.",
     "tags": ["KDS", "Kitchen Ops", "Tablet", "Workflow"],
