@@ -136,7 +136,10 @@ export default function SlideToUnlock({
         aria-valuenow={Math.round((dragX.get() / (maxDrag || 1)) * 100)}
         onKeyDown={handleKeyDown}
         onClick={handleTrackClick}
-        className="relative h-[52px] sm:h-[56px] w-[290px] xs:w-[330px] sm:w-[370px] max-w-[92vw] rounded-full bg-surface/90 backdrop-blur-xl border border-border p-[5px] sm:p-[6px] flex items-center shadow-[0_8px_30px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.08)] overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent/40 touch-none cursor-pointer"
+        className="relative h-[52px] sm:h-[56px] w-[290px] xs:w-[330px] sm:w-[370px] max-w-[92vw] rounded-full bg-surface/90 backdrop-blur-xl border border-border p-[5px] sm:p-[6px] flex items-center overflow-hidden focus:outline-none focus:ring-2 focus:ring-accent/40 touch-none cursor-pointer"
+        style={{
+          boxShadow: "var(--lockscreen-track-shadow)",
+        }}
       >
         {/* Dynamic neon lime accent glow following knob */}
         <motion.div
@@ -168,9 +171,9 @@ export default function SlideToUnlock({
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.97 }}
           aria-hidden="true"
-          className="relative z-10 h-[40px] sm:h-[44px] w-[40px] sm:w-[44px] rounded-full bg-white text-background shadow-[0_2px_12px_rgba(0,0,0,0.6)] flex items-center justify-center cursor-grab active:cursor-grabbing shrink-0 touch-none border border-white/40"
+          className="relative z-10 h-[40px] sm:h-[44px] w-[40px] sm:w-[44px] rounded-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.6)] flex items-center justify-center cursor-grab active:cursor-grabbing shrink-0 touch-none border border-white/40"
         >
-          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-background stroke-[2.5]" />
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#050505] stroke-[2.5]" />
         </motion.div>
       </div>
 

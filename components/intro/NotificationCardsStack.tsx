@@ -139,7 +139,10 @@ export default function NotificationCardsStack() {
             delay: 0.1 + index * 0.07,
             ease: "easeOut",
           }}
-          className="group relative w-full rounded-[14px] xs:rounded-[16px] sm:rounded-[18px] bg-surface/85 hover:bg-[#161616] backdrop-blur-xl border border-border hover:border-accent/40 px-3.5 sm:px-4 py-2 sm:py-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.65)] transition-all duration-300"
+          className="lockscreen-card group relative w-full rounded-[14px] xs:rounded-[16px] sm:rounded-[18px] bg-surface/85 backdrop-blur-xl border border-border hover:border-accent/40 px-3.5 sm:px-4 py-2 sm:py-2.5 transition-all duration-300"
+          style={{
+            boxShadow: "var(--lockscreen-card-shadow)",
+          }}
         >
           <div className="flex items-center gap-3 sm:gap-3.5">
             {/* App Icon */}

@@ -18,6 +18,13 @@
 
   --cursor-size: 10px;
   --cursor-border: 36px;
+
+  /* Lockscreen tokens (Dark Mode default) */
+  --lockscreen-bg: radial-gradient(ellipse 75% 55% at 50% 25%, rgba(225, 255, 0, 0.07) 0%, rgba(225, 255, 0, 0.015) 40%, transparent 75%), #050505;
+  --lockscreen-card-shadow: 0 8px 30px rgba(0, 0, 0, 0.65);
+  --lockscreen-card-hover: #161616;
+  --lockscreen-track-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  --lockscreen-clock-drop-shadow: drop-shadow(0 4px 30px rgba(0, 0, 0, 0.9));
 }
 
 .light {
@@ -27,6 +34,13 @@
   --accent-muted: rgba(79, 70, 229, 0.1);
   --surface: #ffffff;
   --border: rgba(23, 23, 23, 0.08);
+
+  /* Lockscreen tokens (Light Mode) */
+  --lockscreen-bg: radial-gradient(ellipse 80% 55% at 50% 20%, rgba(79, 70, 229, 0.08) 0%, rgba(79, 70, 229, 0.02) 40%, transparent 75%), linear-gradient(180deg, #f8f9fc 0%, #edf1f7 100%);
+  --lockscreen-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --lockscreen-card-hover: rgba(255, 255, 255, 0.98);
+  --lockscreen-track-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  --lockscreen-clock-drop-shadow: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.06));
 }
 
 /* ─── Base Reset & Body ───────────────────────────────────────────────── */
@@ -254,5 +268,30 @@ p {
   animation: slide-shimmer 2.4s ease-in-out infinite;
   display: inline-flex;
   align-items: center;
+}
+
+.light .slide-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    rgba(23, 23, 23, 0.35) 0%,
+    rgba(23, 23, 23, 0.55) 30%,
+    rgba(23, 23, 23, 0.95) 50%,
+    rgba(23, 23, 23, 0.55) 70%,
+    rgba(23, 23, 23, 0.35) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ─── iOS Lock Screen Background ─────────────────────────────────────────── */
+.lockscreen-overlay {
+  background: var(--lockscreen-bg);
+}
+
+.lockscreen-card:hover {
+  background-color: var(--lockscreen-card-hover) !important;
 }
 

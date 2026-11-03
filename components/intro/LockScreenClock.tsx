@@ -82,7 +82,10 @@ export default function LockScreenClock({ isUnlocked }: LockScreenClockProps) {
 
       {/* Massive Responsive Clock: "13:32" in website's Sora / sans font */}
       <div className="mt-0.5 sm:mt-1 flex items-center justify-center">
-        <span className="text-[64px] xs:text-[76px] sm:text-[104px] md:text-[124px] lg:text-[132px] font-bold leading-none tracking-tight text-foreground drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)] font-sans">
+        <span
+          className="text-[64px] xs:text-[76px] sm:text-[104px] md:text-[124px] lg:text-[132px] font-bold leading-none tracking-tight text-foreground font-sans"
+          style={{ filter: "var(--lockscreen-clock-drop-shadow)" }}
+        >
           {mounted ? timeData.timeStr : "13:32"}
         </span>
       </div>

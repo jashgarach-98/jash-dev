@@ -102,11 +102,7 @@ export default function IPhoneIntroScreen() {
             duration: 0.6,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="fixed inset-0 z-[8500] w-full h-[100dvh] flex flex-col justify-between items-center overflow-x-hidden overflow-y-auto sm:overflow-hidden select-none px-3 xs:px-4 sm:px-6 py-4 xs:py-5 sm:py-7 bg-background text-foreground"
-          style={{
-            background:
-              "radial-gradient(ellipse 75% 55% at 50% 25%, rgba(225, 255, 0, 0.07) 0%, rgba(225, 255, 0, 0.015) 40%, transparent 75%), #050505",
-          }}
+          className="lockscreen-overlay fixed inset-0 z-[8500] w-full h-[100dvh] flex flex-col justify-between items-center overflow-x-hidden overflow-y-auto sm:overflow-hidden select-none px-3 xs:px-4 sm:px-6 py-4 xs:py-5 sm:py-7 text-foreground"
           role="dialog"
           aria-modal="true"
           aria-label="iOS Interactive Lock Screen"
