@@ -1,0 +1,66 @@
+{
+  "slug": "camerax-in-production-custom-analyzers-ml-kit",
+  "title": "CameraX in Production: Custom Analyzers, ML Kit Barcode Scanning, and Lifecycle-Aware Preview",
+  "description": "A practical architectural breakdown of CameraX in Production: Custom Analyzers, ML Kit Barcode Scanning, and Lifecycle-Aware Preview for mobile developers building production-ready apps.",
+  "coverImage": {
+    "src": "/blog/camerax-in-production-custom-analyzers-ml-kit.jpg",
+    "alt": "CameraX in Production: Custom Analyzers, ML Kit Barcode Scanning, and Lifecycle-Aware Preview — cover illustration",
+    "caption": "A practical architectural breakdown of CameraX in Production: Custom Analyzers, ML Kit Barcode Scanning, and Lifecycle-Aware Preview for mobile developers building production-ready apps."
+  },
+  "date": "2026-11-03",
+  "publishedLabel": "November 3, 2026",
+  "readingTime": "5 min read",
+  "category": "Android / Camera & Media",
+  "tags": [
+    "Android",
+    "CameraX",
+    "ML Kit",
+    "Computer Vision",
+    "Kotlin"
+  ],
+  "accent": "#a855f7",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for CameraX in Production: Custom Analyzers, ML Kit Barcode Scanning, and Lifecycle-Aware Preview."
+    },
+    {
+      "type": "heading",
+      "text": "The Architectural Core"
+    },
+    {
+      "type": "paragraph",
+      "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Explicit state modeling with immutable data structures.",
+        "Clear boundaries between data retrieval and UI consumption.",
+        "Continuous testing across isolated units and integrated flows."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+    },
+    {
+      "type": "heading",
+      "text": "Summary & Practical Advice"
+    },
+    {
+      "type": "paragraph",
+      "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+    }
+  ],
+  "references": [
+    {
+      "label": "Android Developers Official Guides",
+      "href": "https://developer.android.com"
+    },
+    {
+      "label": "Flutter Documentation",
+      "href": "https://docs.flutter.dev"
+    }
+  ]
+}
