@@ -1,0 +1,66 @@
+{
+  "slug": "infinite-scroll-mastery-with-paging-3-remotem",
+  "title": "Infinite Scroll Mastery with Paging 3, RemoteMediator, and Jetpack Compose",
+  "description": "A practical architectural breakdown of Infinite Scroll Mastery with Paging 3, RemoteMediator, and Jetpack Compose for mobile developers building production-ready apps.",
+  "coverImage": {
+    "src": "/blog/infinite-scroll-mastery-with-paging-3-remotem.jpg",
+    "alt": "Infinite Scroll Mastery with Paging 3, RemoteMediator, and Jetpack Compose — cover illustration",
+    "caption": "A practical architectural breakdown of Infinite Scroll Mastery with Paging 3, RemoteMediator, and Jetpack Compose for mobile developers building production-ready apps."
+  },
+  "date": "2026-11-06",
+  "publishedLabel": "November 6, 2026",
+  "readingTime": "5 min read",
+  "category": "Android / Pagination",
+  "tags": [
+    "Android",
+    "Paging 3",
+    "Room",
+    "Jetpack Compose",
+    "Coroutines"
+  ],
+  "accent": "#38bdf8",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Infinite Scroll Mastery with Paging 3, RemoteMediator, and Jetpack Compose."
+    },
+    {
+      "type": "heading",
+      "text": "The Architectural Core"
+    },
+    {
+      "type": "paragraph",
+      "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Explicit state modeling with immutable data structures.",
+        "Clear boundaries between data retrieval and UI consumption.",
+        "Continuous testing across isolated units and integrated flows."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+    },
+    {
+      "type": "heading",
+      "text": "Summary & Practical Advice"
+    },
+    {
+      "type": "paragraph",
+      "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+    }
+  ],
+  "references": [
+    {
+      "label": "Android Developers Official Guides",
+      "href": "https://developer.android.com"
+    },
+    {
+      "label": "Flutter Documentation",
+      "href": "https://docs.flutter.dev"
+    }
+  ]
+}
