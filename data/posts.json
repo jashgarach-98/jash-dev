@@ -1,5 +1,71 @@
 [
   {
+    "slug": "hunting-memory-leaks-in-android-leakcanary-de",
+    "title": "Hunting Memory Leaks in Android: LeakCanary Deep Dive, Static References, and ViewModel Lifecycles",
+    "description": "A practical architectural breakdown of Hunting Memory Leaks in Android: LeakCanary Deep Dive, Static References, and ViewModel Lifecycles for mobile developers building production-ready apps.",
+    "coverImage": {
+      "src": "/blog/hunting-memory-leaks-in-android-leakcanary-de.jpg",
+      "alt": "Hunting Memory Leaks in Android: LeakCanary Deep Dive, Static References, and ViewModel Lifecycles — cover illustration",
+      "caption": "A practical architectural breakdown of Hunting Memory Leaks in Android: LeakCanary Deep Dive, Static References, and ViewModel Lifecycles for mobile developers building production-ready apps."
+    },
+    "date": "2026-11-08",
+    "publishedLabel": "November 8, 2026",
+    "readingTime": "5 min read",
+    "category": "Android / Memory Profiling",
+    "tags": [
+      "Android",
+      "Memory Leaks",
+      "LeakCanary",
+      "Profiling",
+      "Garbage Collection"
+    ],
+    "accent": "#ec4899",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Hunting Memory Leaks in Android: LeakCanary Deep Dive, Static References, and ViewModel Lifecycles."
+      },
+      {
+        "type": "heading",
+        "text": "The Architectural Core"
+      },
+      {
+        "type": "paragraph",
+        "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Explicit state modeling with immutable data structures.",
+          "Clear boundaries between data retrieval and UI consumption.",
+          "Continuous testing across isolated units and integrated flows."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+      },
+      {
+        "type": "heading",
+        "text": "Summary & Practical Advice"
+      },
+      {
+        "type": "paragraph",
+        "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+      }
+    ],
+    "references": [
+      {
+        "label": "Android Developers Official Guides",
+        "href": "https://developer.android.com"
+      },
+      {
+        "label": "Flutter Documentation",
+        "href": "https://docs.flutter.dev"
+      }
+    ]
+  },
+  {
     "slug": "real-world-ble-integrations-on-android-connec",
     "title": "Real-World BLE Integrations on Android: Connection States, MTU Negotiation, and GATT Handshakes",
     "description": "A practical architectural breakdown of Real-World BLE Integrations on Android: Connection States, MTU Negotiation, and GATT Handshakes for mobile developers building production-ready apps.",
