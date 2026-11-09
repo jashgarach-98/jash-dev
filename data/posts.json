@@ -1,5 +1,71 @@
 [
   {
+    "slug": "deploying-flutter-to-web-and-desktop-canvaski",
+    "title": "Deploying Flutter to Web and Desktop: CanvasKit Optimization, SEO, and Responsive Breakpoints",
+    "description": "A practical architectural breakdown of Deploying Flutter to Web and Desktop: CanvasKit Optimization, SEO, and Responsive Breakpoints for mobile developers building production-ready apps.",
+    "coverImage": {
+      "src": "/blog/deploying-flutter-to-web-and-desktop-canvaski.jpg",
+      "alt": "Deploying Flutter to Web and Desktop: CanvasKit Optimization, SEO, and Responsive Breakpoints — cover illustration",
+      "caption": "A practical architectural breakdown of Deploying Flutter to Web and Desktop: CanvasKit Optimization, SEO, and Responsive Breakpoints for mobile developers building production-ready apps."
+    },
+    "date": "2026-11-09",
+    "publishedLabel": "November 9, 2026",
+    "readingTime": "5 min read",
+    "category": "Flutter / Web & Desktop",
+    "tags": [
+      "Flutter",
+      "Web",
+      "Desktop",
+      "Performance",
+      "CanvasKit"
+    ],
+    "accent": "#818cf8",
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Deploying Flutter to Web and Desktop: CanvasKit Optimization, SEO, and Responsive Breakpoints."
+      },
+      {
+        "type": "heading",
+        "text": "The Architectural Core"
+      },
+      {
+        "type": "paragraph",
+        "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Explicit state modeling with immutable data structures.",
+          "Clear boundaries between data retrieval and UI consumption.",
+          "Continuous testing across isolated units and integrated flows."
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+      },
+      {
+        "type": "heading",
+        "text": "Summary & Practical Advice"
+      },
+      {
+        "type": "paragraph",
+        "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+      }
+    ],
+    "references": [
+      {
+        "label": "Android Developers Official Guides",
+        "href": "https://developer.android.com"
+      },
+      {
+        "label": "Flutter Documentation",
+        "href": "https://docs.flutter.dev"
+      }
+    ]
+  },
+  {
     "slug": "hunting-memory-leaks-in-android-leakcanary-de",
     "title": "Hunting Memory Leaks in Android: LeakCanary Deep Dive, Static References, and ViewModel Lifecycles",
     "description": "A practical architectural breakdown of Hunting Memory Leaks in Android: LeakCanary Deep Dive, Static References, and ViewModel Lifecycles for mobile developers building production-ready apps.",
