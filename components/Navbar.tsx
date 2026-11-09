@@ -49,7 +49,9 @@ export default function Navbar() {
 
   // Track active section and navbar background transparency on scroll
   useEffect(() => {
-    const handleScroll = () => {
+    let rafId: number | null = null;
+
+    const updateScroll = () => {
       setScrolled(window.scrollY > 20);
 
       if (!isHome) return;
@@ -75,9 +77,22 @@ export default function Navbar() {
       setActiveSection(current);
     };
 
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        updateScroll();
+      });
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    updateScroll();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [isHome]);
 
   // Handle smooth scrolling to target section when arriving with hash

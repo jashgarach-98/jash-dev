@@ -18,6 +18,11 @@
 
   --cursor-size: 10px;
   --cursor-border: 36px;
+  --cursor-ring-border: rgba(237, 237, 237, 0.65);
+  --cursor-ring-bg: rgba(237, 237, 237, 0.03);
+  --cursor-ring-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  --cursor-ring-hover-bg: rgba(225, 255, 0, 0.12);
+  --cursor-ring-hover-shadow: 0 0 18px rgba(225, 255, 0, 0.4);
 
   /* Lockscreen tokens (Dark Mode default) */
   --lockscreen-bg: radial-gradient(ellipse 75% 55% at 50% 25%, rgba(225, 255, 0, 0.07) 0%, rgba(225, 255, 0, 0.015) 40%, transparent 75%), #050505;
@@ -34,6 +39,12 @@
   --accent-muted: rgba(79, 70, 229, 0.1);
   --surface: #ffffff;
   --border: rgba(23, 23, 23, 0.08);
+
+  --cursor-ring-border: rgba(23, 23, 23, 0.5);
+  --cursor-ring-bg: rgba(79, 70, 229, 0.04);
+  --cursor-ring-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
+  --cursor-ring-hover-bg: rgba(79, 70, 229, 0.12);
+  --cursor-ring-hover-shadow: 0 0 18px rgba(79, 70, 229, 0.35);
 
   /* Lockscreen tokens (Light Mode) */
   --lockscreen-bg: radial-gradient(ellipse 80% 55% at 50% 20%, rgba(79, 70, 229, 0.08) 0%, rgba(79, 70, 229, 0.02) 40%, transparent 75%), linear-gradient(180deg, #f8f9fc 0%, #edf1f7 100%);
@@ -67,13 +78,68 @@ body {
   @apply transition-colors duration-500 ease-in-out;
 }
 
-/* Hide native cursor only on pointer devices (custom cursor replaces it) */
+/* Hide native cursor only on pointer devices when custom cursor is active */
 @media (pointer: fine) {
-  *,
-  *::before,
-  *::after {
+  html.has-custom-cursor,
+  html.has-custom-cursor *,
+  html.has-custom-cursor *::before,
+  html.has-custom-cursor *::after {
     cursor: none !important;
   }
+}
+
+/* ─── High-Performance Custom Cursor ─────────────────────────────────── */
+.custom-cursor-ring {
+  width: 34px;
+  height: 34px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--cursor-ring-border);
+  background-color: var(--cursor-ring-bg);
+  box-shadow: var(--cursor-ring-shadow);
+  transform: scale(1);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.18s ease-out,
+              background-color 0.18s ease-out,
+              box-shadow 0.18s ease-out;
+  will-change: transform;
+}
+
+.custom-cursor-ring.is-hovering {
+  border-color: var(--accent);
+  background-color: var(--cursor-ring-hover-bg);
+  box-shadow: var(--cursor-ring-hover-shadow);
+  transform: scale(1.353); /* 34px * 1.353 ≈ 46px */
+}
+
+.custom-cursor-ring.is-clicking {
+  transform: scale(0.82); /* 34px * 0.82 ≈ 28px */
+}
+
+.custom-cursor-ring.is-hovering.is-clicking {
+  transform: scale(1.1);
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  transform: scale(1);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.custom-cursor-dot.is-hovering {
+  transform: scale(1.25);
+}
+
+.custom-cursor-dot.is-clicking {
+  transform: scale(0.75);
+}
+
+.custom-cursor-dot.is-hovering.is-clicking {
+  transform: scale(0.95);
 }
 
 /* ─── Custom Scrollbar ────────────────────────────────────────────────── */
