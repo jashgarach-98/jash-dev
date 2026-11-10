@@ -1,0 +1,66 @@
+{
+  "slug": "real-time-mobile-architecture-websockets-serv",
+  "title": "Real-Time Mobile Architecture: WebSockets, Server-Sent Events, and SharedFlow in Kotlin",
+  "description": "A practical architectural breakdown of Real-Time Mobile Architecture: WebSockets, Server-Sent Events, and SharedFlow in Kotlin for mobile developers building production-ready apps.",
+  "coverImage": {
+    "src": "/blog/real-time-mobile-architecture-websockets-serv.jpg",
+    "alt": "Real-Time Mobile Architecture: WebSockets, Server-Sent Events, and SharedFlow in Kotlin — cover illustration",
+    "caption": "A practical architectural breakdown of Real-Time Mobile Architecture: WebSockets, Server-Sent Events, and SharedFlow in Kotlin for mobile developers building production-ready apps."
+  },
+  "date": "2026-11-10",
+  "publishedLabel": "November 10, 2026",
+  "readingTime": "5 min read",
+  "category": "Android / Real-Time Data",
+  "tags": [
+    "Android",
+    "Kotlin",
+    "WebSockets",
+    "SharedFlow",
+    "Reactive"
+  ],
+  "accent": "#f59e0b",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Real-Time Mobile Architecture: WebSockets, Server-Sent Events, and SharedFlow in Kotlin."
+    },
+    {
+      "type": "heading",
+      "text": "The Architectural Core"
+    },
+    {
+      "type": "paragraph",
+      "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Explicit state modeling with immutable data structures.",
+        "Clear boundaries between data retrieval and UI consumption.",
+        "Continuous testing across isolated units and integrated flows."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+    },
+    {
+      "type": "heading",
+      "text": "Summary & Practical Advice"
+    },
+    {
+      "type": "paragraph",
+      "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+    }
+  ],
+  "references": [
+    {
+      "label": "Android Developers Official Guides",
+      "href": "https://developer.android.com"
+    },
+    {
+      "label": "Flutter Documentation",
+      "href": "https://docs.flutter.dev"
+    }
+  ]
+}
