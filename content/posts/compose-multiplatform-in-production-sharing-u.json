@@ -1,0 +1,66 @@
+{
+  "slug": "compose-multiplatform-in-production-sharing-u",
+  "title": "Compose Multiplatform in Production: Sharing UI and Business Logic across Android and iOS",
+  "description": "A practical architectural breakdown of Compose Multiplatform in Production: Sharing UI and Business Logic across Android and iOS for mobile developers building production-ready apps.",
+  "coverImage": {
+    "src": "/blog/compose-multiplatform-in-production-sharing-u.jpg",
+    "alt": "Compose Multiplatform in Production: Sharing UI and Business Logic across Android and iOS — cover illustration",
+    "caption": "A practical architectural breakdown of Compose Multiplatform in Production: Sharing UI and Business Logic across Android and iOS for mobile developers building production-ready apps."
+  },
+  "date": "2026-11-11",
+  "publishedLabel": "November 11, 2026",
+  "readingTime": "5 min read",
+  "category": "Cross-Platform / Multiplatform",
+  "tags": [
+    "Compose Multiplatform",
+    "Kotlin Multiplatform",
+    "iOS",
+    "Android",
+    "Cross-Platform"
+  ],
+  "accent": "#e1ff00",
+  "blocks": [
+    {
+      "type": "paragraph",
+      "text": "Modern mobile development moves fast, but the underlying challenge remains consistent: how to write software that stays performant, clear, and easy to maintain as product requirements evolve. Today we explore practical strategies for Compose Multiplatform in Production: Sharing UI and Business Logic across Android and iOS."
+    },
+    {
+      "type": "heading",
+      "text": "The Architectural Core"
+    },
+    {
+      "type": "paragraph",
+      "text": "When architecting mobile applications at scale, separating concerns between state, business logic, and UI rendering is the most reliable way to avoid brittle regressions. Here is how clean design patterns clarify real-world implementation."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Explicit state modeling with immutable data structures.",
+        "Clear boundaries between data retrieval and UI consumption.",
+        "Continuous testing across isolated units and integrated flows."
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "Great code is not code that is clever; it is code that is predictable and painless to change six months later."
+    },
+    {
+      "type": "heading",
+      "text": "Summary & Practical Advice"
+    },
+    {
+      "type": "paragraph",
+      "text": "By focusing on predictable state and decoupled architecture, you insulate your codebase against platform shifts while delivering a noticeably faster experience to end users."
+    }
+  ],
+  "references": [
+    {
+      "label": "Android Developers Official Guides",
+      "href": "https://developer.android.com"
+    },
+    {
+      "label": "Flutter Documentation",
+      "href": "https://docs.flutter.dev"
+    }
+  ]
+}
