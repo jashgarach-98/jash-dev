@@ -200,7 +200,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav links */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => {
               const isActive = isHome && activeSection === link.id;
               return (
@@ -251,6 +251,31 @@ export default function Navbar() {
                   className={clsx(
                     "absolute -bottom-0.5 left-0 h-px bg-accent transition-all duration-300",
                     pathname.startsWith("/blog") ? "w-full" : "w-0 group-hover:w-full"
+                  )}
+                />
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/mycontent"
+                className={clsx(
+                  "text-sm font-medium transition-colors duration-300 relative group",
+                  pathname.startsWith("/mycontent") ||
+                    pathname.startsWith("/youtube") ||
+                    pathname.startsWith("/videos")
+                    ? "text-accent font-semibold"
+                    : "text-foreground/60 hover:text-foreground"
+                )}
+              >
+                My Content
+                <span
+                  className={clsx(
+                    "absolute -bottom-0.5 left-0 h-px bg-accent transition-all duration-300",
+                    pathname.startsWith("/mycontent") ||
+                      pathname.startsWith("/youtube") ||
+                      pathname.startsWith("/videos")
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
                   )}
                 />
               </Link>
@@ -384,6 +409,23 @@ export default function Navbar() {
                 )}
               >
                 Blog
+              </Link>
+              <Link
+                href="/mycontent"
+                onClick={closeMobileMenu}
+                className={clsx(
+                  "rounded-lg px-4 py-3 text-base font-medium transition-all duration-200 flex items-center justify-between",
+                  pathname.startsWith("/mycontent") ||
+                    pathname.startsWith("/youtube") ||
+                    pathname.startsWith("/videos")
+                    ? "text-accent bg-accent/10 font-semibold"
+                    : "text-foreground/70 hover:text-foreground hover:bg-accent/10"
+                )}
+              >
+                <span>My Content</span>
+                <span className="rounded-full bg-red-500/10 text-red-500 border border-red-500/20 text-[10px] font-mono px-2 py-0.5">
+                  NEW
+                </span>
               </Link>
               {isHome && (
                 <button
