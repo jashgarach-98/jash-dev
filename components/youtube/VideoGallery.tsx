@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUp, RefreshCw, VideoOff, ChevronDown } from "lucide-react";
+import { ArrowUp, RefreshCw, VideoOff, ChevronDown, X } from "lucide-react";
 import {
   type YouTubeVideo,
   type VideoCategory,
@@ -29,6 +29,11 @@ export default function VideoGallery({
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
+  // Reset pagination whenever category or search query changes
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [selectedCategory, searchQuery]);
+
   // Compute category counts based on all videos
   const categoryCounts = useMemo(() => {
     return getCategoryCounts(initialVideos);
@@ -39,22 +44,17 @@ export default function VideoGallery({
     return filterVideos(initialVideos, selectedCategory, searchQuery);
   }, [initialVideos, selectedCategory, searchQuery]);
 
-  // Reset pagination when category or search changes
-  const handleCategoryChange = (category: VideoCategory) => {
-    onSelectCategory(category);
-    setVisibleCount(PAGE_SIZE);
-  };
-
-  const handleSearchChange = (query: string) => {
-    setSearchQuery(query);
-    setVisibleCount(PAGE_SIZE);
-  };
-
   const displayedVideos = filteredVideos.slice(0, visibleCount);
   const hasMore = visibleCount < filteredVideos.length;
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + PAGE_SIZE);
+  };
+
+  const handleResetFilters = () => {
+    onSelectCategory("All Videos");
+    setSearchQuery("");
+    setVisibleCount(PAGE_SIZE);
   };
 
   const scrollToTop = () => {
@@ -67,10 +67,14 @@ export default function VideoGallery({
   };
 
   return (
-    <section id="video-gallery" className="relative py-14 md:py-20" aria-label="Video Gallery">
+    <section
+      id="video-gallery"
+      className="relative scroll-mt-20 md:scroll-mt-24 py-14 md:py-20"
+      aria-label="Video Gallery"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-8 md:mb-12">
+        <div className="mb-8 md:mb-10">
           <span className="section-tag">Video Collection</span>
           <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground text-balance">
             {YOUTUBE_CHANNEL.galleryHeading}
@@ -84,14 +88,16 @@ export default function VideoGallery({
         <div className="mb-10">
           <CategoryFilter
             selectedCategory={selectedCategory}
-            onSelectCategory={handleCategoryChange}
+            onSelectCategory={onSelectCategory}
             categoryCounts={categoryCounts}
             searchQuery={searchQuery}
-            onSearchChange={handleSearchChange}
+            onSearchChange={setSearchQuery}
+            filteredCount={filteredVideos.length}
+            totalVideosCount={initialVideos.length}
           />
         </div>
 
-        {/* Video Grid */}
+        {/* Video Grid or Empty State */}
         {filteredVideos.length === 0 ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -102,34 +108,56 @@ export default function VideoGallery({
               <VideoOff className="w-6 h-6" />
             </div>
             <h3 className="text-lg font-semibold text-foreground">No videos found</h3>
-            <p className="mt-1 text-sm text-foreground/60 max-w-sm">
-              No videos matched your filter or search query &quot;{searchQuery}&quot;. Try resetting your filters.
+            <p className="mt-1 text-sm text-foreground/60 max-w-md">
+              {searchQuery ? (
+                <>
+                  No videos matched &quot;{searchQuery}&quot;
+                  {selectedCategory !== "All Videos" && (
+                    <> in category &quot;{selectedCategory}&quot;</>
+                  )}
+                  . Try clearing the search or switching filters.
+                </>
+              ) : (
+                <>
+                  No videos found for category &quot;{selectedCategory}&quot;.
+                </>
+              )}
             </p>
-            <button
-              type="button"
-              onClick={() => {
-                onSelectCategory("All Videos");
-                setSearchQuery("");
-                setVisibleCount(PAGE_SIZE);
-              }}
-              className="mt-5 inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2 text-xs font-semibold text-background hover:opacity-90 transition-opacity"
-            >
-              <RefreshCw className="w-3.5 h-3.5" />
-              Reset Filters
-            </button>
+
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5">
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-border bg-surface px-4 py-2 text-xs font-semibold text-foreground hover:bg-surface/80 transition-colors"
+                >
+                  <X className="w-3.5 h-3.5" />
+                  Clear Search
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={handleResetFilters}
+                className="inline-flex items-center gap-1.5 rounded-xl bg-red-600 hover:bg-red-700 px-4 py-2 text-xs font-semibold text-white transition-colors shadow-sm shadow-red-600/20"
+              >
+                <RefreshCw className="w-3.5 h-3.5" />
+                Reset All Filters
+              </button>
+            </div>
           </motion.div>
         ) : (
           <>
-            <motion.div
-              layout
-              className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-            >
-              <AnimatePresence>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <AnimatePresence mode="popLayout">
                 {displayedVideos.map((video) => (
-                  <VideoCard key={video.id} video={video} />
+                  <VideoCard
+                    key={video.id}
+                    video={video}
+                    activeCategory={selectedCategory}
+                  />
                 ))}
               </AnimatePresence>
-            </motion.div>
+            </div>
 
             {/* Bottom Actions: Load More & Back to Top */}
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-border/60">

@@ -2,61 +2,57 @@
 
 import { motion } from "framer-motion";
 import {
-  Cpu,
   Bot,
   Smartphone,
-  Layers,
-  GraduationCap,
   Compass,
+  Car,
+  Sparkles,
 } from "lucide-react";
-import { YOUTUBE_CHANNEL, type VideoCategory } from "@/lib/youtube";
+import {
+  YOUTUBE_CHANNEL,
+  type VideoCategory,
+  getCategoryColor,
+} from "@/lib/youtube";
 
 interface ChannelIntroductionProps {
   onSelectCategory?: (category: VideoCategory) => void;
 }
 
-const CATEGORY_ITEMS = [
+const CATEGORY_ITEMS: {
+  title: string;
+  filterCategory: VideoCategory;
+  description: string;
+  icon: any;
+}[] = [
   {
-    title: "Technology & Innovation",
-    filterCategory: "Technology" as VideoCategory,
-    description: "Breakthrough tech trends, modern architecture & forward-looking industry shifts.",
-    icon: Cpu,
-    color: "#00F0FF",
-  },
-  {
-    title: "Artificial Intelligence & AI Tools",
-    filterCategory: "AI & Tools" as VideoCategory,
-    description: "Claude Fable, agentic coding, LLMs & AI workflows for modern engineers.",
+    title: "Artificial Intelligence & Tech",
+    filterCategory: "AI & Tech",
+    description: "Claude Fable, agentic AI workflows, LLM benchmarks & technology discoveries.",
     icon: Bot,
-    color: "#E1FF00",
   },
   {
-    title: "Gadgets & Smartphones",
-    filterCategory: "Gadgets" as VideoCategory,
-    description: "Automotive tech, smart devices, everyday hardware & automotive experiences.",
+    title: "Mobile Apps & Coding",
+    filterCategory: "Mobile & Coding",
+    description: "Android, Flutter, Figma-to-code conversions & developer productivity guides.",
     icon: Smartphone,
-    color: "#FF007A",
   },
   {
-    title: "Apps & Software",
-    filterCategory: "Apps & Software" as VideoCategory,
-    description: "Flutter, Android, Jetpack Compose, design tools & developer utilities.",
-    icon: Layers,
-    color: "#7928CA",
-  },
-  {
-    title: "Tutorials & Reviews",
-    filterCategory: "Tutorials & Reviews" as VideoCategory,
-    description: "Hands-on UI conversions, AI benchmark tests & practical developer guides.",
-    icon: GraduationCap,
-    color: "#FF8A00",
-  },
-  {
-    title: "Travel & Lifestyle",
-    filterCategory: "Travel & Lifestyle" as VideoCategory,
-    description: "Scenic monsoon road trips, Gujarat landmarks, ghat drives & festivals.",
+    title: "Road Trips & Travel Vlogs",
+    filterCategory: "Road Trips & Travel",
+    description: "Statue of Unity, Saputara mountain ghats, coastal escapes & scenic drives.",
     icon: Compass,
-    color: "#00DF72",
+  },
+  {
+    title: "Cars & Automotive",
+    filterCategory: "Cars & Automotive",
+    description: "Kia Seltos road trips, airline interior setups, highway drives & car milestones.",
+    icon: Car,
+  },
+  {
+    title: "Lifestyle & Events",
+    filterCategory: "Lifestyle & Events",
+    description: "Festivals, Diwali decorations, live music concerts & memorable life stories.",
+    icon: Sparkles,
   },
 ];
 
@@ -94,7 +90,7 @@ export default function ChannelIntroduction({ onSelectCategory }: ChannelIntrodu
           </p>
         </motion.div>
 
-        {/* 6 Category Highlights */}
+        {/* 5 Distinct Topic Highlights */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -104,22 +100,30 @@ export default function ChannelIntroduction({ onSelectCategory }: ChannelIntrodu
         >
           {CATEGORY_ITEMS.map((item) => {
             const Icon = item.icon;
+            const color = getCategoryColor(item.filterCategory);
+
             return (
               <motion.div
                 key={item.title}
                 variants={cardVariants}
                 whileHover={{ y: -3, transition: { duration: 0.2 } }}
                 onClick={() => onSelectCategory?.(item.filterCategory)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onSelectCategory?.(item.filterCategory);
+                  }
+                }}
                 role={onSelectCategory ? "button" : undefined}
                 tabIndex={onSelectCategory ? 0 : undefined}
-                className="group relative flex items-start gap-4 rounded-2xl border border-border bg-surface/50 p-5 backdrop-blur-sm transition-all duration-300 hover:border-foreground/20 hover:bg-surface/80 hover:shadow-lg cursor-pointer text-left"
+                className="group relative flex items-start gap-4 rounded-2xl border border-border bg-surface/50 p-5 backdrop-blur-sm transition-all duration-300 hover:border-foreground/20 hover:bg-surface/80 hover:shadow-lg cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500"
               >
                 <div
                   className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110"
                   style={{
-                    backgroundColor: `${item.color}15`,
-                    color: item.color,
-                    border: `1px solid ${item.color}30`,
+                    backgroundColor: `${color}15`,
+                    color: color,
+                    border: `1px solid ${color}35`,
                   }}
                 >
                   <Icon className="w-5 h-5" />

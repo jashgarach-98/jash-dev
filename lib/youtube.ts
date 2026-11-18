@@ -2,12 +2,11 @@ import rawVideos from "@/data/youtube-videos.json";
 
 export type VideoCategory =
   | "All Videos"
-  | "Technology"
-  | "AI & Tools"
-  | "Gadgets"
-  | "Apps & Software"
-  | "Tutorials & Reviews"
-  | "Travel & Lifestyle";
+  | "AI & Tech"
+  | "Mobile & Coding"
+  | "Road Trips & Travel"
+  | "Cars & Automotive"
+  | "Lifestyle & Events";
 
 export interface YouTubeVideo {
   id: string;
@@ -33,27 +32,39 @@ export const YOUTUBE_CHANNEL = {
   instagramUrl: "https://www.instagram.com/jashgarach.tech/",
   heroHeading: "My Content",
   heroDescription:
-    "Welcome to my video space! Explore the latest in Technology, AI, Gadgets, Apps, Software, Tutorials, and Travel. I share interesting discoveries, experiences, and innovations to keep you inspired and updated.",
+    "Welcome to my video space! Explore the latest in AI, Mobile Apps (Android & Flutter), Road Trips, Automotive, and Lifestyle. I share real experiences, code workflows, and discoveries to keep you inspired and updated.",
   aboutTitle: "What You'll Find Here",
   aboutDescription:
-    "From exploring the latest AI innovations and technology trends to discovering useful applications, gadgets, software, and travel experiences, this channel brings together my passion for technology, creativity, and exploration.",
+    "From exploring bleeding-edge AI models and Flutter app development to scenic monsoon road trips, car modifications, and lifestyle moments, this channel brings together my passions.",
   galleryHeading: "All My Videos",
   galleryDescription:
-    "Explore my collection of videos, from technology discoveries and AI experiments to gadgets, useful apps, and travel experiences.",
+    "Explore my collection of videos, organized by topic. Filter by AI, mobile development, road trips, automotive, and lifestyle.",
   subscribeHeading: "Enjoying My Content?",
   subscribeDescription:
-    "If you enjoy technology, AI, gadgets, apps, and interesting discoveries, subscribe to my YouTube channel and join the journey!",
+    "If you enjoy AI, mobile apps, automotive, road trips, and interesting discoveries, subscribe to my YouTube channel and join the journey!",
 };
 
 export const CATEGORIES: VideoCategory[] = [
   "All Videos",
-  "Technology",
-  "AI & Tools",
-  "Gadgets",
-  "Apps & Software",
-  "Tutorials & Reviews",
-  "Travel & Lifestyle",
+  "AI & Tech",
+  "Mobile & Coding",
+  "Road Trips & Travel",
+  "Cars & Automotive",
+  "Lifestyle & Events",
 ];
+
+export const CATEGORY_COLORS: Record<string, string> = {
+  "AI & Tech": "#E1FF00",
+  "Mobile & Coding": "#00F0FF",
+  "Road Trips & Travel": "#00DF72",
+  "Cars & Automotive": "#FF007A",
+  "Lifestyle & Events": "#FF8A00",
+  "All Videos": "#FF0000",
+};
+
+export function getCategoryColor(category: string): string {
+  return CATEGORY_COLORS[category] || "#00F0FF";
+}
 
 export const videos: YouTubeVideo[] = rawVideos as YouTubeVideo[];
 
@@ -85,12 +96,14 @@ export function filterVideos(
 ): YouTubeVideo[] {
   let result = videoList;
 
+  // Filter by Category
   if (category !== "All Videos") {
     result = result.filter((v) =>
       v.categories.some((c) => c.toLowerCase() === category.toLowerCase())
     );
   }
 
+  // Filter by Search Query
   const query = searchQuery.trim().toLowerCase();
   if (query) {
     result = result.filter(
@@ -105,15 +118,16 @@ export function filterVideos(
   return result;
 }
 
-export function getCategoryCounts(videoList: YouTubeVideo[]): Record<VideoCategory, number> {
+export function getCategoryCounts(
+  videoList: YouTubeVideo[]
+): Record<VideoCategory, number> {
   const counts: Record<VideoCategory, number> = {
     "All Videos": videoList.length,
-    Technology: 0,
-    "AI & Tools": 0,
-    Gadgets: 0,
-    "Apps & Software": 0,
-    "Tutorials & Reviews": 0,
-    "Travel & Lifestyle": 0,
+    "AI & Tech": 0,
+    "Mobile & Coding": 0,
+    "Road Trips & Travel": 0,
+    "Cars & Automotive": 0,
+    "Lifestyle & Events": 0,
   };
 
   for (const v of videoList) {

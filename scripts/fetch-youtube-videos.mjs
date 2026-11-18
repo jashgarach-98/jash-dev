@@ -49,39 +49,42 @@ function classifyVideo(title, description, tags = []) {
   const text = `${title} ${description} ${tags.join(" ")}`.toLowerCase();
   const categories = [];
 
-  const isAI =
-    text.includes("claude") ||
-    text.includes("ai ") ||
-    text.includes("artificial intelligence") ||
-    text.includes("model") ||
-    text.includes("fable") ||
-    text.includes("anthropic");
-
-  const isTutorial =
-    text.includes("convert") ||
-    text.includes("workflow") ||
-    text.includes("how to") ||
-    text.includes("tutorial") ||
-    text.includes("skills every") ||
-    text.includes("replace mobile developers") ||
-    text.includes("test");
-
-  const isAppSoftware =
+  const isCoding =
     text.includes("flutter") ||
     text.includes("android") ||
     text.includes("figma") ||
-    text.includes("app") ||
-    text.includes("software") ||
-    text.includes("coding");
+    text.includes("dart") ||
+    text.includes("kotlin") ||
+    text.includes("skills every") ||
+    text.includes("replace mobile developers") ||
+    text.includes("app design");
 
-  const isGadget =
-    text.includes("car") ||
+  const isAI =
+    text.includes("claude") ||
+    text.includes("ai ") ||
+    text.includes("ai-") ||
+    text.includes("#ai") ||
+    text.includes("artificial intelligence") ||
+    text.includes("model") ||
+    text.includes("fable") ||
+    text.includes("copilot") ||
+    text.includes("gemini") ||
+    text.includes("anthropic");
+
+  const isCar =
     text.includes("seltos") ||
+    text.includes("car") ||
     text.includes("kia") ||
-    text.includes("phone") ||
-    text.includes("smartphone") ||
-    text.includes("gadget") ||
-    text.includes("device");
+    text.includes("airlines");
+
+  const isLifestyle =
+    text.includes("diwali") ||
+    text.includes("dad") ||
+    text.includes("praise") ||
+    text.includes("sunidhi") ||
+    text.includes("concert") ||
+    text.includes("festival") ||
+    text.includes("mumbai work");
 
   const isTravel =
     text.includes("travel") ||
@@ -92,26 +95,33 @@ function classifyVideo(title, description, tags = []) {
     text.includes("monsoon") ||
     text.includes("waterfall") ||
     text.includes("beach") ||
-    text.includes("mumbai") ||
     text.includes("hills") ||
     text.includes("bhavnagar") ||
-    text.includes("surat") ||
-    text.includes("sunidhi") ||
-    text.includes("diwali") ||
-    text.includes("vibe");
+    text.includes("vibe") ||
+    text.includes("drive");
 
-  if (isAI) categories.push("AI & Tools");
-  if (isAppSoftware) categories.push("Apps & Software");
-  if (isTutorial) categories.push("Tutorials & Reviews");
-  if (isGadget) categories.push("Gadgets");
-  if (isTravel) categories.push("Travel & Lifestyle");
+  if (isCoding) {
+    categories.push("Mobile & Coding");
+  }
 
-  if (text.includes("technology") || text.includes("tech") || text.includes("innovation") || isAI) {
-    if (!categories.includes("Technology")) categories.unshift("Technology");
+  if (isAI) {
+    categories.push("AI & Tech");
+  }
+
+  if (isCar) {
+    categories.push("Cars & Automotive");
+  }
+
+  if (isTravel) {
+    categories.push("Road Trips & Travel");
+  }
+
+  if (isLifestyle) {
+    categories.push("Lifestyle & Events");
   }
 
   if (categories.length === 0) {
-    categories.push("Technology");
+    categories.push("AI & Tech");
   }
 
   return categories;

@@ -3,45 +3,42 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, ExternalLink, Play, Eye } from "lucide-react";
-import type { YouTubeVideo } from "@/lib/youtube";
+import {
+  type YouTubeVideo,
+  type VideoCategory,
+  getCategoryColor,
+} from "@/lib/youtube";
 import VideoDescription from "./VideoDescription";
 import { YouTubeIcon } from "./YouTubeIcons";
 
 interface VideoCardProps {
   video: YouTubeVideo;
+  activeCategory?: VideoCategory;
 }
 
-export default function VideoCard({ video }: VideoCardProps) {
+export default function VideoCard({ video, activeCategory }: VideoCardProps) {
   const [imgSrc, setImgSrc] = useState(video.thumbnailUrl);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Category accent colors
-  const getCategoryColor = (cat: string) => {
-    switch (cat.toLowerCase()) {
-      case "ai & tools":
-        return "#E1FF00";
-      case "apps & software":
-        return "#7928CA";
-      case "tutorials & reviews":
-        return "#FF8A00";
-      case "gadgets":
-        return "#FF007A";
-      case "travel & lifestyle":
-        return "#00DF72";
-      default:
-        return "#00F0FF";
-    }
-  };
+  // If a specific category filter is active and this video matches it, highlight that category
+  const matchingCategory =
+    activeCategory &&
+    activeCategory !== "All Videos" &&
+    video.categories.some(
+      (c) => c.toLowerCase() === activeCategory.toLowerCase()
+    )
+      ? activeCategory
+      : video.primaryCategory;
 
-  const accentColor = getCategoryColor(video.primaryCategory);
+  const accentColor = getCategoryColor(matchingCategory);
 
   return (
     <motion.article
-      layout
-      initial={{ opacity: 0, y: 24 }}
+      layout="position"
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="group relative flex flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface/50 backdrop-blur-sm transition-all duration-300 hover:border-red-500/40 hover:shadow-xl hover:shadow-red-500/5"
@@ -88,18 +85,18 @@ export default function VideoCard({ video }: VideoCardProps) {
         {/* Top Badges */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
           <span
-            className="inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-mono font-medium backdrop-blur-md shadow-sm"
+            className="inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-mono font-medium backdrop-blur-md shadow-sm transition-colors duration-300"
             style={{
-              backgroundColor: "rgba(0,0,0,0.65)",
+              backgroundColor: "rgba(0,0,0,0.72)",
               color: accentColor,
-              border: `1px solid ${accentColor}40`,
+              border: `1px solid ${accentColor}60`,
             }}
           >
-            {video.primaryCategory}
+            {matchingCategory}
           </span>
 
           {video.isShort && (
-            <span className="inline-flex items-center rounded-full bg-red-600/90 px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider text-white shadow-sm backdrop-blur-sm">
+            <span className="inline-flex items-center rounded-full bg-red-600/95 px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider text-white shadow-sm backdrop-blur-sm">
               Short
             </span>
           )}
@@ -122,6 +119,38 @@ export default function VideoCard({ video }: VideoCardProps) {
 
       {/* Content Body */}
       <div className="flex flex-1 flex-col p-4 sm:p-5">
+        {/* All applicable Categories Chips */}
+        <div className="flex flex-wrap gap-1.5 mb-2.5">
+          {video.categories.map((cat) => {
+            const isSelected =
+              activeCategory !== "All Videos" &&
+              cat.toLowerCase() === activeCategory?.toLowerCase();
+            const chipColor = getCategoryColor(cat);
+
+            return (
+              <span
+                key={cat}
+                className={`rounded-full px-2 py-0.5 text-[10px] font-mono transition-all duration-200 ${
+                  isSelected
+                    ? "font-semibold shadow-sm"
+                    : "text-foreground/60 bg-surface/80 border border-border"
+                }`}
+                style={
+                  isSelected
+                    ? {
+                        backgroundColor: `${chipColor}18`,
+                        color: chipColor,
+                        border: `1px solid ${chipColor}50`,
+                      }
+                    : undefined
+                }
+              >
+                {cat}
+              </span>
+            );
+          })}
+        </div>
+
         {/* Title */}
         <h3 className="text-base sm:text-lg font-bold leading-snug text-foreground group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors duration-200 line-clamp-2 mb-2.5">
           <a
@@ -134,7 +163,7 @@ export default function VideoCard({ video }: VideoCardProps) {
           </a>
         </h3>
 
-        {/* Mandatory Video Description with Read More / Show Less */}
+        {/* Video Description with Read More / Show Less */}
         <div className="mb-4 flex-1">
           <VideoDescription description={video.description} charLimit={130} />
         </div>
@@ -161,7 +190,10 @@ export default function VideoCard({ video }: VideoCardProps) {
             rel="noopener noreferrer"
             className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-surface hover:bg-red-600 hover:text-white border border-border hover:border-red-600/50 px-4 py-2.5 text-xs sm:text-sm font-semibold text-foreground transition-all duration-300 shadow-sm group/btn"
           >
-            <YouTubeIcon className="w-4 h-4 text-red-500 group-hover/btn:text-white transition-colors" fill="currentColor" />
+            <YouTubeIcon
+              className="w-4 h-4 text-red-500 group-hover/btn:text-white transition-colors"
+              fill="currentColor"
+            />
             <span>Watch on YouTube</span>
             <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover/btn:opacity-100 transition-opacity ml-auto" />
           </a>
