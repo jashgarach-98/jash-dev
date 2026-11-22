@@ -1,5 +1,22 @@
 [
   {
+    "id": "aivista",
+    "kind": "Android App",
+    "category": "personal",
+    "company": "Personal Project",
+    "title": "Aivista — Smart Photo Gallery & Editor",
+    "description": "Modern, privacy-focused Android media gallery, non-destructive photo editor, and encrypted vault built with Kotlin, Jetpack Compose, and Material Design 3. Features chronological timelines, story-style memories, a complete editing studio with filters and fine-tuning adjustments, Android Keystore file encryption, a smart duplicate cleaner, and collage maker.",
+    "tags": ["Android", "Kotlin", "Jetpack Compose", "Material Design 3", "Photo Editor", "Android Keystore", "Offline-First"],
+    "color": "#f43f5e",
+    "wide": true,
+    "links": [
+      {
+        "label": "Play Store",
+        "href": "https://play.google.com/store/apps/details?id=com.aivista.smartgallery.photoeditor"
+      }
+    ]
+  },
+  {
     "id": "notiva",
     "kind": "Android App",
     "category": "personal",
