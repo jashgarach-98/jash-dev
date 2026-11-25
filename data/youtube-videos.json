@@ -1,5 +1,80 @@
 [
   {
+    "id": "-CMA0K4O9IE",
+    "title": "On-Device AI Kya Hai? 🤖 Offline AI, Privacy & Android/Flutter Dev Guide",
+    "description": "Can your smartphone run AI without an internet connection? 🤯 Here is how On-Device AI works directly on your phone—and why it’s a massive shift for both everyday users and mobile developers.\n\nIn this quick breakdown, we compare Cloud AI vs On-Device AI and look at how modern smartphones handle tasks like document summaries, smart note rewriting, and supported offline AI features—even in Airplane Mode.\n\nWhat you’ll discover in this video:\n⚡ How On-Device AI differs from Cloud AI (local processing vs cloud servers)\n📱 Real-life offline use cases: Document Summary, Smart Notes & Airplane Mode AI\n🔒 3 big advantages: Offline access, stronger data privacy, and lower cloud API costs\n💻 Developer stack for building offline AI apps: Gemini Nano, ML Kit GenAI, LiteRT, Flutter + Native Android, and Apple Core ML\n⚠️ A quick reality check on device hardware compatibility\n\nNote: Hardware support varies by smartphone, and some on-device AI models require an initial download before running offline.\n\nIf you learned something new, hit LIKE, drop a comment with which phone you're using, and SHARE this with a friend or developer who needs to know about On-Device AI!\n\nSubscribe for more practical Tech, AI, Android, and Flutter videos 👇\n▶️ YouTube: https://www.youtube.com/@JASHGARACH\n📸 Instagram: https://www.instagram.com/jashgarach.tech/\n\n#OnDeviceAI #OfflineAI #Shorts #AndroidDev #TechHindi",
+    "publishedDate": "2026-11-25T00:08:30-08:00",
+    "publishedLabel": "Nov 25, 2026",
+    "categories": [
+      "Mobile & Coding",
+      "AI & Tech"
+    ],
+    "primaryCategory": "Mobile & Coding",
+    "thumbnailUrl": "https://i.ytimg.com/vi/-CMA0K4O9IE/maxresdefault.jpg",
+    "fallbackThumbnailUrl": "https://i.ytimg.com/vi/-CMA0K4O9IE/hqdefault.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=-CMA0K4O9IE",
+    "tags": [
+      "on device ai",
+      "offline ai",
+      "ai without internet",
+      "cloud ai vs on device ai",
+      "gemini nano"
+    ],
+    "viewCount": "27",
+    "lengthSeconds": "60",
+    "isShort": true
+  },
+  {
+    "id": "dJXGb_Ndc0Y",
+    "title": "Seltos 🎀😎 #trendingreels #explorepage #seltos #viralshorts",
+    "description": "The journey begins with the new beast — Kia Seltos. 🖤⚡\n\nNothing beats the road presence and night-drive vibe of the Seltos. Let me know in the comments what you think of this beast! 👇\n\nFollow for more:\n📺 YouTube: https://www.youtube.com/@JASHGARACH\n📸 Instagram: https://www.instagram.com/jashgarach.tech\n\n#kiaseltos #seltos #kiaseltosgtline #carreels #nightdrive #suv #newcar #trendingreels #explorepage #viral #youtubeshorts #shorts #fyppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp",
+    "publishedDate": "2026-11-21T08:29:21-08:00",
+    "publishedLabel": "Nov 21, 2026",
+    "categories": [
+      "Cars & Automotive",
+      "Road Trips & Travel"
+    ],
+    "primaryCategory": "Cars & Automotive",
+    "thumbnailUrl": "https://i.ytimg.com/vi/dJXGb_Ndc0Y/maxresdefault.jpg",
+    "fallbackThumbnailUrl": "https://i.ytimg.com/vi/dJXGb_Ndc0Y/hqdefault.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=dJXGb_Ndc0Y",
+    "tags": [
+      "Kia Seltos",
+      "Kia Seltos delivery",
+      "Kia Seltos night drive",
+      "Kia Seltos status",
+      "Kia Seltos GT Line"
+    ],
+    "viewCount": "1481",
+    "lengthSeconds": "16",
+    "isShort": true
+  },
+  {
+    "id": "69QxTuhTxig",
+    "title": "Your Stock Gallery Is Outdated—Try Aivista! 📸🔥 #Shorts",
+    "description": "Still using your phone's basic built-in gallery? Meet Aivista: Smart Photo Gallery & Photo Editor — an all-in-one, privacy-first Android app designed to organize, enhance, and protect your memories effortlessly.\n\n📲 Download Aivista on Google Play:\nhttps://play.google.com/store/apps/details?id=com.aivista.smartgallery.photoeditor\n\n✨ What Makes Aivista Stand Out:\n• Interactive Story Memories: Relive your favorite moments in sleek, Instagram-style memory rings.\n• Non-Destructive Pro Editor: Apply 12 cinematic filters, precision cropping, and 10 fine-tune controls without ever overwriting your original photo.\n• AES-256 Private Vault: Hide sensitive photos and videos behind military-grade encryption and biometric fingerprint lock.\n• Smart Duplicate Cleaner: Detect exact and lookalike blurry shots to free up gigabytes of storage in one tap.\n• Collage Maker & Recycle Bin: Build clean photo grids and recover accidentally deleted files anytime.\n\n🚀 Connect & Follow for More Tech & App Picks:\n📸 Follow on Instagram: https://www.instagram.com/jashgarach.tech/\n▶️ Subscribe on YouTube: https://www.youtube.com/@JASHGARACH\n\n#Aivista #AndroidApps #PhotoEditor #SmartGallery #TechShorts #BestAndroidApps #PrivacyApps #MobilePhotography #JashGarach",
+    "publishedDate": "2026-11-21T01:49:47-08:00",
+    "publishedLabel": "Nov 21, 2026",
+    "categories": [
+      "Mobile & Coding",
+      "AI & Tech"
+    ],
+    "primaryCategory": "Mobile & Coding",
+    "thumbnailUrl": "https://i.ytimg.com/vi/69QxTuhTxig/maxresdefault.jpg",
+    "fallbackThumbnailUrl": "https://i.ytimg.com/vi/69QxTuhTxig/hqdefault.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=69QxTuhTxig",
+    "tags": [
+      "Aivista",
+      "Aivista photo gallery",
+      "best android gallery app 2026",
+      "smart photo gallery android",
+      "private photo vault app lock"
+    ],
+    "viewCount": "56",
+    "lengthSeconds": "10",
+    "isShort": true
+  },
+  {
     "id": "AZ0DlwOTuzA",
     "title": "Welcome to My World of AI, Gadgets & Innovation 🤖",
     "description": "🚀 WELCOME TO THE FUTURE OF TECHNOLOGY!\n\nI'm Jash Garach, and I'm here to explore the incredible world of Artificial Intelligence, technology, gadgets, apps and digital innovation.\n\nTechnology is evolving faster than ever. New AI tools, smarter applications and groundbreaking innovations are changing the way we work, create and live.\n\nAnd I want you to be part of this journey!\n\n💡 WHAT YOU CAN EXPECT:\n🤖 Latest AI tools and innovations\n📱 Smartphone tips, tricks & gadgets\n💻 Useful applications and technology\n🚀 AI experiments and digital discoveries\n🔥 Emerging technology and future trends\n\nMy goal is simple: Discover what's new, explore what's possible and share technology in a way everyone can understand.\n\nThis is just the beginning!\n\n🔥 FOLLOW THE JOURNEY:\nInstagram: https://www.instagram.com/jashgarach.tech/\nYouTube: https://www.youtube.com/@JASHGARACH\n\nIf you're passionate about technology, curious about AI or simply love discovering something new, you're in the right place.\n\nSUBSCRIBE and let's explore the future, together!\n\n#JashGarach #AI #Technology #AITools #TechShorts #Innovation",
@@ -19,7 +94,7 @@
       "Technology Creator",
       "AI Technology"
     ],
-    "viewCount": "37",
+    "viewCount": "408",
     "lengthSeconds": "30",
     "isShort": true
   },
@@ -43,7 +118,7 @@
       "Claude new model",
       "Fable 5.2 launch"
     ],
-    "viewCount": "101",
+    "viewCount": "104",
     "lengthSeconds": "15",
     "isShort": true
   },
@@ -52,11 +127,12 @@
     "title": "DIWALI DECORATION #diwalispecial",
     "description": "🪔✨ Diwali vibes are officially ON! ❤️\n\nA little creativity, beautiful decorations, glowing diyas and lots of festive happiness! 🏡🌸\n\nCelebrating the Festival of Lights by decorating every corner with love, positivity and traditional vibes.\n\nDiwali isn't just a festival; it's a feeling that brings happiness, togetherness and beautiful memories. ❤️\n\n✨ Enjoy the festive decoration and let us know your favourite part in the comments!\n\n❤️ Like | Share | Comment | Subscribe for more lifestyle, technology, travel and festive content.\n\nHappy Diwali! 🪔✨\n\n#Diwali #DiwaliDecoration #DiwaliDecor #HappyDiwali #Shorts #YouTubeShorts #FestivalOfLights #FestiveVibes #HomeDecor #indianfestivals",
     "publishedDate": "2026-11-09T12:11:49-08:00",
-    "publishedLabel": "Nov 09, 2026",
+    "publishedLabel": "Nov 10, 2026",
     "categories": [
+      "Road Trips & Travel",
       "Lifestyle & Events"
     ],
-    "primaryCategory": "Lifestyle & Events",
+    "primaryCategory": "Road Trips & Travel",
     "thumbnailUrl": "https://i.ytimg.com/vi/MD7RG7BHTZs/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/MD7RG7BHTZs/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=MD7RG7BHTZs",
@@ -67,7 +143,7 @@
       "diwali 2026",
       "happy diwali"
     ],
-    "viewCount": "41",
+    "viewCount": "45",
     "lengthSeconds": "25",
     "isShort": true
   },
@@ -76,7 +152,7 @@
     "title": "When Your Dad Praises Me in Front of Everyone 🥹❤️ #shorts",
     "description": "That priceless moment when your partner's dad praises you in front of everyone! 🥹❤️\n\nSome compliments aren't just words; they're blessings filled with love, respect, and acceptance. 🫶✨\n\nThat feeling hits differently! 💖\n\n❤️ Like if you can relate!\n💬 Have you ever experienced this moment?\n🔔 Subscribe for more relatable moments!\n\n#Shorts #YouTubeShorts #FamilyLove #FatherInLaw #RelationshipGoals #CoupleGoals #HeartTouching #RelatableShorts #EmotionalMoments #ViralShorts",
     "publishedDate": "2026-11-07T05:33:37-08:00",
-    "publishedLabel": "Nov 07, 2026",
+    "publishedLabel": "Nov 7, 2026",
     "categories": [
       "Lifestyle & Events"
     ],
@@ -85,7 +161,7 @@
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/JsmIDhl7ewk/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=JsmIDhl7ewk",
     "tags": [],
-    "viewCount": "1695",
+    "viewCount": "1699",
     "lengthSeconds": "10",
     "isShort": true
   },
@@ -96,15 +172,14 @@
     "publishedDate": "2026-10-25T02:25:37-07:00",
     "publishedLabel": "Oct 25, 2026",
     "categories": [
-      "Cars & Automotive",
-      "Lifestyle & Events"
+      "Cars & Automotive"
     ],
     "primaryCategory": "Cars & Automotive",
     "thumbnailUrl": "https://i.ytimg.com/vi/FcRqZUvGzjg/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/FcRqZUvGzjg/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=FcRqZUvGzjg",
     "tags": [],
-    "viewCount": "1288",
+    "viewCount": "1292",
     "lengthSeconds": "8",
     "isShort": true
   },
@@ -113,9 +188,10 @@
     "title": "KIA SELTOS AIRLINES ✈️🚘🔥 | My Seltos, My Airlines! #shorts",
     "description": "✈️ Welcome aboard KIA SELTOS AIRLINES! 🚘🔥\n\nWho needs an airplane when your Kia Seltos gives you airline vibes? 😎✈️\n\nA unique airline-inspired setup for my Kia Seltos. What do you think of this concept?\n\n👇 Comment your rating out of 10!\n\n❤️ Like | 🔔 Subscribe | 📲 Share\n\nFollow JASH GARACH for more automotive content, technology, gadgets, and interesting videos!\n\n#KiaSeltos #KiaAirlines #Kia #CarLovers #shorts",
     "publishedDate": "2026-10-17T22:46:50-07:00",
-    "publishedLabel": "Oct 17, 2026",
+    "publishedLabel": "Oct 18, 2026",
     "categories": [
-      "Cars & Automotive"
+      "Cars & Automotive",
+      "Road Trips & Travel"
     ],
     "primaryCategory": "Cars & Automotive",
     "thumbnailUrl": "https://i.ytimg.com/vi/6rp64-t2DUE/maxresdefault.jpg",
@@ -128,7 +204,7 @@
       "Kia Seltos India",
       "Kia Seltos modification"
     ],
-    "viewCount": "2460",
+    "viewCount": "2494",
     "lengthSeconds": "25",
     "isShort": true
   },
@@ -153,7 +229,7 @@
       "GitHub Copilot",
       "Cursor AI"
     ],
-    "viewCount": "210",
+    "viewCount": "215",
     "lengthSeconds": "58",
     "isShort": true
   },
@@ -162,7 +238,7 @@
     "title": "Will AI Replace Mobile Developers? I Put Claude to the Test.",
     "description": "What happens when a mobile developer gives an AI coding assistant a real app requirement? 🤯\n\nIn this Short, I’m exploring **AI-assisted mobile development with Claude Opus 5.5 + Flutter** — from a simple idea and prompt to UI, code generation, API integration, debugging, and a working mobile app.\n\nThe goal isn't to replace developers with AI.\n\nIt's about using AI to remove repetitive development work and spend more time on architecture, problem-solving, UX, and building better products. 🚀\n\n💻 **Tech:** Flutter • Dart • Android • AI-assisted Development  \n🤖 **AI:** Claude Opus 5.5  \n📱 **Focus:** Mobile App Development\n\nWould you trust AI to build part of your next mobile app?\n\nDrop your answer in the comments 👇\n\n---\n\nFollow for more content about:\n🚀 AI + Development  \n📱 Android & Flutter  \n🤖 AI Coding Tools  \n💻 Software Development  \n🧠 Developer Productivity\n\n#Claude #ClaudeAI #Flutter #AI #MobileDevelopment #AndroidDevelopment #Coding #AIcoding #Developer #YouTubeShorts",
     "publishedDate": "2026-10-06T11:00:05-07:00",
-    "publishedLabel": "Oct 06, 2026",
+    "publishedLabel": "Oct 6, 2026",
     "categories": [
       "Mobile & Coding",
       "AI & Tech"
@@ -172,7 +248,7 @@
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/T4upIv190Cc/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=T4upIv190Cc",
     "tags": [],
-    "viewCount": "55",
+    "viewCount": "56",
     "lengthSeconds": "56",
     "isShort": true
   },
@@ -181,11 +257,12 @@
     "title": "Sunidhi Chauhan Live in Surat 🎤🔥 | I AM HOME INDIA TOUR 🇮🇳✨ #Shorts",
     "description": "One night. One stage. One unforgettable voice. ❤️‍🔥\n\nGot to experience Sunidhi Chauhan LIVE in Surat during the I AM HOME India Tour — and the energy was absolutely unreal! 🎤✨\n\nFrom the first beat to the final note, this was one of those moments you simply had to experience in person. 🔥\n\n📍 Surat, Gujarat\n🎶 Sunidhi Chauhan — I AM HOME India Tour\n\nIf you were there, you already know the vibe! 😍\n\n#SunidhiChauhan #IAMHOMEIndiaTour #SunidhiChauhanLive #Surat #SuratConcert #ConcertVibes #LiveMusic #BollywoodMusic #MusicLovers #IndiaTour #Shorts #YouTubeShorts",
     "publishedDate": "2026-10-05T02:16:19-07:00",
-    "publishedLabel": "Oct 05, 2026",
+    "publishedLabel": "Oct 5, 2026",
     "categories": [
+      "Road Trips & Travel",
       "Lifestyle & Events"
     ],
-    "primaryCategory": "Lifestyle & Events",
+    "primaryCategory": "Road Trips & Travel",
     "thumbnailUrl": "https://i.ytimg.com/vi/Ejb9tUCwGAo/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/Ejb9tUCwGAo/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=Ejb9tUCwGAo",
@@ -199,16 +276,17 @@
     "title": "Convert Figma UI to Flutter App in Seconds with Claude AI! 🤖⚡ #Shorts",
     "description": "Want to turn your Figma designs into clean, responsive Flutter code without building everything from scratch? In this 30-second Short, learn how to leverage Claude AI to transform any Figma UI into production-ready Flutter widgets! 🤖⚡\n\n👇 Copy & Paste the Claude Prompt Used in This Video:\n\"Convert this Figma design into a responsive Flutter UI using reusable widgets and Material 3.\nRequirements:\n• Pixel-perfect colors, typography, and spacing from tokens\n• Reusable Stateless/Stateful widget structure\n• Clean Dart architecture with responsive layout\"\n\n⏱️ Video Breakdown:\n0:00 - The Hook (Figma UI → Flutter App)\n0:03 - Step 1: Clean & Prepare Figma Components & Tokens\n0:07 - Step 2: Prompt Claude with the Right Context\n0:12 - Step 3: Claude Generates Clean Flutter/Dart Code\n0:17 - Step 4: Compare, Refine & Fix with Hot Reload\n0:23 - Step 5: Final Pixel-Perfect Flutter App\n0:26 - Like, Comment & Subscribe!\n\n🔥 Why This Workflow Works:\n1. Auto-Layout in Figma maps directly to Flutter's Column, Row, and Flex widgets.\n2. Design tokens translate cleanly into Flutter ThemeData and Color schemes.\n3. Claude eliminates boilerplate UI code so you can focus on state management and backend logic.\n\n👨‍💻 Created by Jash Garach — Android & Flutter Developer\n👉 Drop a LIKE if this saved you coding time!\n💬 What Figma design should we convert next? Let me know in the comments!\n🔔 SUBSCRIBE for more AI coding workflows, Flutter tips, and mobile dev tutorials!\n\n#Flutter #Figma #ClaudeAI #FlutterDev #AppDevelopment #MobileApp #Coding #SoftwareEngineering #AI #Programming #Shorts #TechCreator",
     "publishedDate": "2026-09-21T22:51:04-07:00",
-    "publishedLabel": "Sep 21, 2026",
+    "publishedLabel": "Sep 22, 2026",
     "categories": [
-      "Mobile & Coding"
+      "Mobile & Coding",
+      "AI & Tech"
     ],
     "primaryCategory": "Mobile & Coding",
     "thumbnailUrl": "https://i.ytimg.com/vi/kbTynsk5gqg/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/kbTynsk5gqg/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=kbTynsk5gqg",
     "tags": [],
-    "viewCount": "725",
+    "viewCount": "735",
     "lengthSeconds": "30",
     "isShort": true
   },
@@ -219,14 +297,15 @@
     "publishedDate": "2026-09-13T04:45:43-07:00",
     "publishedLabel": "Sep 13, 2026",
     "categories": [
-      "Mobile & Coding"
+      "Mobile & Coding",
+      "AI & Tech"
     ],
     "primaryCategory": "Mobile & Coding",
     "thumbnailUrl": "https://i.ytimg.com/vi/zogiUgNL8gU/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/zogiUgNL8gU/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=zogiUgNL8gU",
     "tags": [],
-    "viewCount": "424",
+    "viewCount": "429",
     "lengthSeconds": "30",
     "isShort": true
   },
@@ -237,14 +316,15 @@
     "publishedDate": "2026-09-13T00:08:14-07:00",
     "publishedLabel": "Sep 13, 2026",
     "categories": [
+      "AI & Tech",
       "Road Trips & Travel"
     ],
-    "primaryCategory": "Road Trips & Travel",
+    "primaryCategory": "AI & Tech",
     "thumbnailUrl": "https://i.ytimg.com/vi/vIsUJ99-bzg/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/vIsUJ99-bzg/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=vIsUJ99-bzg",
     "tags": [],
-    "viewCount": "1147",
+    "viewCount": "1156",
     "lengthSeconds": "40",
     "isShort": true
   },
@@ -253,7 +333,7 @@
     "title": "5 KM Auto Ride from Statue of Unity 🛺➡️🛶 | Sardar Sarovar Nauka Vihar | Part 3",
     "description": "Statue of Unity Series – Part 3 🗿🇮🇳\n\nOur journey continues! ❤️\n\nThis time, we took an auto ride around 5 km from the Statue of Unity to Sardar Sarovar Nauka Vihar. 🛺🌴\n\nAfter reaching the boating point, we enjoyed an incredible 1-hour boat ride across the beautiful Sardar Sarovar Lake. 🛶🌊 The scenic views, peaceful waters and the massive landscape around the Sardar Sarovar project made this experience truly unforgettable.\n\nThe lake also has crocodiles 🐊, which made the boating experience even more exciting! We also got to see the connection with the Sardar Sarovar Dam’s canal system and appreciate the incredible scale of this engineering marvel.\n\nFrom a simple auto ride to an unforgettable boating experience — this was another memorable chapter of our Statue of Unity trip!\n\n📍 Sardar Sarovar Nauka Vihar, Gujarat\n🛺 Approx. 5 km from Statue of Unity\n🛶 1-hour boating experience\n🗿 Statue of Unity Series – Part 3\n\nWatch the journey and experience Sardar Sarovar with us! 🇮🇳✨\n\nLike 👍 | Comment 💬 | Share ↗️ | Subscribe 🔔 for Part 4!\n\n#StatueOfUnity #StatueOfUnitySeries #Part3 #SardarSarovar #NaukaVihar #NaukaViharBoating #SardarSarovarLake #BoatingGujarat #EktaNagar #Kevadia #GujaratTourism #GujaratTravel #GujaratDiaries #Narmada #SardarSarovarDam #TravelGujarat #IndiaTravel #TravelShorts #YouTubeShorts #Shorts #AutoRide #BoatingExperience #Crocodiles #IncredibleIndia #ExploreGujarat",
     "publishedDate": "2026-09-09T11:43:53-07:00",
-    "publishedLabel": "Sep 09, 2026",
+    "publishedLabel": "Sep 10, 2026",
     "categories": [
       "Road Trips & Travel"
     ],
@@ -262,7 +342,7 @@
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/1a7AuaA6O3I/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=1a7AuaA6O3I",
     "tags": [],
-    "viewCount": "88",
+    "viewCount": "91",
     "lengthSeconds": "58",
     "isShort": true
   },
@@ -271,7 +351,7 @@
     "title": "Statue of Unity from 182M  Above 😍 | Dam + Jungle Safari | Part 2 🇮🇳 #statueofunity",
     "description": "Part 2 of my Statue of Unity journey! 🇮🇳✨\n\nWent inside the Statue of Unity and experienced the incredible Viewing Gallery at 150 metres above the ground 😍 The panoramic view of the Sardar Sarovar Dam, Narmada River & surrounding mountains was absolutely breathtaking!\n\nAnd the adventure continued with a visit to Jungle Safari, Kevadia 🦁🌿\n\n📍 Statue of Unity, Kevadia, Gujarat\n🎥 Statue of Unity Series — Part 2\n\nWatch till the end for the amazing 150m view! 👀🔥\n\n#StatueOfUnity #Kevadia #Gujarat #SardarSarovarDam #JungleSafari #IndiaTravel #TravelShorts #YouTubeShorts #GujaratTourism #incredibleindia",
     "publishedDate": "2026-09-08T10:50:59-07:00",
-    "publishedLabel": "Sep 08, 2026",
+    "publishedLabel": "Sep 8, 2026",
     "categories": [
       "Road Trips & Travel"
     ],
@@ -280,7 +360,7 @@
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/izzWfmzb7w8/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=izzWfmzb7w8",
     "tags": [],
-    "viewCount": "406",
+    "viewCount": "408",
     "lengthSeconds": "44",
     "isShort": true
   },
@@ -289,7 +369,7 @@
     "title": "On the Way to Statue of Unity 🇮🇳 | Auto Ride from Parking to Ekta Nagar | Gujarat Travel Vlog",
     "description": "🚗🇮🇳 The journey to the Statue of Unity begins!\n\nIn this video, I’m taking you along on the way to the Statue of Unity, Ekta Nagar (Kevadia), Gujarat. After reaching the parking area, I take an auto-rickshaw and enjoy the journey towards one of India’s most iconic landmarks.\n\nThis is the first video in my Statue of Unity Travel Series, where I’ll be sharing the journey, places, attractions, views, and experiences from Ekta Nagar.\n\n📍 Location: Statue of Unity / Ekta Nagar, Gujarat\n🛺 Travel: Parking Area → Auto Ride → Statue of Unity Area\n🇮🇳 Destination: Statue of Unity, Gujarat\n\n✨ Watch till the end and join me on this journey!\n\nIf you enjoy travel videos and Gujarat exploration, don’t forget to:\n👍 Like the video\n💬 Comment your experience\n🔔 Subscribe to JASH GARACH for more travel & tech content\n\n📌 Playlist: Statue of Unity 🇮🇳 | Exploring Ekta Nagari\n\n#StatueOfUnity #EktaNagar #Kevadia #GujaratTravel #TravelVlog #GujaratVlog #IndiaTravel #StatueOfUnityVlog #TravelIndia #JashGarach",
     "publishedDate": "2026-09-07T08:46:52-07:00",
-    "publishedLabel": "Sep 07, 2026",
+    "publishedLabel": "Sep 7, 2026",
     "categories": [
       "Road Trips & Travel"
     ],
@@ -298,7 +378,7 @@
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/kIsyRqSbwFA/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=kIsyRqSbwFA",
     "tags": [],
-    "viewCount": "132",
+    "viewCount": "134",
     "lengthSeconds": "20",
     "isShort": true
   },
@@ -322,7 +402,7 @@
       "Bhavnagar Gujarat",
       "beaches near Bhavnagar"
     ],
-    "viewCount": "217",
+    "viewCount": "224",
     "lengthSeconds": "6",
     "isShort": true
   },
@@ -333,14 +413,15 @@
     "publishedDate": "2026-08-26T03:43:34-07:00",
     "publishedLabel": "Aug 26, 2026",
     "categories": [
+      "Mobile & Coding",
       "AI & Tech"
     ],
-    "primaryCategory": "AI & Tech",
+    "primaryCategory": "Mobile & Coding",
     "thumbnailUrl": "https://i.ytimg.com/vi/9tuZNyIoUrY/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/9tuZNyIoUrY/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=9tuZNyIoUrY",
     "tags": [],
-    "viewCount": "477",
+    "viewCount": "480",
     "lengthSeconds": "30",
     "isShort": true
   },
@@ -349,17 +430,17 @@
     "title": "Kia Seltos Drive to Elysium on the Hills 🌄🚗 | Hidden Hilltop Cafe Near Bhavnagar",
     "description": "A scenic Kia Seltos drive to Elysium on the Hills near Bhavnagar! 🚗🌄\nBeautiful roads, peaceful hill views, and a relaxing hilltop café experience at P.N. Nath Hills. ☕✨\n\nA perfect little escape with the Seltos! ❤️\n\nLike 👍 Comment 💬 Share 🔄 Subscribe ❤️\n\n#KiaSeltos #ElysiumOnTheHills #Bhavnagar #PNNathHills #GujaratTravel #RoadTrip #SeltosDrive #HilltopCafe #ScenicDrive #TravelVlog #YouTubeShorts #Shorts #JashGarach",
     "publishedDate": "2026-08-22T22:49:59-07:00",
-    "publishedLabel": "Aug 22, 2026",
+    "publishedLabel": "Aug 23, 2026",
     "categories": [
-      "Road Trips & Travel",
-      "Cars & Automotive"
+      "Cars & Automotive",
+      "Road Trips & Travel"
     ],
-    "primaryCategory": "Road Trips & Travel",
+    "primaryCategory": "Cars & Automotive",
     "thumbnailUrl": "https://i.ytimg.com/vi/OXIjpgAKZqg/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/OXIjpgAKZqg/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=OXIjpgAKZqg",
     "tags": [],
-    "viewCount": "252",
+    "viewCount": "253",
     "lengthSeconds": "10",
     "isShort": true
   },
@@ -370,15 +451,15 @@
     "publishedDate": "2026-08-22T04:33:11-07:00",
     "publishedLabel": "Aug 22, 2026",
     "categories": [
-      "Road Trips & Travel",
-      "Cars & Automotive"
+      "Cars & Automotive",
+      "Road Trips & Travel"
     ],
-    "primaryCategory": "Road Trips & Travel",
+    "primaryCategory": "Cars & Automotive",
     "thumbnailUrl": "https://i.ytimg.com/vi/o3a7IAtVL_g/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/o3a7IAtVL_g/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=o3a7IAtVL_g",
     "tags": [],
-    "viewCount": "1140",
+    "viewCount": "1141",
     "lengthSeconds": "19",
     "isShort": true
   },
@@ -387,12 +468,13 @@
     "title": "A Work Trip Turned Into a Mini Mumbai Adventure! 🚗☕🌆 | #shorts",
     "description": "A one-day Mumbai work trip… but somehow it became a mini adventure! 😍🚗\n\n💻 Work mode\n☕ Starbucks coffee break\n🌿 Hiranandani Gardens\n🌆 Mumbai vibes & scenic views\n📸 Random moments worth capturing\n\nSometimes the best memories happen between work and the journey. ✨\n\nIf you enjoy travel, work-life moments, city views, tech & lifestyle content, follow along! ❤️\n\nJash Garach | Travel • Tech • AI • Experiences 🌍🤖\n\n#Mumbai #MumbaiVlog #MumbaiDiaries #WorkTrip #TravelVlog #HiranandaniGardens #Starbucks #MumbaiLife #TravelShorts #WorkLife #CityVibes #ScenicViews #LifestyleVlog #IndianVlogger #YouTubeShorts #Shorts #JashGarach",
     "publishedDate": "2026-08-21T23:54:23-07:00",
-    "publishedLabel": "Aug 21, 2026",
+    "publishedLabel": "Aug 22, 2026",
     "categories": [
-      "Lifestyle & Events",
-      "Road Trips & Travel"
+      "AI & Tech",
+      "Road Trips & Travel",
+      "Lifestyle & Events"
     ],
-    "primaryCategory": "Lifestyle & Events",
+    "primaryCategory": "AI & Tech",
     "thumbnailUrl": "https://i.ytimg.com/vi/hF6dfz73Jh8/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/hF6dfz73Jh8/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=hF6dfz73Jh8",
@@ -403,7 +485,7 @@
       "mumbai one day trip",
       "mumbai diaries"
     ],
-    "viewCount": "318",
+    "viewCount": "321",
     "lengthSeconds": "17",
     "isShort": true
   },
@@ -412,12 +494,12 @@
     "title": "🌧️🚗 Monsoon Drive on the Highway | Kia Seltos ❤️ | Rainy Road Vibes 🌿✨ #travelshorts #nature",
     "description": "🌧️ A peaceful monsoon drive in my Kia Seltos 🚗❤️\nCruising on the highway with the rain, greenery, and beautiful road vibes all around! 🌿☔️🛣️\n\nSometimes, you don’t need a destination… the journey itself is the experience. ✨❤️\n\n🎥 Enjoy the ride!\n🚗 Kia Seltos | 🌧️ Monsoon Vibes | 🛣️ Highway Drive\n\n#KiaSeltos #MonsoonDrive #RainyDrive #HighwayDrive #RoadTrip #RainVibes #CarRide #TravelVlog #YouTubeShorts #Shorts #JashGarach",
     "publishedDate": "2026-08-21T22:48:37-07:00",
-    "publishedLabel": "Aug 21, 2026",
+    "publishedLabel": "Aug 22, 2026",
     "categories": [
-      "Road Trips & Travel",
-      "Cars & Automotive"
+      "Cars & Automotive",
+      "Road Trips & Travel"
     ],
-    "primaryCategory": "Road Trips & Travel",
+    "primaryCategory": "Cars & Automotive",
     "thumbnailUrl": "https://i.ytimg.com/vi/jPEYQIr1sHo/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/jPEYQIr1sHo/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=jPEYQIr1sHo",
@@ -428,7 +510,7 @@
       "monsoon drive",
       "rainy drive"
     ],
-    "viewCount": "897",
+    "viewCount": "899",
     "lengthSeconds": "21",
     "isShort": true
   },
@@ -446,7 +528,7 @@
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/gmEgqXIgxKM/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=gmEgqXIgxKM",
     "tags": [],
-    "viewCount": "132",
+    "viewCount": "133",
     "lengthSeconds": "15",
     "isShort": true
   },
@@ -455,7 +537,7 @@
     "title": "Driving Through the Winding Ghats of Saputara! 🌧️🌿",
     "description": "Thinking of planning a road trip to Saputara? 🚗💨 Experience the full drive up the scenic mountain ghats of Gujarat's famous hill station! ⛰️ In this video, we take you through the entire journey—covering the smooth highways, twisting mountain roads, breathtaking valley views, and key scenic spots along the way. 📍\n\n📌 Trip Highlights:\n\n🛣️ Scenic mountain ghat drives & hairpin curves\n\n🌧️ Lush green monsoon landscapes & viewpoints\n\n🏔️ Saputara Hill Station arrival & top road trip tips\n\nHit the bell icon 🔔 to get notified whenever a new road trip vlog drops!\n\n#SaputaraGhats #SaputaraTrip #GujaratTravel #MountainVlog #RoadTripIndia #TravelGujarat #NatureLovers #SaputaraHillStation #DriveToSaputara #Vlogging",
     "publishedDate": "2026-08-20T23:51:09-07:00",
-    "publishedLabel": "Aug 20, 2026",
+    "publishedLabel": "Aug 21, 2026",
     "categories": [
       "Road Trips & Travel"
     ],
@@ -464,7 +546,7 @@
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/XmXUi8OION4/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=XmXUi8OION4",
     "tags": [],
-    "viewCount": "909",
+    "viewCount": "911",
     "lengthSeconds": "29",
     "isShort": true
   },
@@ -473,16 +555,17 @@
     "title": "Road Trip to Gira Waterfall 🚗💨 | Dang’s 75ft Monsoon Paradise! 🌧️🌊",
     "description": "Hit the road with us as we drive through the scenic bamboo forests of Dang District to visit the majestic Gira Waterfalls (Gira Dhodh)! ⛰️🚗Located near Waghai on the way from Saputara, this stunning 75-foot natural cascade drops straight into the Ambika River. Surrounded by lush green hills, winding road trip views, and cool misty water sprays, it's one of the best monsoon road trip destinations in South Gujarat!  📍 Location: Gira Waterfall, Wanarchod Village, Waghai (Dang District, Gujarat)  🚗 Route: ~49 km drive from Saputara via Waghai Road  🌧️ Best Season: July to October (Monsoon flow)Highlights of this Road Trip:• Driving through the dense, green forest curves of Dang 🌿• Thunderous 75ft roaring drop into the Ambika River 🌊• Cool water mist and scenic view points ☁️• Local bamboo handicrafts and fresh hot snacks near the entry 🌽  If you loved this monsoon road trip vibe, hit Like, Share with your road trip buddies, and Subscribe for more travel journeys! 🔔#GiraWaterfall #GiraDhodh #RoadTrip #DangDistrict #Waghai #SaputaraDiaries #MonsoonRoadTrip #GujaratTourism #NatureEscapes #TravelShorts #Shorts #IncredibleIndia",
     "publishedDate": "2026-08-20T23:47:23-07:00",
-    "publishedLabel": "Aug 20, 2026",
+    "publishedLabel": "Aug 21, 2026",
     "categories": [
+      "AI & Tech",
       "Road Trips & Travel"
     ],
-    "primaryCategory": "Road Trips & Travel",
+    "primaryCategory": "AI & Tech",
     "thumbnailUrl": "https://i.ytimg.com/vi/t3eNKPr8nAo/maxresdefault.jpg",
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/t3eNKPr8nAo/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=t3eNKPr8nAo",
     "tags": [],
-    "viewCount": "337",
+    "viewCount": "338",
     "lengthSeconds": "16",
     "isShort": true
   },
@@ -491,7 +574,7 @@
     "title": "Hatgadh & Saputara Escapes ⛰️ cloud-kissed ruins and cool mist.",
     "description": "Exploring the lush green mountain landscapes of Hatgadh and Saputara! ⛰️\n\nNestled in the Sahyadri range on the Gujarat-Maharashtra border, this region comes alive with rolling fog, cool winds, and endless valley views during the monsoon season.\n\n📍 Location: Hatgadh Hills & Saputara Mountain Belt (Dang District / Border)\n🌤️ Best Vibe: Monsoon & post-monsoon (floating clouds, lush greenery, and cool breeze)\n\nWhat you'll see in this Short:\n• Cloud-kissed mountain peaks ☁️\n• Scenic Sahyadri valley views 🌄\n• Cool mountain winds & nature trails 🍃\n\nIf you love peaceful mountain views, drop a Like, share with your travel partner, and Subscribe for more nature escapes! 🔔\n\n#HatgadhHills #SaputaraMountains #Saputara #DangDistrict #SahyadriMountains #MonsoonVibes #NatureEscapes #HillStation #TravelShorts #Shorts #IncredibleIndia",
     "publishedDate": "2026-08-20T23:36:51-07:00",
-    "publishedLabel": "Aug 20, 2026",
+    "publishedLabel": "Aug 21, 2026",
     "categories": [
       "Road Trips & Travel"
     ],
@@ -500,7 +583,7 @@
     "fallbackThumbnailUrl": "https://i.ytimg.com/vi/YwFbCl2TdcE/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=YwFbCl2TdcE",
     "tags": [],
-    "viewCount": "111",
+    "viewCount": "112",
     "lengthSeconds": "21",
     "isShort": true
   }
