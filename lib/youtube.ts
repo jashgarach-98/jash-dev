@@ -29,7 +29,7 @@ export const YOUTUBE_CHANNEL = {
   name: "JASH GARACH",
   handle: "@JASHGARACH",
   url: "https://www.youtube.com/@JASHGARACH",
-  instagramUrl: "https://www.instagram.com/jashgarach.tech/",
+  instagramUrl: "https://www.instagram.com/jashgarach.ai/",
   heroHeading: "My Content",
   heroDescription:
     "Welcome to my video space! Explore the latest in AI, Mobile Apps (Android & Flutter), Road Trips, Automotive, and Lifestyle. I share real experiences, code workflows, and discoveries to keep you inspired and updated.",

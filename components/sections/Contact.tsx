@@ -109,7 +109,7 @@ const socialLinks = [
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/jashgarach.tech/",
+    href: "https://www.instagram.com/jashgarach.ai/",
     icon: Instagram,
   },
   {

@@ -66,7 +66,7 @@ export default function SubscribeBanner() {
 
             {/* Channel handle info */}
             <div className="mt-8 text-xs font-mono text-foreground/40">
-              @JASHGARACH on YouTube • @jashgarach.tech on Instagram
+              @JASHGARACH on YouTube • @jashgarach.ai on Instagram
             </div>
           </div>
         </motion.div>
